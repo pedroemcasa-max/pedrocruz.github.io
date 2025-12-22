@@ -7,62 +7,97 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
     }
     header {
-      padding: 80px 20px;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+      background-size: cover;
+      background-position: center;
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
       margin-bottom: 10px;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       max-width: 600px;
-      margin: 0 auto;
+      opacity: 0.9;
     }
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      padding: 80px 20px;
+      max-width: 1200px;
       margin: auto;
     }
     h2 {
-      color: #60a5fa;
-      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      letter-spacing: 1px;
     }
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
     .card {
-      background: #020617;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      position: relative;
+      height: 350px;
+      border-radius: 16px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    }
+    .card h3, .card p {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      z-index: 2;
+    }
+    .card h3 {
+      bottom: 60px;
+      margin: 0;
+    }
+    .card p {
+      bottom: 25px;
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.85;
     }
     footer {
       text-align: center;
-      padding: 30px;
-      background: #020617;
+      padding: 40px 20px;
+      background: #000;
       font-size: 0.9rem;
-      color: #9ca3af;
+      color: #777;
     }
-    a {
-      color: #60a5fa;
-      text-decoration: none;
-    }
+    a { color: inherit; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Pedro Cruz</h1>
-  <p>Fotógrafo e estudante da vida — aqui apresento alguns dos meus trabalhos.</p>
+  <p>Fotógrafo de paisagens — cor & preto e branco</p>
 </header>
 
 <section>
@@ -76,21 +111,21 @@
 <section>
   <h2>Projetos</h2>
   <div class="projects">
-    <div class="card">
-      <h3>Projeto 1</h3>
-      <p>Projeto fotográfico focado em retrato e expressão humana.</p>
+    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');">
+      <h3>Paisagem em Cor</h3>
+      <p>Luz natural e profundidade</p>
     </div>
-    <div class="card">
-      <h3>Projeto 2</h3>
-      <p>Série visual explorando paisagens e luz natural.</p>
+    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429'); filter: grayscale(100%);">
+      <h3>Paisagem P&B</h3>
+      <p>Contraste e forma</p>
     </div>
-    <div class="card">
-      <h3>Projeto 3</h3>
-      <p>Ensaio artístico com foco em emoções e narrativa visual.</p>
+    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');">
+      <h3>Horizontes</h3>
+      <p>Escala e silêncio</p>
     </div>
-    <div class="card">
-      <h3>Projeto 4</h3>
-      <p>Trabalho experimental misturando fotografia urbana e detalhe.</p>
+    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470'); filter: grayscale(100%);">
+      <h3>Texturas Naturais</h3>
+      <p>Preto e branco minimalista</p>
     </div>
   </div>
 </section>
