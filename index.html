@@ -184,37 +184,43 @@
 <!-- NOVO PROJETO -->
 <h3 style="text-align:center; margin:80px 0 20px;">Inside the Sound</h3>
 
-<div class="card"
+<div class="projects">
+  <div class="card"
     data-group="mia"
     data-title="Arrival"
     onclick="openLightboxFromGroup('mia',0)"
     style="background-image:url('./assets/mia/mia01.jpg');">
- c
+  </div>
+
   <div class="card"
     data-group="mia"
     data-title="First Pulse"
     onclick="openLightboxFromGroup('mia',1)"
     style="background-image:url('./assets/mia/mia02.jpg');">
-    
+  </div>
+
   <div class="card"
     data-group="mia"
     data-title="Immersion"
     onclick="openLightboxFromGroup('mia',2)"
     style="background-image:url('./assets/mia/mia05.jpg');">
-   
+  </div>
 
-    <div class="card"
+  <div class="card"
     data-group="mia"
     data-title="Mechanics"
     onclick="openLightboxFromGroup('mia',3)"
     style="background-image:url('./assets/mia/mia07.jpg');">
-      
+  </div>
+
   <div class="card"
     data-group="mia"
     data-title="Voice"
     onclick="openLightboxFromGroup('mia',4)"
     style="background-image:url('./assets/mia/mia09.jpg');">
+  </div>
 </div>
+
 
 <!-- FIM DO NOVO PROJETO -->
 
@@ -242,29 +248,30 @@
 
 <script>
   let images = [];
+  let cards = [];
   let currentIndex = 0;
+  let currentGroup = '';
   let startX = 0;
 
   function openLightboxFromGroup(group, index) {
-    images = Array.from(document.querySelectorAll(`[data-group='${group}']`))
-      .map(card => card.style.backgroundImage.slice(5, -2));
+    currentGroup = group;
+    cards = Array.from(document.querySelectorAll(`[data-group='${group}']`));
+    images = cards.map(card =>
+      card.style.backgroundImage.slice(5, -2)
+    );
+
     currentIndex = index;
     showImage();
     document.getElementById('lightbox').classList.add('active');
   }
 
   function showImage() {
-    function showImage() {
-  const img = document.getElementById('lightbox-img');
-  const title = document.getElementById('lightbox-title');
-  img.src = images[currentIndex];
+    const img = document.getElementById('lightbox-img');
+    const title = document.getElementById('lightbox-title');
 
-  const card = document.querySelectorAll(
-    `[data-group='${currentGroup}']`
-  )[currentIndex];
-
-  title.textContent = card.dataset.title || '';
-}
+    img.src = images[currentIndex];
+    title.textContent = cards[currentIndex].dataset.title || '';
+  }
 
   function nextImage(e) {
     if (e) e.stopPropagation();
@@ -282,7 +289,6 @@
     document.getElementById('lightbox').classList.remove('active');
   }
 
-  // Keyboard (desktop)
   document.addEventListener('keydown', (e) => {
     if (!document.getElementById('lightbox').classList.contains('active')) return;
     if (e.key === 'ArrowRight') nextImage();
@@ -290,7 +296,6 @@
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Touch (mobile swipe)
   const lightbox = document.getElementById('lightbox');
   lightbox.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
@@ -302,6 +307,7 @@
     if (endX - startX > 50) prevImage();
   });
 </script>
+
 
 </body>
 </html>
