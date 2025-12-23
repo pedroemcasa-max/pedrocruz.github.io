@@ -106,80 +106,81 @@
  <h3 style="text-align:center; margin-bottom:20px;">Chefchaouen — Cor</h3>
 <div class="projects">
   <div class="card"
-  data-group="cor"
-  data-title="Chefchaouen · The Living City"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/cor/Paisagen_cheff01.jpg');">
-</div>
+    data-group="cor"
+    data-title="Chefchaouen · The Living City"
+    onclick="openLightboxFromGroup('cor',0)"
+    style="background-image:url('./assets/cor/Paisagen_cheff01.jpg');">
+  </div>
 
   <div class="card"
-  data-group="cor"
-  data-title="Chefchaouen · Leaving The Walls"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/cor/Paisagen_cheff02.jpg');">
-</div>
-
-
-  <div class="card"
-  data-group="cor"
-  data-title="Chefchaouen · The Watcher"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/cor/Paisagen_cheff04.jpg');">
-</div>
-
+    data-group="cor"
+    data-title="Chefchaouen · Leaving The Walls"
+    onclick="openLightboxFromGroup('cor',1)"
+    style="background-image:url('./assets/cor/Paisagen_cheff02.jpg');">
+  </div>
 
   <div class="card"
-  data-group="cor"
-  data-title="Chefchaouen · Frozen Ascent"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/cor/Paisagen_cheff06.jpg');">
-</div>
-
+    data-group="cor"
+    data-title="Chefchaouen · The Watcher"
+    onclick="openLightboxFromGroup('cor',2)"
+    style="background-image:url('./assets/cor/Paisagen_cheff04.jpg');">
+  </div>
 
   <div class="card"
-  data-group="cor"
-  data-title="Chefchaouen · White Silence"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/cor/Paisagen_cheff07.jpg');">
+    data-group="cor"
+    data-title="Chefchaouen · Frozen Ascent"
+    onclick="openLightboxFromGroup('cor',3)"
+    style="background-image:url('./assets/cor/Paisagen_cheff06.jpg');">
+  </div>
+
+  <div class="card"
+    data-group="cor"
+    data-title="Chefchaouen · White Silence"
+    onclick="openLightboxFromGroup('cor',4)"
+    style="background-image:url('./assets/cor/Paisagen_cheff07.jpg');">
+  </div>
 </div>
+
 
 </div>
 <h3 style="text-align:center; margin:80px 0 20px;">Paisagens — Preto & Branco</h3>
 <div class="projects">
   <div class="card"
-  data-group="cor"
-  data-title="Before the Weather Decides"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/pb/Paisagen_pb01.jpg');">
-</div>
-
-
-<d<div class="card"
-  data-group="cor"
-  data-title="The Sky Gathers Itself"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/pb/Paisagen_pb02.jpg');">
-
-<div class="card"
-  data-group="cor"
-  data-title="A Small Passage"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/pb/Paisagen_pb03.jpg');">
-</div>
+    data-group="pb"
+    data-title="Before the Weather Decides"
+    onclick="openLightboxFromGroup('pb',0)"
+    style="background-image:url('./assets/pb/Paisagen_pb01.jpg');">
+  </div>
 
   <div class="card"
-  data-group="cor"
-  data-title="Between Crossing and Waiting"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/pb/Paisagen_pb05.jpg');">
-
-
-<div class="card"
-  data-group="cor"
-  data-title="Night Path"
-  onclick="openLightboxFromGroup('cor',0)"
-  style="background-image:url('./assets/pb/Paisagen_pb08.jpg');">
+    data-group="pb"
+    data-title="The Sky Gathers Itself"
+    onclick="openLightboxFromGroup('pb',1)"
+    style="background-image:url('./assets/pb/Paisagen_pb02.jpg');">
   </div>
+
+  <div class="card"
+    data-group="pb"
+    data-title="A Small Passage"
+    onclick="openLightboxFromGroup('pb',2)"
+    style="background-image:url('./assets/pb/Paisagen_pb03.jpg');">
+  </div>
+
+  <div class="card"
+    data-group="pb"
+    data-title="Between Crossing and Waiting"
+    onclick="openLightboxFromGroup('pb',3)"
+    style="background-image:url('./assets/pb/Paisagen_pb05.jpg');">
+  </div>
+
+  <div class="card"
+    data-group="pb"
+    data-title="Night Path"
+    onclick="openLightboxFromGroup('pb',4)"
+    style="background-image:url('./assets/pb/Paisagen_pb08.jpg');">
+  </div>
+</div>
+
 <!-- NOVO PROJETO -->
 <h3 style="text-align:center; margin:80px 0 20px;">MIA 2025</h3>
 
@@ -220,10 +221,14 @@
 </footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button onclick="prevImage(event)" style="position:absolute; left:30px; font-size:3rem; background:none; border:none; color:white; cursor:pointer;">‹</button>
-  <img id="lightbox-img" src="" />
-  <button onclick="nextImage(event)" style="position:absolute; right:30px; font-size:3rem; background:none; border:none; color:white; cursor:pointer;">›</button>
+  <button onclick="prevImage(event)">‹</button>
+  <div style="text-align:center;">
+    <img id="lightbox-img" />
+    <p id="lightbox-title" style="opacity:.8; margin-top:12px;"></p>
+  </div>
+  <button onclick="nextImage(event)">›</button>
 </div>
+
 
 <script>
   let images = [];
@@ -239,8 +244,17 @@
   }
 
   function showImage() {
-    document.getElementById('lightbox-img').src = images[currentIndex];
-  }
+    function showImage() {
+  const img = document.getElementById('lightbox-img');
+  const title = document.getElementById('lightbox-title');
+  img.src = images[currentIndex];
+
+  const card = document.querySelectorAll(
+    `[data-group='${currentGroup}']`
+  )[currentIndex];
+
+  title.textContent = card.dataset.title || '';
+}
 
   function nextImage(e) {
     if (e) e.stopPropagation();
