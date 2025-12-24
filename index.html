@@ -350,12 +350,17 @@ function closeLightbox() {
 document.addEventListener("keydown", e => {
   if (!document.getElementById("lightbox").classList.contains("active")) return;
   if (e.key === "ArrowRight") {
-    currentIndex = (currentIndex + 1) % currentGroup.length;
-    updateLightbox();
-  }
-  if (e.key === "ArrowLeft") {
-    currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
-    updateLightbox();
+  currentIndex = (currentIndex + 1) % currentGroup.images.length;
+  updateLightbox();
+}
+
+if (e.key === "ArrowLeft") {
+  currentIndex =
+    (currentIndex - 1 + currentGroup.images.length) %
+    currentGroup.images.length;
+  updateLightbox();
+}
+
   }
   if (e.key === "Escape") closeLightbox();
 });
