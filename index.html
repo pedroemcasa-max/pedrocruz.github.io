@@ -327,13 +327,7 @@ const imageGroups = {
 let currentGroup = null;
 let currentIndex = 0;
 
-function openLightbox(group, index) {
-  currentGroup = imageGroups[group];
-  currentIndex = index;
-  updateLightbox();
-  document.getElementById("lightbox").classList.add("active");
-}
-
+<script>
 function updateLightbox() {
   const imgEl = document.getElementById("lightbox-img");
   const captionEl = document.getElementById("lightbox-caption");
@@ -341,7 +335,6 @@ function updateLightbox() {
   imgEl.src = currentGroup.images[currentIndex];
   captionEl.textContent = currentGroup.titles[currentIndex] || "";
 }
-
 
 function closeLightbox() {
   document.getElementById("lightbox").classList.remove("active");
@@ -354,24 +347,16 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowRight") {
     currentIndex = (currentIndex + 1) % currentGroup.images.length;
     updateLightbox();
-  }
-
-  if (e.key === "ArrowLeft") {
+  } else if (e.key === "ArrowLeft") {
     currentIndex =
       (currentIndex - 1 + currentGroup.images.length) %
       currentGroup.images.length;
     updateLightbox();
-  }
-
-  if (e.key === "Escape") {
+  } else if (e.key === "Escape") {
     closeLightbox();
   }
 });
 
-
-  }
-  if (e.key === "Escape") closeLightbox();
-});
 </script>
 
 </body>
