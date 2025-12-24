@@ -2,172 +2,318 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<title>Pedro Cruz — Exhibition Wall</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Cruz</title>
 
 <style>
-/* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; }
 
-html, body {
-  width: 1920px;
-  height: 1080px;
-  overflow: hidden;
-  background: #0a0a0a;
-  color: #e6e6e6;
+body {
+  margin: 0;
   font-family: Helvetica, Arial, sans-serif;
-}
-
-/* MAIN CONTAINER */
-#wall {
-  width: 1920px;
-  height: 1080px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 80px 120px;
+  background: #0b0b0b;
+  color: #eaeaea;
+  line-height: 1.6;
 }
 
 /* HEADER */
 header {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 header h1 {
-  font-size: 28px;
+  font-size: 2.2rem;
   font-weight: 400;
   letter-spacing: 1px;
 }
 
 header p {
-  margin-top: 8px;
-  font-size: 13px;
-  opacity: .6;
+  margin-top: 12px;
+  font-size: .95rem;
+  opacity: .7;
 }
 
-/* PROJECT BLOCK */
-.project {
-  margin-top: 70px;
+/* SECTIONS */
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 24px;
 }
 
 .project-meta {
-  margin-bottom: 26px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .project-meta h2 {
-  font-size: 18px;
+  font-size: 1.4rem;
   font-weight: 400;
   letter-spacing: .5px;
+  margin-bottom: 8px;
 }
 
 .project-meta p {
-  font-size: 12px;
-  opacity: .55;
-  margin-top: 4px;
+  font-size: .9rem;
+  opacity: .6;
+  margin: 4px 0;
 }
 
-/* IMAGE STRIP */
-.strip {
-  display: flex;
-  gap: 30px;
+/* GRID */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
 }
 
-.strip img {
-  height: 260px;
+.card {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+.card:hover { opacity: .85; }
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.96);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  z-index: 9999;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 82vh;
   object-fit: contain;
-  background: #000;
 }
 
-/* FOOTER */
-footer {
+.lightbox .caption {
+  margin-top: 20px;
+  font-size: .85rem;
+  opacity: .6;
   text-align: center;
-  font-size: 11px;
-  opacity: .4;
-  margin-top: auto;
+}
+
+footer {
+  padding: 80px 20px;
+  text-align: center;
+  font-size: .8rem;
+  opacity: .5;
 }
 </style>
 </head>
 
 <body>
 
-<div id="wall">
-
 <header>
-  <h1>Pedro Cruz</h1>
-  <p>Fotografia · Improvisação · Presença</p>
+  <div>
+    <h1>Pedro Cruz</h1>
+    <p>Fotografia · Improvisação · Presença</p>
+  </div>
 </header>
 
-<!-- PROJECT 1 -->
-<div class="project">
+<section>
+
+  <!-- PROJECT 1 -->
   <div class="project-meta">
     <h2>From Blue Walls to White Silence</h2>
     <p>Chefchaouen, Morocco · 2007</p>
+    <p>A city absorbed by its own color.</p>
   </div>
 
-  <div class="strip">
-    <img src="./assets/cor/Paisagen_cheff01.jpg">
-    <img src="./assets/cor/Paisagen_cheff02.jpg">
-    <img src="./assets/cor/Paisagen_cheff04.jpg">
-    <img src="./assets/cor/Paisagen_cheff06.jpg">
-    <img src="./assets/cor/Paisagen_cheff07.jpg">
+  <div class="projects">
+    <div class="card" data-title="The Living City"
+      style="background-image:url('./assets/cor/Paisagen_cheff01.jpg')"
+      onclick="openLightbox('cor',0)"></div>
+    <div class="card" data-title="Leaving The Walls"
+      style="background-image:url('./assets/cor/Paisagen_cheff02.jpg')"
+      onclick="openLightbox('cor',1)"></div>
+    <div class="card" data-title="The Watcher"
+      style="background-image:url('./assets/cor/Paisagen_cheff04.jpg')"
+      onclick="openLightbox('cor',2)"></div>
+    <div class="card" data-title="Frozen Ascent"
+      style="background-image:url('./assets/cor/Paisagen_cheff06.jpg')"
+      onclick="openLightbox('cor',3)"></div>
+    <div class="card" data-title="White Silence"
+      style="background-image:url('./assets/cor/Paisagen_cheff07.jpg')"
+      onclick="openLightbox('cor',4)"></div>
   </div>
-</div>
 
-<!-- PROJECT 2 -->
-<div class="project">
+  <!-- PROJECT 2 -->
   <div class="project-meta">
     <h2>Under the Same Weather</h2>
     <p>Five Landscapes with Distance</p>
+    <p>Nothing happens — and that is the moment.</p>
   </div>
 
-  <div class="strip">
-    <img src="./assets/pb/Paisagen_pb01.jpg">
-    <img src="./assets/pb/Paisagen_pb02.jpg">
-    <img src="./assets/pb/Paisagen_pb03.jpg">
-    <img src="./assets/pb/Paisagen_pb05.jpg">
-    <img src="./assets/pb/Paisagen_pb08.jpg">
+  <div class="projects">
+    <div class="card" data-title="Before the Weather Decides"
+      style="background-image:url('./assets/pb/Paisagen_pb01.jpg')"
+      onclick="openLightbox('pb',0)"></div>
+    <div class="card" data-title="The Sky Gathers Itself"
+      style="background-image:url('./assets/pb/Paisagen_pb02.jpg')"
+      onclick="openLightbox('pb',1)"></div>
+    <div class="card" data-title="A Small Passage"
+      style="background-image:url('./assets/pb/Paisagen_pb03.jpg')"
+      onclick="openLightbox('pb',2)"></div>
+    <div class="card" data-title="Between Crossing and Waiting"
+      style="background-image:url('./assets/pb/Paisagen_pb05.jpg')"
+      onclick="openLightbox('pb',3)"></div>
+    <div class="card" data-title="Night Path"
+      style="background-image:url('./assets/pb/Paisagen_pb08.jpg')"
+      onclick="openLightbox('pb',4)"></div>
   </div>
-</div>
 
-<!-- PROJECT 3 -->
-<div class="project">
+  <!-- PROJECT 3 -->
   <div class="project-meta">
     <h2>Inside the Sound</h2>
     <p>Improvisation as shared listening</p>
+    <p>Staying inside the sound.</p>
   </div>
 
-  <div class="strip">
-    <img src="./assets/mia/mia01.jpg">
-    <img src="./assets/mia/mia03.jpg">
-    <img src="./assets/mia/mia05.jpg">
-    <img src="./assets/mia/mia07.jpg">
-    <img src="./assets/mia/mia09.jpg">
+  <div class="projects">
+    <div class="card" data-title="Before the Agreement"
+      style="background-image:url('./assets/mia/mia01.jpg')"
+      onclick="openLightbox('mia',0)"></div>
+    <div class="card" data-title="Finding the Thread"
+      style="background-image:url('./assets/mia/mia03.jpg')"
+      onclick="openLightbox('mia',1)"></div>
+    <div class="card" data-title="Letting Go"
+      style="background-image:url('./assets/mia/mia05.jpg')"
+      onclick="openLightbox('mia',2)"></div>
+    <div class="card" data-title="Negotiation"
+      style="background-image:url('./assets/mia/mia07.jpg')"
+      onclick="openLightbox('mia',3)"></div>
+    <div class="card" data-title="Statement"
+      style="background-image:url('./assets/mia/mia09.jpg')"
+      onclick="openLightbox('mia',4)"></div>
   </div>
-</div>
 
-<!-- PROJECT 4 -->
-<div class="project">
+  <!-- PROJECT 4 -->
   <div class="project-meta">
     <h2>Last Night</h2>
     <p>Variations on permanence and disappearance</p>
+    <p>Last night in my childhood home.</p>
   </div>
 
-  <div class="strip">
-    <img src="./assets/cas/cas01.jpg">
-    <img src="./assets/cas/cas02.jpg">
-    <img src="./assets/cas/cas03.jpg">
-    <img src="./assets/cas/cas04.jpg">
-    <img src="./assets/cas/cas05.jpg">
-    <img src="./assets/cas/cas06.jpg">
-    <img src="./assets/cas/cas07.jpg">
-    <img src="./assets/cas/cas08.jpg">
+  <div class="projects">
+    <div class="card" data-title="Before It Shifts"
+      style="background-image:url('./assets/cas/cas01.jpg')"
+      onclick="openLightbox('cas',0)"></div>
+    <div class="card" data-title="First Fracture"
+      style="background-image:url('./assets/cas/cas02.jpg')"
+      onclick="openLightbox('cas',1)"></div>
+    <div class="card" data-title="Unstable Image"
+      style="background-image:url('./assets/cas/cas03.jpg')"
+      onclick="openLightbox('cas',2)"></div>
+    <div class="card" data-title="Suspended Memory"
+      style="background-image:url('./assets/cas/cas04.jpg')"
+      onclick="openLightbox('cas',3)"></div>
+    <div class="card" data-title="Domestic Echo"
+      style="background-image:url('./assets/cas/cas05.jpg')"
+      onclick="openLightbox('cas',4)"></div>
+    <div class="card" data-title="Pattern of Permanence"
+      style="background-image:url('./assets/cas/cas06.jpg')"
+      onclick="openLightbox('cas',5)"></div>
+    <div class="card" data-title="Material Collapse"
+      style="background-image:url('./assets/cas/cas07.jpg')"
+      onclick="openLightbox('cas',6)"></div>
+    <div class="card" data-title="After the House"
+      style="background-image:url('./assets/cas/cas08.jpg')"
+      onclick="openLightbox('cas',7)"></div>
   </div>
+
+</section>
+
+<footer>© 2025 — Pedro Cruz</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" alt="">
+  <div class="caption" id="lightbox-caption"></div>
 </div>
 
-<footer>
-  © 2025 — Pedro Cruz
-</footer>
+<script>
+const imageGroups = {
+  cor: [
+    "./assets/cor/Paisagen_cheff01.jpg",
+    "./assets/cor/Paisagen_cheff02.jpg",
+    "./assets/cor/Paisagen_cheff04.jpg",
+    "./assets/cor/Paisagen_cheff06.jpg",
+    "./assets/cor/Paisagen_cheff07.jpg"
+  ],
+  pb: [
+    "./assets/pb/Paisagen_pb01.jpg",
+    "./assets/pb/Paisagen_pb02.jpg",
+    "./assets/pb/Paisagen_pb03.jpg",
+    "./assets/pb/Paisagen_pb05.jpg",
+    "./assets/pb/Paisagen_pb08.jpg"
+  ],
+  mia: [
+    "./assets/mia/mia01.jpg",
+    "./assets/mia/mia03.jpg",
+    "./assets/mia/mia05.jpg",
+    "./assets/mia/mia07.jpg",
+    "./assets/mia/mia09.jpg"
+  ],
+  cas: [
+    "./assets/cas/cas01.jpg",
+    "./assets/cas/cas02.jpg",
+    "./assets/cas/cas03.jpg",
+    "./assets/cas/cas04.jpg",
+    "./assets/cas/cas05.jpg",
+    "./assets/cas/cas06.jpg",
+    "./assets/cas/cas07.jpg",
+    "./assets/cas/cas08.jpg"
+  ]
+};
 
-</div>
+let currentGroup = [];
+let currentIndex = 0;
+
+function openLightbox(group, index) {
+  currentGroup = imageGroups[group];
+  currentIndex = index;
+  updateLightbox();
+  document.getElementById("lightbox").classList.add("active");
+}
+
+function updateLightbox() {
+  document.getElementById("lightbox-img").src = currentGroup[currentIndex];
+  document.getElementById("lightbox-caption").textContent =
+    document.querySelectorAll(".card")[currentIndex]?.dataset.title || "";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("active");
+}
+
+document.addEventListener("keydown", e => {
+  if (!document.getElementById("lightbox").classList.contains("active")) return;
+  if (e.key === "ArrowRight") {
+    currentIndex = (currentIndex + 1) % currentGroup.length;
+    updateLightbox();
+  }
+  if (e.key === "ArrowLeft") {
+    currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+    updateLightbox();
+  }
+  if (e.key === "Escape") closeLightbox();
+});
+</script>
 
 </body>
 </html>
