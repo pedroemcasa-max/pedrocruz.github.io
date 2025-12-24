@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio | Pedro Cruz</title>
+
   <style>
     body {
       margin: 0;
@@ -11,6 +12,7 @@
       background: #0b0b0b;
       color: #f5f5f5;
     }
+
     header {
       min-height: 90vh;
       display: flex;
@@ -18,19 +20,42 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./assets/cor/Paisagen_cheff05.jpg');
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('./assets/cor/Paisagen_cheff05.jpg');
       background-size: cover;
       background-position: center;
     }
-    header h1 { font-size: 3.5rem; letter-spacing: 2px; }
-    header p { font-size: 1.3rem; opacity: 0.9; }
-    section { padding: 80px 20px; max-width: 1400px; margin: auto; }
-    h2, h3 { text-align: center; letter-spacing: 1px; }
+
+    header h1 {
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      margin-top: 40px;
     }
+
     .card {
       height: 280px;
       border-radius: 14px;
@@ -38,10 +63,38 @@
       background-position: center;
       cursor: pointer;
       transition: transform 0.4s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .card:hover { transform: scale(1.03); }
 
-    /* FULLSCREEN VIEW */
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card::after {
+      content: attr(data-title);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      font-size: 1.1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    @media (hover: none) {
+      .card::after {
+        opacity: 1;
+      }
+    }
+
+    /* LIGHTBOX */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -50,49 +103,41 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      gap: 30px;
     }
+
+    .lightbox.active {
+      display: flex;
+    }
+
     .lightbox img {
       max-width: 90vw;
       max-height: 90vh;
       object-fit: contain;
     }
-    .lightbox.active { display: flex; }
 
-    footer { text-align: center; padding: 40px; color: #777; }
+    .lightbox button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 3rem;
+      cursor: pointer;
+      padding: 20px;
+      opacity: 0.7;
+    }
 
-    .card {
-  position: relative;
-  overflow: hidden;
-}
+    .lightbox button:hover {
+      opacity: 1;
+    }
 
-.card::after {
-  content: attr(data-title);
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Desktop: aparece no hover */
-.card:hover::after {
-  opacity: 1;
-}
-
-/* Mobile: sempre visível */
-@media (hover: none) {
-  .card::after {
-    opacity: 1;
-  }
-}
-
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #777;
+    }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -103,312 +148,68 @@
 <section>
   <h2>Projetos</h2>
 
-<h3 class="project-title">From Blue Walls to White Silence</h3>
-<p class="project-subtitle">Chefchaouen, Morocco · 2007</p>
+  <!-- PROJETO 1 -->
+  <h3 class="project-title">From Blue Walls to White Silence</h3>
+  <p class="project-subtitle">Chefchaouen, Morocco · 2007</p>
 
-<p class="project-text">
-  A city absorbed by its own color. Movement happens slowly, almost quietly,
-  as if time itself were painted over. These images follow no path — they wait,
-  observe, and accept what remains.
-</p>
-
-<div class="projects">
-  <div class="card"
-    data-group="cor"
-    data-title="Chefchaouen · The Living City"
-    onclick="openLightboxFromGroup('cor',0)"
-    style="background-image:url('./assets/cor/Paisagen_cheff01.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cor"
-    data-title="Chefchaouen · Leaving The Walls"
-    onclick="openLightboxFromGroup('cor',1)"
-    style="background-image:url('./assets/cor/Paisagen_cheff02.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cor"
-    data-title="Chefchaouen · The Watcher"
-    onclick="openLightboxFromGroup('cor',2)"
-    style="background-image:url('./assets/cor/Paisagen_cheff04.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cor"
-    data-title="Chefchaouen · Frozen Ascent"
-    onclick="openLightboxFromGroup('cor',3)"
-    style="background-image:url('./assets/cor/Paisagen_cheff06.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cor"
-    data-title="Chefchaouen · White Silence"
-    onclick="openLightboxFromGroup('cor',4)"
-    style="background-image:url('./assets/cor/Paisagen_cheff07.jpg');">
-  </div>
-</div>
-
-
-</div>
-<h3 class="project-title">Under the Same Weather
-</h3>
-<p class="project-subtitle">Five Landscapes with Distance</p>
-
-<p class="project-text">
   <p class="project-text">
-  Landscapes shaped by hesitation. Before rain, before movement,
-  before a decision is made. Nothing happens — and that is the moment.
-</p>
+    A city absorbed by its own color. Movement happens slowly, almost quietly,
+    as if time itself were painted over. These images follow no path — they wait,
+    observe, and accept what remains.
+  </p>
 
+  <div class="projects">
+    <div class="card" tabindex="0" role="button"
+      data-group="cor" data-title="Chefchaouen · The Living City"
+      onclick="openLightboxFromGroup('cor',0)"
+      style="background-image:url('./assets/cor/Paisagen_cheff01.jpg');">
+    </div>
 
-<div class="projects">
-  <div class="card"
-    data-group="pb"
-    data-title="Before the Weather Decides"
-    onclick="openLightboxFromGroup('pb',0)"
-    style="background-image:url('./assets/pb/Paisagen_pb01.jpg');">
+    <div class="card" tabindex="0" role="button"
+      data-group="cor" data-title="Chefchaouen · Leaving The Walls"
+      onclick="openLightboxFromGroup('cor',1)"
+      style="background-image:url('./assets/cor/Paisagen_cheff02.jpg');">
+    </div>
+
+    <div class="card" tabindex="0" role="button"
+      data-group="cor" data-title="Chefchaouen · The Watcher"
+      onclick="openLightboxFromGroup('cor',2)"
+      style="background-image:url('./assets/cor/Paisagen_cheff04.jpg');">
+    </div>
+
+    <div class="card" tabindex="0" role="button"
+      data-group="cor" data-title="Chefchaouen · Frozen Ascent"
+      onclick="openLightboxFromGroup('cor',3)"
+      style="background-image:url('./assets/cor/Paisagen_cheff06.jpg');">
+    </div>
+
+    <div class="card" tabindex="0" role="button"
+      data-group="cor" data-title="Chefchaouen · White Silence"
+      onclick="openLightboxFromGroup('cor',4)"
+      style="background-image:url('./assets/cor/Paisagen_cheff07.jpg');">
+    </div>
   </div>
 
-  <div class="card"
-    data-group="pb"
-    data-title="The Sky Gathers Itself"
-    onclick="openLightboxFromGroup('pb',1)"
-    style="background-image:url('./assets/pb/Paisagen_pb02.jpg');">
-  </div>
+  <!-- PROJETO 2 -->
+  <h3 class="project-title">Under the Same Weather</h3>
+  <p class="project-subtitle">Five Landscapes with Distance</p>
 
-  <div class="card"
-    data-group="pb"
-    data-title="A Small Passage"
-    onclick="openLightboxFromGroup('pb',2)"
-    style="background-image:url('./assets/pb/Paisagen_pb03.jpg');">
-  </div>
+  <p class="project-text">
+    Landscapes shaped by hesitation. Before rain, before movement,
+    before a decision is made. Nothing happens — and that is the moment.
+  </p>
 
-  <div class="card"
-    data-group="pb"
-    data-title="Between Crossing and Waiting"
-    onclick="openLightboxFromGroup('pb',3)"
-    style="background-image:url('./assets/pb/Paisagen_pb05.jpg');">
-  </div>
+  <div class="projects">
+    <div class="card" tabindex="0" role="button"
+      data-group="pb" data-title="Before the Weather Decides"
+      onclick="openLightboxFromGroup('pb',0)"
+      style="background-image:url('./assets/pb/Paisagen_pb01.jpg');">
+    </div>
 
-  <div class="card"
-    data-group="pb"
-    data-title="Night Path"
-    onclick="openLightboxFromGroup('pb',4)"
-    style="background-image:url('./assets/pb/Paisagen_pb08.jpg');">
-  </div>
-</div>
+    <div class="card" tabindex="0" role="button"
+      data-group="pb" data-title="The Sky Gathers Itself"
+      onclick="openLightboxFromGroup('pb',1)"
+      style="background-image:url('./assets/pb/Paisagen_pb02.jpg');">
+    </div>
 
-<!-- NOVO PROJETO -->
-<h3 class="project-title">Inside the Sound</h3>
-<p class="project-subtitle">Exploring improvisation as a shared act of listening.</p>
-
-<p class="project-text">
-  A sequence built from tension and release. Images negotiate space,
-  rhythm, and presence — not to explain sound, but to stay inside it.
-</p>
-
-
-
-
-<div class="projects">
-  <div class="card"
-    data-group="mia"
-    data-title="Before the Agreement"
-    onclick="openLightboxFromGroup('mia',0)"
-    style="background-image:url('./assets/mia/mia01.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="mia"
-    data-title="Finding the Thread"
-    onclick="openLightboxFromGroup('mia',1)"
-    style="background-image:url('./assets/mia/mia03.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="mia"
-    data-title="Letting Go"
-    onclick="openLightboxFromGroup('mia',2)"
-    style="background-image:url('./assets/mia/mia05.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="mia"
-    data-title="Negotiation"
-    onclick="openLightboxFromGroup('mia',3)"
-    style="background-image:url('./assets/mia/mia07.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="mia"
-    data-title="Statement"
-    onclick="openLightboxFromGroup('mia',4)"
-    style="background-image:url('./assets/mia/mia09.jpg');">
-  </div>
-</div>
-
-
-<!-- FIM DO NOVO PROJETO -->
-
-  <!-- NOVO PROJETO -->
-
-  <h3 class="project-title">Last Night</h3>
-<p class="project-subtitle">Variations on permanence, time, and disappearance</p>
-
-<p class="project-text">
- This series originates from a specific place, yet refuses to remain fixed to it. Some images result from a single long exposure — thirty seconds or more — with variations in focal distance, allowing space to dissolve while still insisting on its presence.
- Photographed from the balcony on the last night of my childhood home, shortly before it was returned to its landlord.
-</p>
-
-<div class="projects">
-  <div class="card"
-    data-group="cas"
-    data-title="Before It Shifts"
-    onclick="openLightboxFromGroup('cas',0)"
-    style="background-image:url('./assets/cas/cas01.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cas"
-    data-title="First Fracture"
-    onclick="openLightboxFromGroup('cas',1)"
-    style="background-image:url('./assets/cas/cas02.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cas"
-    data-title="Unstable Image"
-    onclick="openLightboxFromGroup('cas',2)"
-    style="background-image:url('./assets/cas/cas03.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cas"
-    data-title="Suspended Memory"
-    onclick="openLightboxFromGroup('cas',3)"
-    style="background-image:url('./assets/cas/cas04.jpg');">
-  </div>
-
-  <div class="card"
-    data-group="cas"
-    data-title="Domestic Echo"
-    onclick="openLightboxFromGroup('cas',4)"
-    style="background-image:url('./assets/cas/cas05.jpg');">
-  </div>
-
-
-<div class="card"
-    data-group="cas"
-    data-title="Pattern of Permanence"
-    onclick="openLightboxFromGroup('cas',5)"
-    style="background-image:url('./assets/cas/cas06.jpg');">
-  </div>
-
-<div class="card"
-    data-group="cas"
-    data-title="Material Collapse"
-    onclick="openLightboxFromGroup('cas',6)"
-    style="background-image:url('./assets/cas/cas07.jpg');">
-  </div>
-
-<div class="card"
-    data-group="cas"
-    data-title="After the House"
-    onclick="openLightboxFromGroup('cas',7)"
-    style="background-image:url('./assets/cas/cas08.jpg');">
-  </div>
-</div>
-
-
-<!-- FIM DO NOVO PROJETO -->
-
-
-
-</section>
-
-<section>
-  <h2>Contacto</h2>
-  <p>Email: <a href="mailto:teuemail@email.com">un.c0m.f0rt.ab1y.numb.pt@gmail.com</a></p>
-  <p>LinkedIn | GitHub | Instagram</p>
-</section>
-
-<footer>
-  © 2025 — Pedro Cruz
-</footer>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button onclick="prevImage(event)">‹</button>
-  <div style="text-align:center;">
-    <img id="lightbox-img" />
-    <p id="lightbox-title" style="opacity:.8; margin-top:12px;"></p>
-  </div>
-  <button onclick="nextImage(event)">›</button>
-</div>
-
-
-<script>
-  let images = [];
-  let cards = [];
-  let currentIndex = 0;
-  let currentGroup = '';
-  let startX = 0;
-
-  function openLightboxFromGroup(group, index) {
-    currentGroup = group;
-    cards = Array.from(document.querySelectorAll(`[data-group='${group}']`));
-    images = cards.map(card =>
-      card.style.backgroundImage.slice(5, -2)
-    );
-
-    currentIndex = index;
-    showImage();
-    document.getElementById('lightbox').classList.add('active');
-  }
-
-  function showImage() {
-    const img = document.getElementById('lightbox-img');
-    const title = document.getElementById('lightbox-title');
-
-    img.src = images[currentIndex];
-    title.textContent = cards[currentIndex].dataset.title || '';
-  }
-
-  function nextImage(e) {
-    if (e) e.stopPropagation();
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage();
-  }
-
-  function prevImage(e) {
-    if (e) e.stopPropagation();
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage();
-  }
-
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (!document.getElementById('lightbox').classList.contains('active')) return;
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
-    if (e.key === 'Escape') closeLightbox();
-  });
-
-  const lightbox = document.getElementById('lightbox');
-  lightbox.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  });
-
-  lightbox.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) nextImage();
-    if (endX - startX > 50) prevImage();
-  });
-</script>
-
-
-</body>
-</html>
+    <di
