@@ -348,18 +348,26 @@ function closeLightbox() {
 }
 
 document.addEventListener("keydown", e => {
-  if (!document.getElementById("lightbox").classList.contains("active")) return;
-  if (e.key === "ArrowRight") {
-  currentIndex = (currentIndex + 1) % currentGroup.images.length;
-  updateLightbox();
-}
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox.classList.contains("active")) return;
 
-if (e.key === "ArrowLeft") {
-  currentIndex =
-    (currentIndex - 1 + currentGroup.images.length) %
-    currentGroup.images.length;
-  updateLightbox();
-}
+  if (e.key === "ArrowRight") {
+    currentIndex = (currentIndex + 1) % currentGroup.images.length;
+    updateLightbox();
+  }
+
+  if (e.key === "ArrowLeft") {
+    currentIndex =
+      (currentIndex - 1 + currentGroup.images.length) %
+      currentGroup.images.length;
+    updateLightbox();
+  }
+
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
+
 
   }
   if (e.key === "Escape") closeLightbox();
