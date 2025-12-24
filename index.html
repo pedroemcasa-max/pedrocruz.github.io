@@ -212,4 +212,96 @@
       style="background-image:url('./assets/pb/Paisagen_pb02.jpg');">
     </div>
 
-    <di
+    <div class="card" tabindex="0" role="button"
+      data-group="pb" data-title="A Small Passage"
+      onclick="openLightboxFromGroup('pb',2)"
+      style="background-image:url('./assets/pb/Paisagen_pb03.jpg');">
+    </div>
+
+    <div class="card" tabindex="0" role="button"
+      data-group="pb" data-title="Between Crossing and Waiting"
+      onclick="openLightboxFromGroup('pb',3)"
+      style="background-image:url('./assets/pb/Paisagen_pb05.jpg');">
+    </div>
+
+    <div class="card" tabindex="0" role="button"
+      data-group="pb" data-title="Night Path"
+      onclick="openLightboxFromGroup('pb',4)"
+      style="background-image:url('./assets/pb/Paisagen_pb08.jpg');">
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 — Pedro Cruz
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button onclick="prevImage(event)">‹</button>
+
+  <div style="text-align:center;">
+    <img id="lightbox-img" alt="">
+    <p id="lightbox-title" style="opacity:.8; margin-top:12px;"></p>
+  </div>
+
+  <button onclick="nextImage(event)">›</button>
+</div>
+
+<script>
+  let images = [];
+  let cards = [];
+  let currentIndex = 0;
+
+  function openLightboxFromGroup(group, index) {
+    cards = Array.from(document.querySelectorAll(`[data-group='${group}']`));
+    images = cards.map(card =>
+      card.style.backgroundImage.slice(5, -2)
+    );
+
+    currentIndex = index;
+    showImage();
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function showImage() {
+    const img = document.getElementById('lightbox-img');
+    const title = document.getElementById('lightbox-title');
+
+    img.src = images[currentIndex];
+    title.textContent = cards[currentIndex].dataset.title || '';
+    img.alt = title.textContent || 'Photograph';
+
+    // preload next image
+    const next = new Image();
+    next.src = images[(currentIndex + 1) % images.length];
+  }
+
+  function nextImage(e) {
+    if (e) e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
+  }
+
+  function prevImage(e) {
+    if (e) e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage();
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+
+  document.addEventListener('keydown', e => {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('active')) return;
+
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>
