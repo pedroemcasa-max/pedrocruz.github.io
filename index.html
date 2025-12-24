@@ -248,40 +248,83 @@ footer {
 
 <script>
 const imageGroups = {
-  cor: [
-    "./assets/cor/Paisagen_cheff01.jpg",
-    "./assets/cor/Paisagen_cheff02.jpg",
-    "./assets/cor/Paisagen_cheff04.jpg",
-    "./assets/cor/Paisagen_cheff06.jpg",
-    "./assets/cor/Paisagen_cheff07.jpg"
-  ],
-  pb: [
-    "./assets/pb/Paisagen_pb01.jpg",
-    "./assets/pb/Paisagen_pb02.jpg",
-    "./assets/pb/Paisagen_pb03.jpg",
-    "./assets/pb/Paisagen_pb05.jpg",
-    "./assets/pb/Paisagen_pb08.jpg"
-  ],
-  mia: [
-    "./assets/mia/mia01.jpg",
-    "./assets/mia/mia03.jpg",
-    "./assets/mia/mia05.jpg",
-    "./assets/mia/mia07.jpg",
-    "./assets/mia/mia09.jpg"
-  ],
-  cas: [
-    "./assets/cas/cas01.jpg",
-    "./assets/cas/cas02.jpg",
-    "./assets/cas/cas03.jpg",
-    "./assets/cas/cas04.jpg",
-    "./assets/cas/cas05.jpg",
-    "./assets/cas/cas06.jpg",
-    "./assets/cas/cas07.jpg",
-    "./assets/cas/cas08.jpg"
-  ]
+  cor: {
+    images: [
+      "./assets/cor/Paisagen_cheff01.jpg",
+      "./assets/cor/Paisagen_cheff02.jpg",
+      "./assets/cor/Paisagen_cheff04.jpg",
+      "./assets/cor/Paisagen_cheff06.jpg",
+      "./assets/cor/Paisagen_cheff07.jpg"
+    ],
+    titles: [
+      "The Living City",
+      "Leaving The Walls",
+      "The Watcher",
+      "Frozen Ascent",
+      "White Silence"
+    ]
+  },
+
+  pb: {
+    images: [
+      "./assets/pb/Paisagen_pb01.jpg",
+      "./assets/pb/Paisagen_pb02.jpg",
+      "./assets/pb/Paisagen_pb03.jpg",
+      "./assets/pb/Paisagen_pb05.jpg",
+      "./assets/pb/Paisagen_pb08.jpg"
+    ],
+    titles: [
+      "Before the Weather Decides",
+      "The Sky Gathers Itself",
+      "A Small Passage",
+      "Between Crossing and Waiting",
+      "Night Path"
+    ]
+  },
+
+  mia: {
+    images: [
+      "./assets/mia/mia01.jpg",
+      "./assets/mia/mia03.jpg",
+      "./assets/mia/mia05.jpg",
+      "./assets/mia/mia07.jpg",
+      "./assets/mia/mia09.jpg"
+    ],
+    titles: [
+      "Before the Agreement",
+      "Finding the Thread",
+      "Letting Go",
+      "Negotiation",
+      "Statement"
+    ]
+  },
+
+  cas: {
+    images: [
+      "./assets/cas/cas01.jpg",
+      "./assets/cas/cas02.jpg",
+      "./assets/cas/cas03.jpg",
+      "./assets/cas/cas04.jpg",
+      "./assets/cas/cas05.jpg",
+      "./assets/cas/cas06.jpg",
+      "./assets/cas/cas07.jpg",
+      "./assets/cas/cas08.jpg"
+    ],
+    titles: [
+      "Before It Shifts",
+      "First Fracture",
+      "Unstable Image",
+      "Suspended Memory",
+      "Domestic Echo",
+      "Pattern of Permanence",
+      "Material Collapse",
+      "After the House"
+    ]
+  }
 };
 
-let currentGroup = [];
+
+let currentGroup = null;
 let currentIndex = 0;
 
 function openLightbox(group, index) {
@@ -292,10 +335,13 @@ function openLightbox(group, index) {
 }
 
 function updateLightbox() {
-  document.getElementById("lightbox-img").src = currentGroup[currentIndex];
-  document.getElementById("lightbox-caption").textContent =
-    document.querySelectorAll(".card")[currentIndex]?.dataset.title || "";
+  const imgEl = document.getElementById("lightbox-img");
+  const captionEl = document.getElementById("lightbox-caption");
+
+  imgEl.src = currentGroup.images[currentIndex];
+  captionEl.textContent = currentGroup.titles[currentIndex] || "";
 }
+
 
 function closeLightbox() {
   document.getElementById("lightbox").classList.remove("active");
