@@ -16,6 +16,7 @@ body {
   line-height: 1.6;
 }
 
+/* HEADER */
 header {
   min-height: 80vh;
   display: flex;
@@ -36,6 +37,7 @@ header p {
   opacity: .7;
 }
 
+/* SECTIONS */
 section {
   max-width: 1400px;
   margin: 0 auto;
@@ -60,6 +62,7 @@ section {
   margin: 4px 0;
 }
 
+/* GRID */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -74,9 +77,7 @@ section {
   transition: opacity .4s ease;
 }
 
-.card:hover {
-  opacity: .85;
-}
+.card:hover { opacity: .85; }
 
 /* LIGHTBOX */
 .lightbox {
@@ -124,7 +125,118 @@ footer {
   </div>
 </header>
 
-<section id="projects"></section>
+<section>
+
+  <!-- PROJECT 1 -->
+  <div class="project-meta">
+    <h2>From Blue Walls to White Silence</h2>
+    <p>Chefchaouen, Morocco · 2007</p>
+    <p>A city absorbed by its own color.</p>
+  </div>
+
+  <div class="projects">
+    <div class="card" data-title="The Living City"
+      style="background-image:url('./assets/cor/Paisagen_cheff01.jpg')"
+      onclick="openLightbox('cor',0)"></div>
+    <div class="card" data-title="Leaving The Walls"
+      style="background-image:url('./assets/cor/Paisagen_cheff02.jpg')"
+      onclick="openLightbox('cor',1)"></div>
+    <div class="card" data-title="The Watcher"
+      style="background-image:url('./assets/cor/Paisagen_cheff04.jpg')"
+      onclick="openLightbox('cor',2)"></div>
+    <div class="card" data-title="Frozen Ascent"
+      style="background-image:url('./assets/cor/Paisagen_cheff06.jpg')"
+      onclick="openLightbox('cor',3)"></div>
+    <div class="card" data-title="White Silence"
+      style="background-image:url('./assets/cor/Paisagen_cheff07.jpg')"
+      onclick="openLightbox('cor',4)"></div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-meta">
+    <h2>Under the Same Weather</h2>
+    <p>Five Landscapes with Distance</p>
+    <p>Nothing happens — and that is the moment.</p>
+  </div>
+
+  <div class="projects">
+    <div class="card" data-title="Before the Weather Decides"
+      style="background-image:url('./assets/pb/Paisagen_pb01.jpg')"
+      onclick="openLightbox('pb',0)"></div>
+    <div class="card" data-title="The Sky Gathers Itself"
+      style="background-image:url('./assets/pb/Paisagen_pb02.jpg')"
+      onclick="openLightbox('pb',1)"></div>
+    <div class="card" data-title="A Small Passage"
+      style="background-image:url('./assets/pb/Paisagen_pb03.jpg')"
+      onclick="openLightbox('pb',2)"></div>
+    <div class="card" data-title="Between Crossing and Waiting"
+      style="background-image:url('./assets/pb/Paisagen_pb05.jpg')"
+      onclick="openLightbox('pb',3)"></div>
+    <div class="card" data-title="Night Path"
+      style="background-image:url('./assets/pb/Paisagen_pb08.jpg')"
+      onclick="openLightbox('pb',4)"></div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project-meta">
+    <h2>Inside the Sound</h2>
+    <p>Improvisation as shared listening</p>
+    <p>Staying inside the sound.</p>
+  </div>
+
+  <div class="projects">
+    <div class="card" data-title="Before the Agreement"
+      style="background-image:url('./assets/mia/mia01.jpg')"
+      onclick="openLightbox('mia',0)"></div>
+    <div class="card" data-title="Finding the Thread"
+      style="background-image:url('./assets/mia/mia03.jpg')"
+      onclick="openLightbox('mia',1)"></div>
+    <div class="card" data-title="Letting Go"
+      style="background-image:url('./assets/mia/mia05.jpg')"
+      onclick="openLightbox('mia',2)"></div>
+    <div class="card" data-title="Negotiation"
+      style="background-image:url('./assets/mia/mia07.jpg')"
+      onclick="openLightbox('mia',3)"></div>
+    <div class="card" data-title="Statement"
+      style="background-image:url('./assets/mia/mia09.jpg')"
+      onclick="openLightbox('mia',4)"></div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="project-meta">
+    <h2>Last Night</h2>
+    <p>Variations on permanence and disappearance</p>
+    <p>Last night in my childhood home.</p>
+  </div>
+
+  <div class="projects">
+    <div class="card" data-title="Before It Shifts"
+      style="background-image:url('./assets/cas/cas01.jpg')"
+      onclick="openLightbox('cas',0)"></div>
+    <div class="card" data-title="First Fracture"
+      style="background-image:url('./assets/cas/cas02.jpg')"
+      onclick="openLightbox('cas',1)"></div>
+    <div class="card" data-title="Unstable Image"
+      style="background-image:url('./assets/cas/cas03.jpg')"
+      onclick="openLightbox('cas',2)"></div>
+    <div class="card" data-title="Suspended Memory"
+      style="background-image:url('./assets/cas/cas04.jpg')"
+      onclick="openLightbox('cas',3)"></div>
+    <div class="card" data-title="Domestic Echo"
+      style="background-image:url('./assets/cas/cas05.jpg')"
+      onclick="openLightbox('cas',4)"></div>
+    <div class="card" data-title="Pattern of Permanence"
+      style="background-image:url('./assets/cas/cas06.jpg')"
+      onclick="openLightbox('cas',5)"></div>
+    <div class="card" data-title="Material Collapse"
+      style="background-image:url('./assets/cas/cas07.jpg')"
+      onclick="openLightbox('cas',6)"></div>
+    <div class="card" data-title="After the House"
+      style="background-image:url('./assets/cas/cas08.jpg')"
+      onclick="openLightbox('cas',7)"></div>
+  </div>
+
+</section>
 
 <footer>© 2025 — Pedro Cruz</footer>
 
@@ -135,108 +247,54 @@ footer {
 </div>
 
 <script>
-/* ===== DADOS ===== */
-const projects = [
-  {
-    id: "cor",
-    title: "From Blue Walls to White Silence",
-    subtitle: "Chefchaouen, Morocco · 2007",
-    text: "A city absorbed by its own color.",
-    images: [
-      { src: "./assets/cor/Paisagen_cheff01.jpg", title: "The Living City" },
-      { src: "./assets/cor/Paisagen_cheff02.jpg", title: "Leaving The Walls" },
-      { src: "./assets/cor/Paisagen_cheff04.jpg", title: "The Watcher" },
-      { src: "./assets/cor/Paisagen_cheff06.jpg", title: "Frozen Ascent" },
-      { src: "./assets/cor/Paisagen_cheff07.jpg", title: "White Silence" }
-    ]
-  },
+const imageGroups = {
+  cor: [
+    "./assets/cor/Paisagen_cheff01.jpg",
+    "./assets/cor/Paisagen_cheff02.jpg",
+    "./assets/cor/Paisagen_cheff04.jpg",
+    "./assets/cor/Paisagen_cheff06.jpg",
+    "./assets/cor/Paisagen_cheff07.jpg"
+  ],
+  pb: [
+    "./assets/pb/Paisagen_pb01.jpg",
+    "./assets/pb/Paisagen_pb02.jpg",
+    "./assets/pb/Paisagen_pb03.jpg",
+    "./assets/pb/Paisagen_pb05.jpg",
+    "./assets/pb/Paisagen_pb08.jpg"
+  ],
+  mia: [
+    "./assets/mia/mia01.jpg",
+    "./assets/mia/mia03.jpg",
+    "./assets/mia/mia05.jpg",
+    "./assets/mia/mia07.jpg",
+    "./assets/mia/mia09.jpg"
+  ],
+  cas: [
+    "./assets/cas/cas01.jpg",
+    "./assets/cas/cas02.jpg",
+    "./assets/cas/cas03.jpg",
+    "./assets/cas/cas04.jpg",
+    "./assets/cas/cas05.jpg",
+    "./assets/cas/cas06.jpg",
+    "./assets/cas/cas07.jpg",
+    "./assets/cas/cas08.jpg"
+  ]
+};
 
-  {
-    id: "pb",
-    title: "Under the Same Weather",
-    subtitle: "Five Landscapes with Distance",
-    text: "Landscapes shaped by hesitation. Nothing happens — and that is the moment.",
-    images: [
-      { src: "./assets/pb/Paisagen_pb01.jpg", title: "Before the Weather Decides" },
-      { src: "./assets/pb/Paisagen_pb02.jpg", title: "The Sky Gathers Itself" },
-      { src: "./assets/pb/Paisagen_pb03.jpg", title: "A Small Passage" },
-      { src: "./assets/pb/Paisagen_pb05.jpg", title: "Between Crossing and Waiting" },
-      { src: "./assets/pb/Paisagen_pb08.jpg", title: "Night Path" }
-    ]
-  },
-
-  {
-    id: "mia",
-    title: "Inside the Sound",
-    subtitle: "Exploring improvisation as a shared act of listening",
-    text: "Images negotiate space, rhythm, and presence.",
-    images: [
-      { src: "./assets/mia/mia01.jpg", title: "Before the Agreement" },
-      { src: "./assets/mia/mia03.jpg", title: "Finding the Thread" },
-      { src: "./assets/mia/mia05.jpg", title: "Letting Go" },
-      { src: "./assets/mia/mia07.jpg", title: "Negotiation" },
-      { src: "./assets/mia/mia09.jpg", title: "Statement" }
-    ]
-  },
-
-  {
-    id: "cas",
-    title: "Last Night",
-    subtitle: "Variations on permanence, time, and disappearance",
-    text: "Photographed from the balcony on the last night of my childhood home.",
-    images: [
-      { src: "./assets/cas/cas01.jpg", title: "Before It Shifts" },
-      { src: "./assets/cas/cas02.jpg", title: "First Fracture" },
-      { src: "./assets/cas/cas03.jpg", title: "Unstable Image" },
-      { src: "./assets/cas/cas04.jpg", title: "Suspended Memory" },
-      { src: "./assets/cas/cas05.jpg", title: "Domestic Echo" },
-      { src: "./assets/cas/cas06.jpg", title: "Pattern of Permanence" },
-      { src: "./assets/cas/cas07.jpg", title: "Material Collapse" },
-      { src: "./assets/cas/cas08.jpg", title: "After the House" }
-    ]
-  }
-];
-
-/* ===== RENDER ===== */
-const container = document.getElementById("projects");
-
-projects.forEach(project => {
-  container.insertAdjacentHTML("beforeend", `
-    <div class="project-meta">
-      <h2>${project.title}</h2>
-      <p>${project.subtitle}</p>
-      <p>${project.text}</p>
-    </div>
-    <div class="projects" data-project="${project.id}"></div>
-  `);
-
-  const grid = container.querySelector(`[data-project='${project.id}']`);
-
-  project.images.forEach((img, index) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.style.backgroundImage = \`url('\${img.src}')\`;
-    card.onclick = () => openLightbox(project, index);
-    grid.appendChild(card);
-  });
-});
-
-/* ===== LIGHTBOX ===== */
-let currentProject = null;
+let currentGroup = [];
 let currentIndex = 0;
 
-function openLightbox(project, index) {
-  currentProject = project;
+function openLightbox(group, index) {
+  currentGroup = imageGroups[group];
   currentIndex = index;
-  showImage();
+  updateLightbox();
   document.getElementById("lightbox").classList.add("active");
 }
 
-function showImage() {
-  const img = document.getElementById("lightbox-img");
-  const caption = document.getElementById("lightbox-caption");
-  img.src = currentProject.images[currentIndex].src;
-  caption.textContent = currentProject.images[currentIndex].title;
+function updateLightbox() {
+  document.getElementById("lightbox-img").src = currentGroup[currentIndex];
+  document.getElementById("lightbox-caption").textContent =
+    document.querySelectorAll(".card")[currentIndex]?.dataset.title || "";
 }
 
 function closeLightbox() {
@@ -244,16 +302,14 @@ function closeLightbox() {
 }
 
 document.addEventListener("keydown", e => {
-  const lb = document.getElementById("lightbox");
-  if (!lb.classList.contains("active")) return;
-
+  if (!document.getElementById("lightbox").classList.contains("active")) return;
   if (e.key === "ArrowRight") {
-    currentIndex = (currentIndex + 1) % currentProject.images.length;
-    showImage();
+    currentIndex = (currentIndex + 1) % currentGroup.length;
+    updateLightbox();
   }
   if (e.key === "ArrowLeft") {
-    currentIndex = (currentIndex - 1 + currentProject.images.length) % currentProject.images.length;
-    showImage();
+    currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+    updateLightbox();
   }
   if (e.key === "Escape") closeLightbox();
 });
