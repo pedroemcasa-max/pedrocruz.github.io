@@ -281,8 +281,11 @@ footer {
   <div class="caption" id="lightbox-caption"></div>
 </div>
 
+
 <script>
 let currentLang = 'pt';
+let currentGroup = null;
+let currentIndex = 0;
 
 const imageGroups = {
   cor: {
@@ -315,11 +318,18 @@ const imageGroups = {
   }
 };
 
-function openLightbox(group, index) {
-  const g = imageGroups[group];
-  document.getElementById("lightbox-img").src = g.images[index];
-  document.getElementById("lightbox-caption").textContent = g.titles[currentLang][index];
+function openLightbox(groupKey, index) {
+  currentGroup = imageGroups[groupKey];
+  currentIndex = index;
+  updateLightbox();
   document.getElementById("lightbox").classList.add("active");
+}
+
+function updateLightbox() {
+  document.getElementById("lightbox-img").src =
+    currentGroup.images[currentIndex];
+  document.getElementById("lightbox-caption").textContent =
+    currentGroup.titles[currentLang][currentIndex];
 }
 
 function closeLightbox() {
@@ -333,7 +343,30 @@ function setLang(lang) {
   document.getElementById('btn-pt').classList.toggle('active', lang==='pt');
   document.getElementById('btn-en').classList.toggle('active', lang==='en');
 }
+
+/* KEYBOARD NAVIGATION */
+document.addEventListener("keydown", e => {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox.classList.contains("active")) return;
+
+  if (e.key === "ArrowRight") {
+    currentIndex = (currentIndex + 1) % currentGroup.images.length;
+    updateLightbox();
+  }
+
+  if (e.key === "ArrowLeft") {
+    currentIndex =
+      (currentIndex - 1 + currentGroup.images.length) %
+      currentGroup.images.length;
+    updateLightbox();
+  }
+
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
 </script>
+
 
 </body>
 </html>
