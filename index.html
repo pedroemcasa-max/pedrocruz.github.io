@@ -3,132 +3,1451 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio de Pedro Cruz, fotógrafo. Photography · Improvisation · Presence">
+<meta property="og:title" content="Pedro Cruz - Photography Portfolio">
+<meta property="og:description" content="Photography · Improvisation · Presence">
+<meta property="og:type" content="website">
 <title>Pedro Cruz</title>
 
+<!-- Preload critical images -->
+<link rel="preload" href="./assets/cor/Paisagen_cheff01.jpg" as="image">
+<link rel="preload" href="./assets/pb/Paisagen_pb01.jpg" as="image">
+<link rel="preload" href="./assets/mia/mia01.jpg" as="image">
+
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Helvetica,Arial,sans-serif;
-  background:#0b0b0b;
-  color:#eaeaea;
-  line-height:1.6
+:root {
+  --bg-primary: #0b0b0b;
+  --text-primary: #eaeaea;
+  --transition-speed: 0.3s;
+  --card-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.2);
+  --card-hover-shadow: 0 4px 8px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.3), 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* HEADER */
-header{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative
-}
-header h1{font-size:2.4rem;font-weight:400}
-header p{margin-top:12px;font-size:.95rem;opacity:.7}
-
-/* LANGUAGE */
-.lang-switch{
-  position:absolute;
-  top:24px;
-  right:24px;
-  font-size:.75rem;
-  opacity:.7
-}
-.lang-switch span{
-  margin-left:10px;
-  cursor:pointer
-}
-.lang-switch .active{
-  text-decoration:underline;
-  opacity:1
+* { 
+  box-sizing: border-box; 
 }
 
-/* SECTIONS */
-section{
-  max-width:1000px;
-  margin:0 auto;
-  padding:120px 24px
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-.about{
-  max-width:720px;
-  margin:0 auto;
-  font-size:.95rem;
-  opacity:.85
-}
-.about p{margin-bottom:1.6em}
-
-/* PROJECT LINKS */
-.projects-list{
-  text-align:center;
-  margin-top:80px
-}
-.projects-list a{
-  display:block;
-  margin:16px 0;
-  font-size:1rem;
-  color:#eaeaea;
-  text-decoration:none;
-  opacity:.75
-}
-.projects-list a:hover{opacity:1}
-
-/* FOOTER */
-footer{
-  padding:80px 20px;
-  text-align:center;
-  font-size:.8rem;
-  opacity:.5
+/* Suporte para prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  body {
+    scroll-behavior: auto;
+  }
 }
 
-.lang-en{display:none}
+header {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+  background: linear-gradient(rgba(11,11,11,0.9), rgba(11,11,11,0.7));
+}
+
+header h1 { 
+  font-size: clamp(1.8rem, 5vw, 2.2rem); 
+  font-weight: 400; 
+  margin: 0; 
+}
+
+header p { 
+  margin-top: 12px; 
+  font-size: clamp(.85rem, 2.5vw, .95rem); 
+  opacity: .85; 
+}
+
+.lang-switch {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: .75rem;
+  opacity: .8;
+}
+
+.lang-switch span {
+  margin-left: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.lang-switch span:hover,
+.lang-switch span:focus {
+  background: rgba(255,255,255,0.1);
+}
+
+.lang-switch span:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.lang-switch span.active { 
+  text-decoration: underline; 
+  opacity: 1; 
+  background: rgba(255,255,255,0.15);
+}
+
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(60px, 8vw, 120px) 24px;
+}
+
+@media(max-width:768px){
+  section { padding: 60px 16px; }
+  .lang-switch { top: 16px; right: 16px; }
+}
+
+.about { 
+  max-width: 720px; 
+  margin: 0 auto; 
+  font-size: .95rem; 
+  opacity: .85; 
+}
+
+.about p { 
+  margin-bottom: 1.4em; 
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.lang-en { 
+  display: none; 
+}
+
+.project-meta {
+  text-align: center;
+  margin-bottom: 60px;
+  scroll-margin-top: 40px;
+}
+
+.project-meta h2 { 
+  font-size: clamp(1.2rem, 3vw, 1.4rem); 
+  font-weight: 400; 
+  margin-bottom: 8px; 
+}
+
+.project-meta p { 
+  font-size: .9rem; 
+  opacity: .85; 
+  margin: 4px 0; 
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 30px;
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
+}
+
+/* Limite máximo para telas muito grandes */
+@media (min-width: 2000px) {
+  .projects {
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+}
+
+/* Cards com imagens completas */
+.card {
+  position: relative;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform var(--transition-speed), 
+              box-shadow var(--transition-speed);
+  will-change: transform;
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  background-size: 200% 100%;
+  box-shadow: var(--card-shadow);
+  outline: none;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+/* Container da imagem */
+.card-img-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-speed);
+}
+
+.card[data-loaded="true"] {
+  background: none;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.card.loading {
+  animation: loading 1.5s infinite;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card:focus {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 4px;
+  transform: scale(1.02);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.98);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  z-index: 9999;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+}
+
+.lightbox.active { 
+  display: flex; 
+  opacity: 1;
+}
+
+.lightbox img { 
+  max-width: min(92vw, 1200px); 
+  max-height: 82vh; 
+  border-radius: 8px;
+  object-fit: contain;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.lightbox .caption {
+  margin-top: 20px;
+  font-size: .85rem;
+  opacity: .9;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  padding: 8px 16px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+/* Contador de imagens no lightbox */
+.lightbox-counter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 12px;
+  border-radius: 20px;
+  z-index: 10001;
+}
+
+.lightbox .prev,
+.lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  opacity: .7;
+  transition: opacity .2s, background .2s;
+  padding: 20px 10px;
+  z-index: 10000;
+  border-radius: 4px;
+  outline: none;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover,
+.lightbox .prev:focus,
+.lightbox .next:focus { 
+  opacity: 1; 
+  background: rgba(255,255,255,0.1);
+}
+
+.lightbox .prev { left: 20px; }
+.lightbox .next { right: 20px; }
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity .2s, background .2s;
+  padding: 10px;
+  z-index: 10000;
+  border-radius: 4px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.lightbox .close:hover,
+.lightbox .close:focus { 
+  opacity: 1; 
+  background: rgba(255,255,255,0.1);
+}
+
+/* Loading indicator aprimorado */
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+footer { 
+  padding: 80px 20px; 
+  text-align: center; 
+  font-size: .8rem; 
+  opacity: .7; 
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+#backTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: .6;
+  transition: opacity var(--transition-speed), transform .2s;
+  z-index: 999;
+  border: none;
+  outline: none;
+}
+
+#backTop:hover,
+#backTop:focus { 
+  opacity: 1; 
+  transform: scale(1.1); 
+}
+
+#backTop:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+#backTop.hidden {
+  display: none;
+}
+
+/* Classes para diferentes proporções de imagem */
+.card-size-small {
+  height: 400px;
+}
+
+.card-size-medium {
+  height: 500px;
+}
+
+.card-size-large {
+  height: 600px;
+}
+
+@media (max-width: 768px) {
+  .card-size-small {
+    height: 300px;
+  }
+  
+  .card-size-medium {
+    height: 350px;
+  }
+  
+  .card-size-large {
+    height: 400px;
+  }
+  
+  /* Melhorar visualização em mobile */
+  .card {
+    max-height: 70vh;
+  }
+  
+  .lightbox {
+    padding: 20px;
+  }
+  
+  .lightbox .prev,
+  .lightbox .next {
+    font-size: 2.5rem;
+    padding: 15px 5px;
+  }
+  
+  .lightbox .close {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .lightbox-counter {
+    top: 15px;
+    left: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .lang-switch, 
+  #backTop,
+  .lightbox,
+  .lightbox-counter {
+    display: none !important;
+  }
+  
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+  
+  .card-img {
+    object-fit: contain !important;
+  }
+  
+  .projects {
+    display: block;
+  }
+  
+  section {
+    padding: 20px !important;
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    opacity: 1;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Project navigation */
+.project-nav {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .project-nav {
+    display: block;
+  }
+}
+
+.project-nav a {
+  display: block;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-left: 2px solid transparent;
+  transition: all 0.3s;
+  outline: none;
+}
+
+.project-nav a:hover,
+.project-nav a:focus,
+.project-nav a.active {
+  opacity: 1;
+  border-left-color: var(--text-primary);
+  background: rgba(255,255,255,0.05);
+}
+
+.project-nav a:focus {
+  outline: 1px solid var(--text-primary);
+}
+
+/* Fade-in animação para conteúdo */
+.fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animações suaves para preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+    opacity: 1;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .loading-spinner {
+    animation: spin 2s linear infinite;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="fade-in">
   <div class="lang-switch">
-    <span id="pt" class="active" onclick="setLang('pt')">PT</span>
-    <span id="en" onclick="setLang('en')">EN</span>
+    <span id="btn-pt" class="active" onclick="setLang('pt')" tabindex="0" role="button" aria-label="Português">PT</span>
+    <span id="btn-en" onclick="setLang('en')" tabindex="0" role="button" aria-label="English">EN</span>
   </div>
-
   <div>
     <h1>Pedro Cruz</h1>
     <p>Photography · Improvisation · Presence</p>
   </div>
 </header>
 
-<section>
-<div class="about">
-  <div class="lang-pt">
-    <p>Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação, escuta e experimentação. O meu trabalho desenvolve-se a partir da relação entre corpo, território e tempo, explorando estados de transição, suspensão e presença.</p>
+<section class="fade-in">
+  <div class="about">
+    <div class="lang-pt">
+      <p>Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação e experimentação.</p>
+    </div>
+    <div class="lang-en">
+      <p>I was born in 1971. Photography entered my life early as a space for observation and experimentation.</p>
+    </div>
   </div>
-
-  <div class="lang-en">
-    <p>I was born in 1971. Photography entered my life early on as a space for observation, listening, and experimentation. My work develops through the relationship between body, territory, and time, exploring states of transition, suspension, and presence.</p>
-  </div>
-</div>
-
-<div class="projects-list">
-  <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
-  <a href="./projects/project-2.html">Under the Same Weather</a>
-  <a href="./projects/project-3.html">Inside the Sound</a>
-  <a href="./projects/project-4.html">Last Night</a>
-  <a href="./projects/project-5.html">Estruturas de Permanência</a>
-</div>
 </section>
 
-<footer>© 2025 — Pedro Cruz</footer>
+<section>
+<!-- Project 1: From Blue Walls to White Silence -->
+<div class="project-meta fade-in" id="project-1">
+<h2>From Blue Walls to White Silence</h2>
+<p>Chefchaouen · 2007</p>
+</div>
+<div class="projects">
+<div class="card loading card-size-medium" 
+     data-src="./assets/cor/Paisagen_cheff01.jpg" 
+     onclick="openLightbox('cor',0)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: A Cidade Viva">
+  <div class="card-img-container">
+    <img class="card-img" alt="A Cidade Viva">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/cor/Paisagen_cheff02.jpg" 
+     onclick="openLightbox('cor',1)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: A Saída">
+  <div class="card-img-container">
+    <img class="card-img" alt="A Saída">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/cor/Paisagen_cheff04.jpg" 
+     onclick="openLightbox('cor',2)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: O Observador">
+  <div class="card-img-container">
+    <img class="card-img" alt="O Observador">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/cor/Paisagen_cheff06.jpg" 
+     onclick="openLightbox('cor',3)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Ascensão">
+  <div class="card-img-container">
+    <img class="card-img" alt="Ascensão">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/cor/Paisagen_cheff07.jpg" 
+     onclick="openLightbox('cor',4)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Silêncio">
+  <div class="card-img-container">
+    <img class="card-img" alt="Silêncio">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+</div>
+
+<!-- Project 2: Under the Same Weather -->
+<div class="project-meta fade-in" id="project-2">
+<h2>Under the Same Weather</h2>
+<p>2012</p>
+</div>
+<div class="projects">
+<div class="card loading card-size-medium" 
+     data-src="./assets/pb/Paisagen_pb01.jpg" 
+     onclick="openLightbox('pb',0)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Antes">
+  <div class="card-img-container">
+    <img class="card-img" alt="Antes">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/pb/Paisagen_pb02.jpg" 
+     onclick="openLightbox('pb',1)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Céu">
+  <div class="card-img-container">
+    <img class="card-img" alt="Céu">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/pb/Paisagen_pb03.jpg" 
+     onclick="openLightbox('pb',2)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Passagem">
+  <div class="card-img-container">
+    <img class="card-img" alt="Passagem">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/pb/Paisagen_pb05.jpg" 
+     onclick="openLightbox('pb',3)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Entre">
+  <div class="card-img-container">
+    <img class="card-img" alt="Entre">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/pb/Paisagen_pb08.jpg" 
+     onclick="openLightbox('pb',4)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Noite">
+  <div class="card-img-container">
+    <img class="card-img" alt="Noite">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+</div>
+
+<!-- Project 3: Inside the Sound -->
+<div class="project-meta fade-in" id="project-3">
+<h2>Inside the Sound</h2>
+<p>2024</p>
+</div>
+<div class="projects">
+<div class="card loading card-size-medium" 
+     data-src="./assets/mia/mia01.jpg" 
+     onclick="openLightbox('mia',0)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Antes">
+  <div class="card-img-container">
+    <img class="card-img" alt="Antes">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/mia/mia03.jpg" 
+     onclick="openLightbox('mia',1)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Fio">
+  <div class="card-img-container">
+    <img class="card-img" alt="Fio">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/mia/mia05.jpg" 
+     onclick="openLightbox('mia',2)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Soltar">
+  <div class="card-img-container">
+    <img class="card-img" alt="Soltar">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/mia/mia07.jpg" 
+     onclick="openLightbox('mia',3)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Negociação">
+  <div class="card-img-container">
+    <img class="card-img" alt="Negociação">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-medium" 
+     data-src="./assets/mia/mia09.jpg" 
+     onclick="openLightbox('mia',4)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Declaração">
+  <div class="card-img-container">
+    <img class="card-img" alt="Declaração">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+</div>
+
+<!-- Project 4: Last Night -->
+<div class="project-meta fade-in" id="project-4">
+<h2>Last Night</h2>
+<p>2016</p>
+</div>
+<div class="projects">
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas01.jpg" 
+     onclick="openLightbox('cas',0)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Antes">
+  <div class="card-img-container">
+    <img class="card-img" alt="Antes">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas02.jpg" 
+     onclick="openLightbox('cas',1)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Fratura">
+  <div class="card-img-container">
+    <img class="card-img" alt="Fratura">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas03.jpg" 
+     onclick="openLightbox('cas',2)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Instável">
+  <div class="card-img-container">
+    <img class="card-img" alt="Instável">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas04.jpg" 
+     onclick="openLightbox('cas',3)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Suspensa">
+  <div class="card-img-container">
+    <img class="card-img" alt="Suspensa">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas05.jpg" 
+     onclick="openLightbox('cas',4)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Eco">
+  <div class="card-img-container">
+    <img class="card-img" alt="Eco">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas06.jpg" 
+     onclick="openLightbox('cas',5)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Padrão">
+  <div class="card-img-container">
+    <img class="card-img" alt="Padrão">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas07.jpg" 
+     onclick="openLightbox('cas',6)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Colapso">
+  <div class="card-img-container">
+    <img class="card-img" alt="Colapso">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-large" 
+     data-src="./assets/cas/cas08.jpg" 
+     onclick="openLightbox('cas',7)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Depois">
+  <div class="card-img-container">
+    <img class="card-img" alt="Depois">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+</div>
+
+<!-- Project 5: Estruturas de Permanência -->
+<div class="project-meta fade-in" id="project-5">
+<h2>Estruturas de Permanência</h2>
+<p>Portugal · 2009–2018</p>
+</div>
+<div class="projects">
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/descontrucoes_costa-castelo_002-Enhanced-NR.jpg" 
+     onclick="openLightbox('estruturas',0)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 1">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 1">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/20150321_6264_copy.jpg" 
+     onclick="openLightbox('estruturas',1)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 2">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 2">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/IMG_9098-2.jpg" 
+     onclick="openLightbox('estruturas',2)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 3">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 3">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/0O1A1783.jpg" 
+     onclick="openLightbox('estruturas',3)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 4">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 4">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/cid31.jpg" 
+     onclick="openLightbox('estruturas',4)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 5">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 5">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/Terraco_006.jpg" 
+     onclick="openLightbox('estruturas',5)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 6">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 6">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/Variacoes_sobre_telhado_001_cor_1.jpg" 
+     onclick="openLightbox('estruturas',6)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 7">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 7">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/Calcada-noite_014.jpg" 
+     onclick="openLightbox('estruturas',7)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 8">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 8">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/cid02.jpg" 
+     onclick="openLightbox('estruturas',8)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 9">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 9">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/cid08.jpg" 
+     onclick="openLightbox('estruturas',9)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 10">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 10">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/cid20.jpg" 
+     onclick="openLightbox('estruturas',10)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 11">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 11">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/cid23.jpg" 
+     onclick="openLightbox('estruturas',11)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 12">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 12">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+<div class="card loading card-size-small" 
+     data-src="./assets/estruturas/cid29.jpg" 
+     onclick="openLightbox('estruturas',12)"
+     tabindex="0"
+     role="button"
+     aria-label="Open image: Estrutura 13">
+  <div class="card-img-container">
+    <img class="card-img" alt="Estrutura 13">
+  </div>
+  <div class="loading-spinner"></div>
+</div>
+</div>
+
+</section>
+
+<footer class="fade-in">
+  <p>© 2025 — Pedro Cruz</p>
+  <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.5;">All photographs are copyright protected</p>
+</footer>
+
+<button id="backTop" class="hidden" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="prev" onclick="prevImage(event)" aria-label="Imagem anterior">‹</span>
+  <img id="lightbox-img" alt="">
+  <span class="next" onclick="nextImage(event)" aria-label="Próxima imagem">›</span>
+  <div class="close" onclick="closeLightbox()" aria-label="Fechar">×</div>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+  <div class="caption" id="lightbox-caption"></div>
+</div>
 
 <script>
-function setLang(l){
-  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==='pt'?'block':'none');
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'block':'none');
-  document.getElementById('pt').classList.toggle('active',l==='pt');
-  document.getElementById('en').classList.toggle('active',l==='en');
+let currentLang = 'pt';
+let currentGroup = null;
+let currentIndex = 0;
+
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Pedro Cruz",
+  "jobTitle": "Photographer",
+  "description": "Contemporary photographer specializing in visual storytelling and observation",
+  "birthDate": "1971",
+  "url": window.location.href,
+  "knowsAbout": ["Photography", "Contemporary Art", "Visual Storytelling"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Independent Artist"
+  }
+};
+
+// Add structured data to page
+const script = document.createElement('script');
+script.type = 'application/ld+json';
+script.textContent = JSON.stringify(structuredData);
+document.head.appendChild(script);
+
+const imageGroups = {
+  cor: { 
+    images: ["01","02","04","06","07"].map(n=>`./assets/cor/Paisagen_cheff${n}.jpg`), 
+    titles: {
+      pt: ["A Cidade Viva","A Saída","O Observador","Ascensão","Silêncio"],
+      en: ["Living City","Exit","Watcher","Ascent","Silence"]
+    } 
+  },
+  pb: { 
+    images: ["01","02","03","05","08"].map(n=>`./assets/pb/Paisagen_pb${n}.jpg`), 
+    titles: {
+      pt: ["Antes","Céu","Passagem","Entre","Noite"],
+      en: ["Before","Sky","Passage","Between","Night"]
+    } 
+  },
+  mia: { 
+    images: ["01","03","05","07","09"].map(n=>`./assets/mia/mia${n}.jpg`), 
+    titles: {
+      pt: ["Antes","Fio","Soltar","Negociação","Declaração"],
+      en: ["Before","Thread","Release","Negotiation","Statement"]
+    } 
+  },
+  cas: { 
+    images: ["01","02","03","04","05","06","07","08"].map(n=>`./assets/cas/cas${n}.jpg`), 
+    titles: {
+      pt: ["Antes","Fratura","Instável","Suspensa","Eco","Padrão","Colapso","Depois"],
+      en: ["Before","Fracture","Unstable","Suspended","Echo","Pattern","Collapse","After"]
+    } 
+  },
+  estruturas: { 
+    images: [
+      "./assets/estruturas/descontrucoes_costa-castelo_002-Enhanced-NR.jpg",
+      "./assets/estruturas/20150321_6264_copy.jpg",
+      "./assets/estruturas/IMG_9098-2.jpg",
+      "./assets/estruturas/0O1A1783.jpg",
+      "./assets/estruturas/cid31.jpg",
+      "./assets/estruturas/Terraco_006.jpg",
+      "./assets/estruturas/Variacoes_sobre_telhado_001_cor_1.jpg",
+      "./assets/estruturas/Calcada-noite_014.jpg",
+      "./assets/estruturas/cid02.jpg",
+      "./assets/estruturas/cid08.jpg",
+      "./assets/estruturas/cid20.jpg",
+      "./assets/estruturas/cid23.jpg",
+      "./assets/estruturas/cid29.jpg"
+    ], 
+    titles: {
+      pt: Array(13).fill(""),
+      en: Array(13).fill("")
+    }
+  }
+};
+
+// Lazy load images com suporte para object-fit: contain
+function lazyLoadImages() {
+  const cards = document.querySelectorAll('.card.loading');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const src = card.getAttribute('data-src');
+        const imgElement = card.querySelector('.card-img');
+        
+        const img = new Image();
+        
+        img.onload = () => {
+          imgElement.src = src;
+          card.classList.remove('loading');
+          card.setAttribute('data-loaded', 'true');
+          const spinner = card.querySelector('.loading-spinner');
+          if (spinner) spinner.remove();
+          
+          // Ajustar automaticamente a altura baseada na proporção da imagem
+          adjustCardHeight(card, img);
+        };
+        
+        img.onerror = () => {
+          imgElement.src = '';
+          imgElement.alt = 'Image not available';
+          card.classList.remove('loading');
+          card.setAttribute('data-loaded', 'false');
+          card.innerHTML = '<div class="card-img-container"><span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.5;text-align:center;">Image not available</span></div>';
+        };
+        
+        img.src = src;
+        observer.unobserve(card);
+      }
+    });
+  }, {
+    rootMargin: '100px',
+    threshold: 0.1
+  });
+  
+  cards.forEach(card => observer.observe(card));
 }
+
+// Ajustar altura do card baseado na proporção da imagem
+function adjustCardHeight(card, img) {
+  const containerWidth = card.offsetWidth;
+  const imgWidth = img.naturalWidth;
+  const imgHeight = img.naturalHeight;
+  const aspectRatio = imgHeight / imgWidth;
+  
+  // Calcular nova altura mantendo a proporção
+  const newHeight = containerWidth * aspectRatio;
+  
+  // Limitar altura máxima
+  const maxHeight = window.innerWidth < 768 ? 500 : 800;
+  
+  if (newHeight > maxHeight) {
+    card.style.height = maxHeight + 'px';
+  } else {
+    card.style.height = newHeight + 'px';
+  }
+}
+
+// Preload images
+function preloadImages() {
+  Object.values(imageGroups).forEach(group => {
+    group.images.forEach(src => {
+      const img = new Image();
+      img.onload = function() {
+        console.log(`Image loaded: ${src}`);
+      };
+      img.onerror = function() {
+        console.error(`Failed to load image: ${src}`);
+      };
+      img.src = src;
+    });
+  });
+}
+
+function openLightbox(g, i) { 
+  currentGroup = imageGroups[g]; 
+  currentIndex = i; 
+  const lightbox = document.getElementById("lightbox");
+  lightbox.classList.add("active");
+  updateLightbox();
+  document.body.style.overflow = 'hidden'; // Prevent scrolling
+  
+  // Log analytics event
+  logEvent('lightbox_open', { group: g, index: i });
+}
+
+function updateLightbox() { 
+  const lightboxImg = document.getElementById("lightbox-img");
+  const caption = document.getElementById("lightbox-caption");
+  const counter = document.getElementById("lightbox-counter");
+  
+  // Update counter
+  if (counter && currentGroup) {
+    counter.textContent = `${currentIndex + 1} / ${currentGroup.images.length}`;
+  }
+  
+  // Show loading state
+  lightboxImg.style.opacity = '0';
+  
+  const img = new Image();
+  img.onload = () => {
+    lightboxImg.src = currentGroup.images[currentIndex];
+    lightboxImg.alt = currentGroup.titles[currentLang][currentIndex] || `Image ${currentIndex + 1}`;
+    caption.textContent = currentGroup.titles[currentLang][currentIndex] || "";
+    lightboxImg.style.opacity = '1';
+  };
+  
+  img.onerror = () => {
+    lightboxImg.src = '';
+    lightboxImg.alt = 'Image not available';
+    caption.textContent = 'Image not available';
+  };
+  
+  img.src = currentGroup.images[currentIndex];
+}
+
+function closeLightbox() { 
+  document.getElementById("lightbox").classList.remove("active");
+  document.body.style.overflow = ''; // Re-enable scrolling
+  
+  // Log analytics event
+  logEvent('lightbox_close');
+}
+
+function prevImage(e) { 
+  e.stopPropagation(); 
+  currentIndex = (currentIndex - 1 + currentGroup.images.length) % currentGroup.images.length; 
+  updateLightbox();
+}
+
+function nextImage(e) { 
+  e.stopPropagation(); 
+  currentIndex = (currentIndex + 1) % currentGroup.images.length; 
+  updateLightbox();
+}
+
+function setLang(l) {
+  currentLang = l;
+  document.querySelectorAll('.lang-pt').forEach(e => e.style.display = l === 'pt' ? 'block' : 'none');
+  document.querySelectorAll('.lang-en').forEach(e => e.style.display = l === 'en' ? 'block' : 'none');
+  document.getElementById('btn-pt').classList.toggle('active', l === 'pt');
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  
+  // Update lightbox caption if open
+  if (currentGroup) {
+    document.getElementById("lightbox-caption").textContent = currentGroup.titles[currentLang][currentIndex] || "";
+  }
+  
+  // Log language change
+  logEvent('language_change', { language: l });
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (!currentGroup) return;
+  
+  switch(e.key) {
+    case "ArrowLeft":
+      prevImage(e);
+      break;
+    case "ArrowRight":
+      nextImage(e);
+      break;
+    case "Escape":
+      closeLightbox();
+      break;
+  }
+});
+
+// Swipe for mobile
+let touchStartX = 0;
+document.getElementById("lightbox").addEventListener("touchstart", e => { 
+  touchStartX = e.changedTouches[0].screenX; 
+});
+
+document.getElementById("lightbox").addEventListener("touchend", e => {
+  const diff = e.changedTouches[0].screenX - touchStartX;
+  if (diff > 50) prevImage(e);
+  if (diff < -50) nextImage(e);
+});
+
+// Back to top button
+window.addEventListener('scroll', () => {
+  const backTop = document.getElementById('backTop');
+  if (window.scrollY > 300) {
+    backTop.classList.remove('hidden');
+  } else {
+    backTop.classList.add('hidden');
+  }
+});
+
+// Initialize project navigation
+function initProjectNavigation() {
+  const projectNav = document.createElement('nav');
+  projectNav.className = 'project-nav';
+  
+  const projects = [
+    { id: 'project-1', title: 'From Blue Walls to White Silence' },
+    { id: 'project-2', title: 'Under the Same Weather' },
+    { id: 'project-3', title: 'Inside the Sound' },
+    { id: 'project-4', title: 'Last Night' },
+    { id: 'project-5', title: 'Estruturas de Permanência' }
+  ];
+  
+  projects.forEach(project => {
+    const link = document.createElement('a');
+    link.href = `#${project.id}`;
+    link.textContent = project.title;
+    link.onclick = (e) => {
+      e.preventDefault();
+      document.getElementById(project.id).scrollIntoView({ behavior: 'smooth' });
+    };
+    projectNav.appendChild(link);
+  });
+  
+  document.body.appendChild(projectNav);
+}
+
+// Simple analytics logging
+function logEvent(eventName, data = {}) {
+  const event = {
+    event: eventName,
+    timestamp: new Date().toISOString(),
+    ...data
+  };
+  
+  // In production, you would send this to your analytics service
+  console.log('Event:', event);
+}
+
+// Reajustar alturas quando a janela é redimensionada
+function handleResize() {
+  document.querySelectorAll('.card[data-loaded="true"]').forEach(card => {
+    const img = card.querySelector('.card-img');
+    if (img.complete && img.naturalWidth > 0) {
+      adjustCardHeight(card, img);
+    }
+  });
+}
+
+// Animações de entrada
+function initAnimations() {
+  // Animar elementos com classe fade-in
+  const fadeElements = document.querySelectorAll('.fade-in');
+  fadeElements.forEach((el, index) => {
+    // Delay escalonado
+    el.style.animationDelay = `${index * 0.1}s`;
+  });
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Start lazy loading
+  lazyLoadImages();
+  
+  // Preload critical images
+  preloadImages();
+  
+  // Initialize animations
+  initAnimations();
+  
+  // Initialize project navigation on large screens
+  if (window.innerWidth >= 1200) {
+    initProjectNavigation();
+  }
+  
+  // Monitor scroll for active nav
+  window.addEventListener('scroll', () => {
+    const projectNavLinks = document.querySelectorAll('.project-nav a');
+    const scrollPos = window.scrollY + 100;
+    
+    document.querySelectorAll('.project-meta').forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
+      
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + rect.height) {
+        projectNavLinks.forEach(link => link.classList.remove('active'));
+        if (projectNavLinks[index]) {
+          projectNavLinks[index].classList.add('active');
+        }
+      }
+    });
+  });
+  
+  // Adicionar listener para redimensionamento
+  window.addEventListener('resize', handleResize);
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1200 && !document.querySelector('.project-nav')) {
+    initProjectNavigation();
+  } else if (window.innerWidth < 1200) {
+    const projectNav = document.querySelector('.project-nav');
+    if (projectNav) projectNav.remove();
+  }
+  
+  handleResize();
+});
+
+// Melhor navegação por teclado para cards
+document.addEventListener('keydown', (e) => {
+  if (e.target.classList.contains('card') && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    e.target.click();
+  }
+});
 </script>
 
 </body>
