@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estruturas de Permanência — Pedro Cruz</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Helvetica,Arial,sans-serif;background:#0b0b0b;color:#eaeaea}
+header{text-align:center;padding:120px 24px 80px}
+header h1{font-size:1.8rem;font-weight:400}
+header p{font-size:.9rem;opacity:.6}
+.text{max-width:720px;margin:0 auto 120px;font-size:.95rem;opacity:.85}
+.text p{margin-bottom:1.4em}
+.projects{max-width:1400px;margin:0 auto;padding:0 24px 160px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px}
+.card{aspect-ratio:4/3;background-size:cover;background-position:center;cursor:pointer}
+.card:hover{opacity:.85}
+nav.project-nav{position:fixed;top:50%;right:20px;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
+nav.project-nav a{color:#eaeaea;text-decoration:none;font-size:.9rem;opacity:.7}
+nav.project-nav a:hover, nav.project-nav a.active{opacity:1;text-decoration:underline}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:9999}
+.lightbox.active{display:flex}
+.lightbox img{max-width:92vw;max-height:82vh;object-fit:contain}
+footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Estruturas de Permanência</h1>
+  <p>Portugal · 2009–2018</p>
+</header>
+
+<section class="text">
+  <p>Este projecto de longo prazo reflete sobre persistência, repetição e presença estrutural no espaço construído. As imagens registam fragmentos de arquitectura que resistem à destruição, mesmo quando a sua função se torna instável ou obsoleta.</p>
+  <p>Não se pretende descrever lugares específicos, mas construir um arquivo visual de resistência e transformação silenciosa.</p>
+</section>
+
+<section class="projects">
+  <div class="card" style="background-image:url('../assets/estruturas/descontrucoes_costa-castelo_002-Enhanced-NR.jpg')" onclick="openLB(0)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/20150321_6264_copy.jpg')" onclick="openLB(1)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/IMG_9098-2.jpg')" onclick="openLB(2)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/0O1A1783.jpg')" onclick="openLB(3)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/cid31.jpg')" onclick="openLB(4)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/Terraco_006.jpg')" onclick="openLB(5)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/Variacoes_sobre_telhado_001_cor_1.jpg')" onclick="openLB(6)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/Calcada-noite_014.jpg')" onclick="openLB(7)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/cid02.jpg')" onclick="openLB(8)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/cid08.jpg')" onclick="openLB(9)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/cid20.jpg')" onclick="openLB(10)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/cid23.jpg')" onclick="openLB(11)"></div>
+  <div class="card" style="background-image:url('../assets/estruturas/cid29.jpg')" onclick="openLB(12)"></div>
+</section>
+
+<nav class="project-nav">
+  <a href="project-4.html">← Last Night</a>
+  <a href="../index.html">Home →</a>
+</nav>
+
+<footer>© 2025 — Pedro Cruz</footer>
+
+<div class="lightbox" id="lb" onclick="closeLB()">
+  <img id="lbimg">
+</div>
+
+<script>
+const images=[
+"../assets/estruturas/descontrucoes_costa-castelo_002-Enhanced-NR.jpg",
+"../assets/estruturas/20150321_6264_copy.jpg",
+"../assets/estruturas/IMG_9098-2.jpg",
+"../assets/estruturas/0O1A1783.jpg",
+"../assets/estruturas/cid31.jpg",
+"../assets/estruturas/Terraco_006.jpg",
+"../assets/estruturas/Variacoes_sobre_telhado_001_cor_1.jpg",
+"../assets/estruturas/Calcada-noite_014.jpg",
+"../assets/estruturas/cid02.jpg",
+"../assets/estruturas/cid08.jpg",
+"../assets/estruturas/cid20.jpg",
+"../assets/estruturas/cid23.jpg",
+"../assets/estruturas/cid29.jpg"
+];
+function openLB(i){ lb.classList.add('active'); lbimg.src=images[i]; }
+function closeLB(){ lb.classList.remove('active'); }
+document.addEventListener('keydown',e=>{
+  if(e.key==="ArrowLeft") window.location.href="project-4.html";
+  if(e.key==="ArrowRight") window.location.href="../index.html";
+});
+</script>
+
+</body>
+</html>

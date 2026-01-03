@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under the Same Weather — Pedro Cruz</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Helvetica,Arial,sans-serif;background:#0b0b0b;color:#eaeaea}
+header{text-align:center;padding:120px 24px 80px}
+header h1{font-weight:400}
+header p{opacity:.6}
+.text{max-width:720px;margin:0 auto 120px;font-size:.95rem;opacity:.85}
+.projects{max-width:1400px;margin:0 auto;padding:0 24px 160px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px}
+.card{aspect-ratio:4/3;background-size:cover;background-position:center;cursor:pointer}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;flex-direction:column}
+.lightbox.active{display:flex}
+.lightbox img{max-width:92vw;max-height:82vh;object-fit:contain}
+.caption{margin-top:20px;font-size:.85rem;opacity:.6}
+footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Under the Same Weather</h1>
+<p>2012</p>
+</header>
+
+<section class="text">
+<p>This series approaches landscape as an atmospheric condition rather than a geographical one. Time becomes uniform, and narrative dissolves into duration.</p>
+</section>
+
+<section class="projects">
+<div class="card" style="background-image:url('../assets/pb/Paisagen_pb01.jpg')" onclick="openLB(0)"></div>
+<div class="card" style="background-image:url('../assets/pb/Paisagen_pb02.jpg')" onclick="openLB(1)"></div>
+<div class="card" style="background-image:url('../assets/pb/Paisagen_pb03.jpg')" onclick="openLB(2)"></div>
+<div class="card" style="background-image:url('../assets/pb/Paisagen_pb05.jpg')" onclick="openLB(3)"></div>
+<div class="card" style="background-image:url('../assets/pb/Paisagen_pb08.jpg')" onclick="openLB(4)"></div>
+</section>
+
+<footer>© 2025 — Pedro Cruz</footer>
+
+<div class="lightbox" id="lb" onclick="closeLB()">
+<img id="lbimg"><div class="caption" id="lbcap"></div>
+</div>
+
+<script>
+const images=[
+"../assets/pb/Paisagen_pb01.jpg",
+"../assets/pb/Paisagen_pb02.jpg",
+"../assets/pb/Paisagen_pb03.jpg",
+"../assets/pb/Paisagen_pb05.jpg",
+"../assets/pb/Paisagen_pb08.jpg"
+];
+const titles=["Beginning","Sky","Passage","Between","Night"];
+function openLB(i){lb.classList.add('active');lbimg.src=images[i];lbcap.textContent=titles[i]}
+function closeLB(){lb.classList.remove('active')}
+</script>
+
+</body>
+</html>
+

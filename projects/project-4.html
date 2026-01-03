@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Last Night — Pedro Cruz</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Helvetica,Arial,sans-serif;background:#0b0b0b;color:#eaeaea}
+header{text-align:center;padding:120px 24px 80px}
+header h1{font-size:1.8rem;font-weight:400}
+header p{font-size:.9rem;opacity:.6}
+.text{max-width:720px;margin:0 auto 120px;font-size:.95rem;opacity:.85}
+.text p{margin-bottom:1.4em}
+.projects{max-width:1400px;margin:0 auto;padding:0 24px 160px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px}
+.card{aspect-ratio:4/3;background-size:cover;background-position:center;cursor:pointer}
+.card:hover{opacity:.85}
+nav.project-nav{position:fixed;top:50%;right:20px;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
+nav.project-nav a{color:#eaeaea;text-decoration:none;font-size:.9rem;opacity:.7}
+nav.project-nav a:hover, nav.project-nav a.active{opacity:1;text-decoration:underline}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:9999}
+.lightbox.active{display:flex}
+.lightbox img{max-width:92vw;max-height:82vh;object-fit:contain}
+.caption{margin-top:20px;font-size:.85rem;opacity:.6;color:#fff;text-align:center}
+footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Last Night</h1>
+  <p>2016</p>
+</header>
+
+<section class="text">
+  <p>Last Night explora o território nocturno onde arquitectura, luz e instabilidade se encontram. As imagens sugerem momentos de fratura e suspensão, como se a cidade estivesse presa num estado frágil entre presença e colapso.</p>
+  <p>A sequência desenrola-se como uma descida lenta, do momento de antecipação até às consequências, sem se resolver num evento claro.</p>
+</section>
+
+<section class="projects">
+  <div class="card" style="background-image:url('../assets/cas/cas01.jpg')" onclick="openLB(0)"></div>
+  <div class="card" style="background-image:url('../assets/cas/cas02.jpg')" onclick="openLB(1)"></div>
+  <div class="card" style="background-image:url('../assets/cas/cas03.jpg')" onclick="openLB(2)"></div>
+  <div class="card" style="background-image:url('../assets/cas/cas04.jpg')" onclick="openLB(3)"></div>
+  <div class="card" style="background-image:url('../assets/cas/cas05.jpg')" onclick="openLB(4)"></div>
+  <div class="card" style="background-image:url('../assets/cas/cas06.jpg')" onclick="openLB(5)"></div>
+  <div class="card" style="background-image:url('../assets/cas/cas07.jpg')" onclick="openLB(6)"></div>
+  <div class="card" style="background-image:url('../assets/cas/cas08.jpg')" onclick="openLB(7)"></div>
+</section>
+
+<nav class="project-nav">
+  <a href="project-3.html">← Inside the Sound</a>
+  <a href="project-5.html">Next → Estruturas de Permanência</a>
+</nav>
+
+<footer>© 2025 — Pedro Cruz</footer>
+
+<div class="lightbox" id="lb" onclick="closeLB()">
+  <img id="lbimg">
+  <div class="caption" id="lbcap"></div>
+</div>
+
+<script>
+const images=["../assets/cas/cas01.jpg","../assets/cas/cas02.jpg","../assets/cas/cas03.jpg","../assets/cas/cas04.jpg","../assets/cas/cas05.jpg","../assets/cas/cas06.jpg","../assets/cas/cas07.jpg","../assets/cas/cas08.jpg"];
+const titlesPT=["Antes","Fratura","Instável","Suspensa","Eco","Padrão","Colapso","Depois"];
+const titlesEN=["Before","Fracture","Unstable","Suspended","Echo","Pattern","Collapse","After"];
+let currentLang="pt";
+
+function openLB(i){
+  lb.classList.add('active');
+  lbimg.src = images[i];
+  lbcap.textContent = currentLang==="pt"?titlesPT[i]:titlesEN[i];
+}
+function closeLB(){ lb.classList.remove('active'); }
+document.addEventListener('keydown',e=>{
+  if(e.key==="ArrowLeft") window.location.href="project-3.html";
+  if(e.key==="ArrowRight") window.location.href="project-5.html";
+});
+</script>
+
+</body>
+</html>
