@@ -68,6 +68,7 @@ header p{
   margin:0 auto 120px;
   font-size:.95rem;
   opacity:.9;
+  text-align:center;
 }
 .text p{margin-bottom:1.4em}
 
@@ -119,6 +120,7 @@ header p{
   top:0;
   bottom:0;
   width:50%;
+  pointer-events:none;
 }
 .lb-left{left:0}
 .lb-right{right:0}
@@ -130,21 +132,36 @@ header p{
   transform:translateY(-50%);
   font-size:38px;
   padding:6px 14px;
-  background:rgba(0,0,0,.45);
-  border-radius:10px;
+  background:rgba(0,0,0,.55);
+  border-radius:12px;
   cursor:pointer;
-  opacity:.85;
+  opacity:.9;
+  pointer-events:auto;
 }
-.lb-btn:hover{background:black}
+.lb-btn:hover{background:black;opacity:1}
 .lb-prev{left:22px}
 .lb-next{right:22px}
 
+/* PROJECT NAVIGATION */
+.project-nav{
+  text-align:center;
+  padding:60px 20px 100px;
+  opacity:.8;
+  font-size:.9rem;
+}
+.project-nav a{
+  color:#eaeaea;
+  text-decoration:none;
+  margin:0 16px;
+}
+.project-nav a:hover{text-decoration:underline}
+
 /* FOOTER */
 footer{
-  padding:80px 20px;
+  padding:20px;
   text-align:center;
   font-size:.8rem;
-  opacity:.5;
+  opacity:.45;
 }
 
 /* MOBILE */
@@ -197,12 +214,19 @@ footer{
   <div class="card" style="background-image:url('../assets/cor/Paisagen_cheff07.jpg')" onclick="openLB(4)"></div>
 </section>
 
+<!-- PROJECT NAV -->
+<div class="project-nav">
+  <a href="project-4.html">← Projecto anterior</a>
+  <a href="../index.html">Home</a>
+  <a href="project-2.html">Projecto seguinte →</a>
+</div>
+
 <footer>© 2025 — Pedro Cruz</footer>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lb">
-  <div class="lb-nav lb-left" onclick="prevImg()"></div>
-  <div class="lb-nav lb-right" onclick="nextImg()"></div>
+  <div class="lb-nav lb-left"></div>
+  <div class="lb-nav lb-right"></div>
 
   <div class="lb-btn lb-prev" onclick="prevImg()">❮</div>
   <div class="lb-btn lb-next" onclick="nextImg()">❯</div>
@@ -271,17 +295,25 @@ function prevImg(){
   updateLB();
 }
 
-/* close only if background clicked */
+/* fechar ao clicar fora */
 lb.addEventListener("click",e=>{
   if(e.target===lb) closeLB();
 });
 
-/* keyboard navigation */
+/* navegação por teclado */
 document.addEventListener("keydown",e=>{
-  if(!lb.classList.contains("active")) return;
-  if(e.key==="ArrowRight") nextImg();
-  if(e.key==="ArrowLeft") prevImg();
-  if(e.key==="Escape") closeLB();
+
+  /* quando o lightbox está aberto */
+  if(lb.classList.contains("active")){
+    if(e.key==="ArrowRight") nextImg();
+    if(e.key==="ArrowLeft") prevImg();
+    if(e.key==="Escape") closeLB();
+    return;
+  }
+
+  /* quando o lightbox está fechado → navegar entre projectos */
+  if(e.key==="ArrowLeft") window.location.href="project-4.html";
+  if(e.key==="ArrowRight") window.location.href="project-2.html";
 });
 </script>
 
