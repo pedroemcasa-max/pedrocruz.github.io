@@ -6,159 +6,270 @@
 <title>Structures of Permanence — Pedro Cruz</title>
 
 <style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f7f7f7;color:#111}
-header{padding:28px 28px 10px}
-h1{margin:0;font-size:28px}
-.lang-switch{margin-top:10px;font-size:13px}
-.lang-switch a{margin-right:10px;cursor:pointer}
-.section{padding:20px 28px}
+*{box-sizing:border-box}
+body{
+  font-family:Helvetica,Arial,sans-serif;
+  margin:0;
+  background:#0b0b0b;
+  color:#eaeaea;
+  line-height:1.6;
+}
+
+/* HOME + LANG */
+.home-link{
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:.8rem;
+  opacity:.8;
+  z-index:1000;
+}
+.home-link a{text-decoration:none;color:#eaeaea}
+.home-link a:hover{opacity:1}
+
+.lang-switch{
+  position:fixed;
+  top:20px;
+  right:20px;
+  font-size:.8rem;
+  z-index:1000;
+}
+.lang-switch span{
+  margin-left:14px;
+  cursor:pointer;
+  opacity:.6;
+}
+.lang-switch .active{
+  text-decoration:underline;
+  opacity:1;
+}
+
+/* HEADER */
+header{
+  padding:120px 28px 60px;
+}
+h1{
+  margin:0;
+  font-weight:400;
+}
+
+/* TEXT */
+.section{
+  max-width:780px;
+  margin:0 auto 80px;
+  padding:0 28px;
+  font-size:.95rem;
+  opacity:.9;
+}
+
+/* GALLERY */
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:16px;
-padding:10px 28px 40px;
+  max-width:1400px;
+  margin:0 auto 120px;
+  padding:0 28px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
 }
 .gallery img{
-width:100%;
-height:320px;
-object-fit:cover;
-border-radius:10px;
-cursor:pointer;
-box-shadow:0 10px 28px rgba(0,0,0,.12);
-transition:.25s;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
 }
-.gallery img:hover{
-transform:translateY(-4px);
-box-shadow:0 14px 38px rgba(0,0,0,.18);
-}
+
+/* LIGHTBOX */
 .lightbox{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,.92);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:1000;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.96);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:1000;
 }
+.lightbox.active{display:flex}
 .lightbox img{
-max-width:90%;
-max-height:82%;
-border-radius:8px;
+  max-width:92vw;
+  max-height:82vh;
+  object-fit:contain;
 }
 .caption{
-color:#fff;
-margin-top:14px;
-font-size:14px;
-max-width:80%;
-text-align:center;
+  margin-top:16px;
+  opacity:.75;
+  font-size:.85rem;
 }
-.close, .prev, .next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:36px;
-color:#fff;
-cursor:pointer;
-padding:14px;
-user-select:none;
+
+/* NAV CLICK ZONES */
+.lb-nav{
+  position:fixed;
+  top:0;
+  bottom:0;
+  width:50%;
 }
-.close{top:30px;right:40px;transform:none}
-.prev{left:20px}
-.next{right:20px}
+.lb-left{left:0}
+.lb-right{right:0}
+
+/* BUTTONS */
+.lb-btn{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:38px;
+  padding:6px 14px;
+  background:rgba(0,0,0,.45);
+  border-radius:10px;
+  cursor:pointer;
+  opacity:.85;
+}
+.lb-prev{left:22px}
+.lb-next{right:22px}
+
+/* PROJECT NAV */
 .project-nav{
-padding:20px 28px 40px;
-display:flex;
-justify-content:space-between;
-font-size:14px;
+  padding:40px 28px 80px;
+  text-align:center;
+  opacity:.7;
 }
-.project-nav a{text-decoration:none;color:#333}
+.project-nav a{
+  color:#eaeaea;
+  text-decoration:none;
+  margin:0 12px;
+}
 .project-nav a:hover{text-decoration:underline}
+
+footer{
+  text-align:center;
+  padding:20px;
+  opacity:.4;
+  font-size:.8rem;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  header{padding-top:100px}
+}
 </style>
 </head>
 
 <body>
 
+<div class="home-link">
+  <a href="../index.html">← Home</a>
+</div>
+
+<div class="lang-switch">
+  <span id="ptb" class="active" onclick="setLang('pt')">PT</span>
+  <span id="enb" onclick="setLang('en')">EN</span>
+</div>
+
 <header>
   <h1>Structures of Permanence</h1>
-  <div class="lang-switch">
-    <a onclick="showPT()">Português</a> |
-    <a onclick="showEN()">English</a>
-  </div>
 </header>
 
-<section class="section" id="pt">
+<section class="section lang-pt">
   <p><strong>Structures of Permanence</strong> é um projeto de longa duração que reflete sobre persistência, repetição e presença no espaço construído. Mais do que documentar lugares, estas imagens procuram compor um arquivo visual de estruturas que permanecem — mesmo quando a sua função se torna instável, ambígua ou obsoleta.</p>
   <p>Algumas fotografias resultam de longas exposições com variação da distância focal, reforçando a ideia de deslocamento silencioso no interior da própria matéria.</p>
 </section>
 
-<section class="section" id="en" style="display:none">
-  <p><strong>Structures of Permanence</strong> is a long-term photographic project reflecting on persistence, repetition and structural presence within the built environment. Rather than describing specific places, these images construct a visual archive of forms that remain — even when their function becomes unstable, ambiguous or obsolete.</p>
+<section class="section lang-en" style="display:none">
+  <p><strong>Structures of Permanence</strong> is a long–term photographic project reflecting on persistence, repetition and structural presence within the built environment. Rather than describing specific places, these images construct a visual archive of forms that remain — even when their function becomes unstable, ambiguous or obsolete.</p>
   <p>Some photographs are made in single long exposures with focal-length variation, emphasising a quiet sense of displacement within the structure itself.</p>
 </section>
 
-<!-- ✅ GALLERY -->
+<!-- GALLERY -->
 <div class="gallery">
-
-  <img loading="lazy" src="../assets/estrutura/_1est18.jpg" data-caption="Silent Facade" />
-  <img loading="lazy" src="../assets/estrutura/_2est28.jpg" data-caption="Sun Tracing Windows" />
-  <img loading="lazy" src="../assets/estrutura/_3est37.jpg" data-caption="Yellow Geometry in Stone" />
-  <img loading="lazy" src="../assets/estrutura/_4est32.jpg" data-caption="Structure in Yellow" />
-  <img loading="lazy" src="../assets/estrutura/_5est36.jpg" data-caption="Repeating Stone Rhythm" />
-  <img loading="lazy" src="../assets/estrutura/_6est35.jpg" data-caption="Stair Fragment" />
-  <img loading="lazy" src="../assets/estrutura/_7est21.jpg" data-caption="Urban Blue Layers" />
-  <img loading="lazy" src="../assets/estrutura/_8est33.jpg" data-caption="Inverted Reflections" />
-  <img loading="lazy" src="../assets/estrutura/_9est19.jpg" data-caption="Roof Echoes" />
-  <img loading="lazy" src="../assets/estrutura/_10est14.jpg" data-caption="Cathedral in Light" />
-  <img loading="lazy" src="../assets/estrutura/_11est29.jpg" data-caption="Antenna Rhythm" />
-  <img loading="lazy" src="../assets/estrutura/_12est30.jpg" data-caption="Sky Divide" />
-  <img loading="lazy" src="../assets/estrutura/_13est10.jpg" data-caption="Night Windows" />
-
+  <img src="../assets/estrutura/_1est18.jpg" data-caption="Silent Facade">
+  <img src="../assets/estrutura/_2est28.jpg" data-caption="Sun Tracing Windows">
+  <img src="../assets/estrutura/_3est37.jpg" data-caption="Yellow Geometry in Stone">
+  <img src="../assets/estrutura/_4est32.jpg" data-caption="Structure in Yellow">
+  <img src="../assets/estrutura/_5est36.jpg" data-caption="Repeating Stone Rhythm">
+  <img src="../assets/estrutura/_6est35.jpg" data-caption="Stair Fragment">
+  <img src="../assets/estrutura/_7est21.jpg" data-caption="Urban Blue Layers">
+  <img src="../assets/estrutura/_8est33.jpg" data-caption="Inverted Reflections">
+  <img src="../assets/estrutura/_9est19.jpg" data-caption="Roof Echoes">
+  <img src="../assets/estrutura/_10est14.jpg" data-caption="Cathedral in Light">
+  <img src="../assets/estrutura/_11est29.jpg" data-caption="Antenna Rhythm">
+  <img src="../assets/estrutura/_12est30.jpg" data-caption="Sky Divide">
+  <img src="../assets/estrutura/_13est10.jpg" data-caption="Night Windows">
 </div>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">×</span>
-  <span class="prev" onclick="changeImage(-1)">❮</span>
-  <img id="lightbox-img">
-  <div class="caption" id="caption"></div>
-  <span class="next" onclick="changeImage(1)">❯</span>
+<div class="lightbox" id="lb">
+  <div class="lb-nav lb-left" onclick="prevImg()"></div>
+  <div class="lb-nav lb-right" onclick="nextImg()"></div>
+
+  <div class="lb-btn lb-prev" onclick="prevImg()">❮</div>
+  <div class="lb-btn lb-next" onclick="nextImg()">❯</div>
+
+  <img id="lbimg">
+  <div class="caption" id="lbcap"></div>
 </div>
 
-<!-- NAV BETWEEN PROJECTS -->
 <div class="project-nav">
-  <a href="project-4.html">← Projeto anterior</a>
-  <a href="project-1.html">Projeto seguinte →</a>
+  <a href="project-4.html">← Last Night</a>
+  <a href="project-1.html">From Blue Walls to White Silence →</a>
 </div>
+
+<footer>© 2025 — Pedro Cruz</footer>
 
 <script>
-let images=document.querySelectorAll('.gallery img');
-let lightbox=document.getElementById('lightbox');
-let lightboxImg=document.getElementById('lightbox-img');
-let caption=document.getElementById('caption');
-let index=0;
+const imgs=document.querySelectorAll('.gallery img');
+let current=0;
 
-images.forEach((img,i)=>{
-  img.addEventListener('click',()=>{
-    index=i;
-    openLightbox();
-  });
+/* LIGHTBOX */
+function openLB(i){
+  current=i;
+  lb.classList.add("active");
+  updateLB();
+}
+
+function closeLB(){
+  lb.classList.remove("active");
+}
+
+function updateLB(){
+  lbimg.src=imgs[current].src;
+  lbcap.textContent = imgs[current].dataset.caption;
+}
+
+function nextImg(){
+  current=(current+1)%imgs.length;
+  updateLB();
+}
+
+function prevImg(){
+  current=(current-1+imgs.length)%imgs.length;
+  updateLB();
+}
+
+imgs.forEach((img,i)=>img.addEventListener("click",()=>openLB(i)));
+
+lb.addEventListener("click",e=>{
+  if(e.target===lb) closeLB();
 });
 
-function openLightbox(){
-  lightbox.style.display='flex';
-  lightboxImg.src=images[index].src;
-  caption.innerText=images[index].dataset.caption;
-}
-function closeLightbox(){lightbox.style.display='none'}
-function changeImage(step){
-  index=(index+step+images.length)%images.length;
-  openLightbox();
-}
+/* KEYBOARD */
+document.addEventListener("keydown",e=>{
+  if(lb.classList.contains("active")){
+    if(e.key==="ArrowRight") nextImg();
+    if(e.key==="ArrowLeft") prevImg();
+    if(e.key==="Escape") closeLB();
+  } else {
+    if(e.key==="ArrowLeft") window.location.href="project-4.html";
+    if(e.key==="ArrowRight") window.location.href="project-1.html";
+  }
+});
 
-// language toggle
-function showPT(){document.getElementById('pt').style.display='block';document.getElementById('en').style.display='none'}
-function showEN(){document.getElementById('pt').style.display='none';document.getElementById('en').style.display='block'}
+/* LANGUAGE */
+function setLang(l){
+  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==="pt"?"block":"none");
+  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==="en"?"block":"none");
+  ptb.classList.toggle('active',l==="pt");
+  enb.classList.toggle('active',l==="en");
+}
 </script>
 
 </body>
