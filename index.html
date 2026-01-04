@@ -2,314 +2,284 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pedro Cruz — Photography</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedro Cruz</title>
 
 <style>
-:root{
-  --bg:#0b0b0b;
-  --text:#eaeaea;
-  --shadow:0 10px 28px rgba(0,0,0,.18);
-  --shadow-hover:0 16px 40px rgba(0,0,0,.28);
-}
 
-*{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#111;
-  color:#eee;
+font-family: Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+color:#111;
 }
 
-header{
-  padding:28px;
-  text-align:center;
+/* HEADER */
+
+.header{
+padding:80px 30px 40px 30px;
+text-align:center;
 }
 
-h1{margin:0;font-size:28px}
-p{line-height:1.6}
-
-.lang-switch span{
-  cursor:pointer;margin:0 6px;font-size:12px;opacity:.6
+.header h1{
+font-size:34px;
+font-weight:400;
+margin-bottom:10px;
 }
-.lang-switch .active{opacity:1;text-decoration:underline}
 
-/* nav lateral */
-nav#project-nav{
-  position:fixed;
-  left:0;
-  top:120px;
-  width:180px;
-  padding:10px;
+.header p{
+color:#555;
 }
-nav#project-nav a{
-  display:block;
-  color:#bbb;
-  margin-bottom:10px;
-  text-decoration:none;
-  font-size:13px;
-}
-nav#project-nav a:hover{color:#fff}
 
-/* content offset */
-section{margin-left:200px;padding:20px 28px}
 
-/* project meta */
-.project-meta{margin-top:40px}
+/* PROJECT GRID */
 
-/* grid */
 .projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
-.card{
-  position:relative;
-  background:#000;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  cursor:pointer;
-  transition:.25s;
-}
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-hover);
-}
-.card img{
-  width:100%;
-  height:340px;
-  object-fit:cover;
+max-width:1100px;
+margin:60px auto;
+padding:0 20px;
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap:30px;
 }
 
-/* lightbox */
+.project{
+text-align:center;
+}
+
+.project img{
+width:100%;
+height: auto;
+border-radius:4px;
+cursor:pointer;
+transition: opacity .25s ease;
+}
+
+.project img:hover{
+opacity:0.8;
+}
+
+.project-title{
+margin-top:10px;
+font-size:16px;
+font-weight:600;
+}
+
+.project-desc{
+font-size:14px;
+color:#666;
+}
+
+
+/* LIGHTBOX */
+
 .lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.92);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:20;
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+z-index:9999;
+align-items:center;
+justify-content:center;
 }
+
 .lightbox img{
-  max-width:90%;
-  max-height:82%;
-  border-radius:6px;
+max-width:90%;
+max-height:85%;
+border-radius:4px;
 }
-.caption{
-  color:#fff;
-  margin-top:14px;
-  font-size:13px;
-  text-align:center;
-}
-.prev,.next,.close{
-  position:absolute;
-  color:#fff;
-  font-size:34px;
-  cursor:pointer;
-  user-select:none;
-}
-.prev{left:2%;top:50%}
-.next{right:2%;top:50%}
-.close{top:20px;right:30px;font-size:38px}
 
-/* footer */
-footer{text-align:center;padding:30px 0;color:#888}
+.lightbox-caption{
+margin-top:15px;
+text-align:center;
+color:#eee;
+font-size:14px;
+max-width:90%;
+}
+
+.lightbox-close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:30px;
+color:#fff;
+cursor:pointer;
+}
+
+.nav-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+color:white;
+cursor:pointer;
+padding:10px 14px;
+background:rgba(0,0,0,.4);
+border-radius:6px;
+}
+
+.nav-btn:hover{
+background:black;
+}
+
+#prev{ left:25px; }
+#next{ right:25px; }
+
+
+@media(max-width:700px){
+
+.header{
+padding-top:60px;
+}
+
+.nav-btn{
+font-size:30px;
+}
+
+}
+
 </style>
-</head>
 
+</head>
 <body>
 
-<header>
-  <div class="lang-switch">
-    <span id="btn-pt" class="active" onclick="setLang('pt')">PT</span> |
-    <span id="btn-en" onclick="setLang('en')">EN</span>
-  </div>
 
-  <h1>Pedro Cruz</h1>
-  <p>Photography · Improvisation · Presence</p>
-</header>
-
-
-<nav id="project-nav"></nav>
-
-
-<section>
-  <div class="about">
-    <div class="lang-pt">
-      <p>Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação e experimentação.</p>
-    </div>
-    <div class="lang-en" style="display:none;">
-      <p>I was born in 1971. Photography entered my life early as a space for observation and experimentation.</p>
-    </div>
-  </div>
-
-  <!-- PROJECT 1 -->
-  <div class="project-meta" id="project-1">
-    <h2 data-title-pt="From Blue Walls to White Silence" data-title-en="From Blue Walls to White Silence">
-      From Blue Walls to White Silence
-    </h2>
-    <p>Chefchaouen · 2007</p>
-  </div>
-  <div class="projects" id="projects-cor"></div>
-
-  <!-- PROJECT 2 -->
-  <div class="project-meta" id="project-2">
-    <h2 data-title-pt="Under the Same Weather" data-title-en="Under the Same Weather">
-      Under the Same Weather
-    </h2>
-    <p>2012</p>
-  </div>
-  <div class="projects" id="projects-pb"></div>
-
-  <!-- PROJECT 3 -->
-  <div class="project-meta" id="project-3">
-    <h2 data-title-pt="Inside the Sound" data-title-en="Inside the Sound">
-      Inside the Sound
-    </h2>
-    <p>2024</p>
-  </div>
-  <div class="projects" id="projects-mia"></div>
-
-  <!-- PROJECT 4 -->
-  <div class="project-meta" id="project-4">
-    <h2 data-title-pt="Last Night" data-title-en="Last Night">
-      Last Night
-    </h2>
-    <p>2016</p>
-  </div>
-  <div class="projects" id="projects-cas"></div>
-
-  <!-- PROJECT 5 — LINK PARA A PÁGINA -->
-  <div class="project-meta" id="project-5">
-    <h2>
-      <a href="./projects/structures-of-permanence.html" style="color:#fff;text-decoration:none;">
-        Structures of Permanence →
-      </a>
-    </h2>
-    <p>Long-term photographic project</p>
-  </div>
-
-</section>
-
-
-
-<footer>
-  © 2025 — Pedro Cruz
-</footer>
-
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">×</span>
-  <span class="prev" onclick="changeImage(-1)">❮</span>
-  <img id="lightbox-img">
-  <div class="caption" id="caption"></div>
-  <span class="next" onclick="changeImage(1)">❯</span>
+<div class="header">
+<h1>Pedro Cruz</h1>
+<p>Fotografia . Observação . Estrutura</p>
 </div>
 
 
+<div class="projects">
+
+
+<!-- PROJECT 1 -->
+<div class="project">
+<a href="projects/project-1.html">
+<img src="assets/cas/cas01.jpg" alt="">
+</a>
+<div class="project-title">Projecto 1</div>
+<div class="project-desc">Explorações visuais em contexto urbano</div>
+</div>
+
+
+<!-- PROJECT 2 -->
+<div class="project">
+<a href="projects/project-2.html">
+<img src="assets/pb/pb01.jpg" alt="">
+</a>
+<div class="project-title">Projecto 2</div>
+<div class="project-desc">Narrativas em preto e branco</div>
+</div>
+
+
+<!-- PROJECT 3 -->
+<div class="project">
+<a href="projects/project-3.html">
+<img src="assets/mia/mia01.jpg" alt="">
+</a>
+<div class="project-title">Projecto 3</div>
+<div class="project-desc">Olhar íntimo e aproximado</div>
+</div>
+
+
+<!-- PROJECT 4 -->
+<div class="project">
+<a href="projects/project-4.html">
+<img src="assets/cor/cor01.jpg" alt="">
+</a>
+<div class="project-title">Projecto 4</div>
+<div class="project-desc">Cor, ambiente e textura</div>
+</div>
+
+
+
+<!-- PROJECT 5 — STRUCTURES OF PERMANENCE -->
+<div class="project">
+<a href="projects/structures-of-permanence.html">
+<img src="assets/estrutura/_1est18.jpg" alt="Structures of Permanence">
+</a>
+<div class="project-title">Structures of Permanence</div>
+<div class="project-desc">Arquitecturas que persistem, resistem e se transformam</div>
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+<span class="lightbox-close" onclick="closeLightbox()">×</span>
+<span class="nav-btn" id="prev" onclick="changeImage(-1)">❮</span>
+<span class="nav-btn" id="next" onclick="changeImage(1)">❯</span>
+
+<div class="lightbox-content">
+<img id="lightbox-img">
+<div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+</div>
+
+
+
 <script>
-// =============================
-//   LANGUAGE
-// =============================
-let currentLang='pt';
+let images = document.querySelectorAll(".project img");
+let lightbox = document.getElementById("lightbox");
+let lightImg = document.getElementById("lightbox-img");
+let caption = document.getElementById("lightbox-caption");
+let currentIndex = 0;
 
-function setLang(lang){
-  currentLang=lang;
-  document.querySelector('.lang-pt').style.display=lang==='pt'?'block':'none';
-  document.querySelector('.lang-en').style.display=lang==='en'?'block':'none';
-  document.getElementById('btn-pt').classList.toggle('active',lang==='pt');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+let captions = [
+"Projecto 1 — Explorações visuais em contexto urbano",
+"Projecto 2 — Narrativas em preto e branco",
+"Projecto 3 — Olhar íntimo e aproximado",
+"Projecto 4 — Cor, ambiente e textura",
+"Structures of Permanence — Arquitecturas que persistem"
+];
 
-  document.querySelectorAll('.project-meta h2').forEach(h=>{
-    if(h.dataset['titlePt']){
-      h.innerText = lang==='pt'? h.dataset['titlePt'] : h.dataset['titleEn'];
-    }
-  });
-
-  document.querySelectorAll('#project-nav a').forEach(a=>{
-    a.innerText = currentLang==='pt'
-      ? a.dataset.titlePt
-      : a.dataset.titleEn;
-  });
-}
-
-
-// =============================
-//   IMAGES / PROJECT DATA
-// =============================
-const imageGroups={
-  cor:{ images:["01","02","04","06","07"].map(n=>`./assets/cor/Paisagen_cheff${n}.jpg`) },
-  pb:{  images:["01","02","03","05","08"].map(n=>`./assets/pb/Paisagen_pb${n}.jpg`) },
-  mia:{ images:["01","03","05","07","09"].map(n=>`./assets/mia/mia${n}.jpg`) },
-  cas:{ images:["01","02","03","04","05","06","07","08"].map(n=>`./assets/cas/cas${n}.jpg`) }
-};
-
-
-// =============================
-//   GRID BUILDER
-// =============================
-function createCards(groupId){
-  const container=document.getElementById('projects-'+groupId);
-  imageGroups[groupId].images.forEach((src,i)=>{
-    const card=document.createElement('div');
-    card.className='card';
-    card.onclick=()=>openLightbox(groupId,i);
-    card.innerHTML=`<img loading="lazy" src="${src}">`;
-    container.appendChild(card);
-  });
-}
-
-['cor','pb','mia','cas'].forEach(createCards);
-
-
-// =============================
-//   LIGHTBOX
-// =============================
-let currentGroup=null;
-let index=0;
-
-function openLightbox(group,i){
-  currentGroup=group;
-  index=i;
-  updateLightbox();
-  document.getElementById('lightbox').style.display='flex';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').style.display='none';
-}
-function changeImage(step){
-  index=(index+step+imageGroups[currentGroup].images.length)%imageGroups[currentGroup].images.length;
-  updateLightbox();
-}
-function updateLightbox(){
-  document.getElementById('lightbox-img').src=imageGroups[currentGroup].images[index];
-  document.getElementById('caption').innerText=`${index+1} / ${imageGroups[currentGroup].images.length}`;
-}
-
-
-// =============================
-//   PROJECT NAV
-// =============================
-const nav=document.getElementById('project-nav');
-
-document.querySelectorAll('.project-meta').forEach(sec=>{
-  const a=document.createElement('a');
-  a.href='#'+sec.id;
-
-  const h=sec.querySelector('h2');
-
-  a.dataset.titlePt=h.dataset.titlePt || h.innerText.trim();
-  a.dataset.titleEn=h.dataset.titleEn || h.innerText.trim();
-
-  a.innerText=a.dataset.titlePt;
-
-  nav.appendChild(a);
+// Open
+images.forEach((img,i)=>{
+img.addEventListener("click", ()=>{
+currentIndex = i;
+openLightbox();
+});
 });
 
+function openLightbox(){
+lightbox.style.display="flex";
+lightImg.src = images[currentIndex].src;
+caption.textContent = captions[currentIndex] || "";
+}
+
+// Close
+function closeLightbox(){
+lightbox.style.display="none";
+}
+
+// Change
+function changeImage(step){
+currentIndex += step;
+if(currentIndex<0) currentIndex = images.length-1;
+if(currentIndex>=images.length) currentIndex = 0;
+openLightbox();
+}
+
+// Key Controls
+document.addEventListener("keydown", e=>{
+if(lightbox.style.display==="flex"){
+if(e.key==="ArrowRight") changeImage(1);
+if(e.key==="ArrowLeft") changeImage(-1);
+if(e.key==="Escape") closeLightbox();
+}
+});
 </script>
+
 
 </body>
 </html>
