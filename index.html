@@ -199,7 +199,7 @@ gap:26px;
 <!-- PROJECT 5 — STRUCTURES OF PERMANENCE -->
 <div class="project">
 <a href="projects/structures-of-permanence.html">
-<img src="assets/estrutura/_1est18.jpg" alt="Structures of Permanence">
+<img src="assets/estrutura/_1est18.jpg" alt="Structures of Permanence — Arquitecturas que persistem, resistem e se transformam">
 </a>
 <div class="project-title">Structures of Permanence</div>
 <div class="project-desc">Arquitecturas que persistem, resistem e se transformam</div>
@@ -216,20 +216,21 @@ gap:26px;
 <span class="nav-btn" id="prev" onclick="changeImage(-1)">❮</span>
 <span class="nav-btn" id="next" onclick="changeImage(1)">❯</span>
 
-<div class="lightbox-content">
 <img id="lightbox-img">
 <div class="lightbox-caption" id="lightbox-caption"></div>
-</div>
 </div>
 
 
 
 <script>
-let images = document.querySelectorAll(".project img:not([alt='Structures of Permanence'])");
+let images = document.querySelectorAll(".project img");
 let lightbox = document.getElementById("lightbox");
 let lightImg = document.getElementById("lightbox-img");
 let caption = document.getElementById("lightbox-caption");
 let currentIndex = 0;
+
+// Only first 4 images open in lightbox
+let galleryImages = Array.from(images).slice(0,4);
 
 let captions = [
 "Projecto 1 — Explorações visuais em contexto urbano",
@@ -239,7 +240,7 @@ let captions = [
 ];
 
 // Open lightbox
-images.forEach((img,i)=>{
+galleryImages.forEach((img,i)=>{
 img.addEventListener("click", ()=>{
 currentIndex = i;
 openLightbox();
@@ -248,7 +249,7 @@ openLightbox();
 
 function openLightbox(){
 lightbox.style.display="flex";
-lightImg.src = images[currentIndex].src;
+lightImg.src = galleryImages[currentIndex].src;
 caption.textContent = captions[currentIndex] || "";
 }
 
@@ -260,8 +261,8 @@ lightbox.style.display="none";
 // Change
 function changeImage(step){
 currentIndex += step;
-if(currentIndex<0) currentIndex = images.length-1;
-if(currentIndex>=images.length) currentIndex = 0;
+if(currentIndex<0) currentIndex = galleryImages.length-1;
+if(currentIndex>=galleryImages.length) currentIndex = 0;
 openLightbox();
 }
 
