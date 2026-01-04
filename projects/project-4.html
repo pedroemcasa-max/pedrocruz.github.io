@@ -12,6 +12,7 @@ body{
   font-family:Helvetica,Arial,sans-serif;
   background:#0b0b0b;
   color:#eaeaea;
+  line-height:1.6;
 }
 
 /* HOME */
@@ -27,7 +28,6 @@ body{
   text-decoration:none;
   color:#eaeaea;
 }
-.home-link a:hover{opacity:1}
 
 /* LANG */
 .lang-switch{
@@ -47,13 +47,29 @@ body{
   opacity:1;
 }
 
-header{text-align:center;padding:120px 24px 80px}
+/* PROJECT NAV */
+.project-nav{
+  margin-top:74px;
+  text-align:center;
+  opacity:.85;
+  font-size:.85rem;
+}
+.project-nav a{
+  color:#eaeaea;
+  text-decoration:none;
+  margin:0 10px;
+}
+
+/* HEADER */
+header{text-align:center;padding:80px 24px 60px}
 header h1{font-size:1.8rem;font-weight:400}
 header p{font-size:.9rem;opacity:.6}
 
+/* TEXT */
 .text{max-width:720px;margin:0 auto 120px;font-size:.95rem;opacity:.9}
 .text p{margin-bottom:1.4em}
 
+/* GRID */
 .projects{
   max-width:1400px;
   margin:0 auto;
@@ -68,24 +84,6 @@ header p{font-size:.9rem;opacity:.6}
   background-position:center;
   cursor:pointer;
 }
-
-/* NAV PROJECTS */
-nav.project-nav{
-  position:fixed;
-  top:50%;
-  right:20px;
-  transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-nav.project-nav a{
-  color:#eaeaea;
-  text-decoration:none;
-  font-size:.9rem;
-  opacity:.7;
-}
-nav.project-nav a:hover{opacity:1;text-decoration:underline}
 
 /* LIGHTBOX */
 .lightbox{
@@ -107,7 +105,7 @@ nav.project-nav a:hover{opacity:1;text-decoration:underline}
 .caption{
   margin-top:20px;
   font-size:.85rem;
-  opacity:.7;
+  opacity:.75;
   text-align:center;
 }
 
@@ -137,8 +135,10 @@ nav.project-nav a:hover{opacity:1;text-decoration:underline}
 .lb-prev{left:22px}
 .lb-next{right:22px}
 
+/* FOOTER */
 footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
 
+/* MOBILE */
 @media(max-width:600px){
  header h1{font-size:1.45rem}
  .projects{gap:20px}
@@ -155,6 +155,13 @@ footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
 <div class="lang-switch">
   <span id="pt" class="active" onclick="setLang('pt')">PT</span>
   <span id="en" onclick="setLang('en')">EN</span>
+</div>
+
+<!-- PROJECT NAV -->
+<div class="project-nav">
+  <a href="project-3.html">← Projecto anterior</a>
+  <a href="../index.html">Home</a>
+  <a href="project-5.html">Projecto seguinte →</a>
 </div>
 
 <header>
@@ -187,11 +194,6 @@ footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
   <div class="card" style="background-image:url('../assets/cas/cas07.jpg')" onclick="openLB(6)"></div>
   <div class="card" style="background-image:url('../assets/cas/cas08.jpg')" onclick="openLB(7)"></div>
 </section>
-
-<nav class="project-nav">
-  <a href="project-3.html">← Inside the Sound</a>
-  <a href="project-5.html">Next → Estruturas de Permanência</a>
-</nav>
 
 <footer>© 2025 — Pedro Cruz</footer>
 
@@ -268,9 +270,6 @@ document.addEventListener("keydown",e=>{
     if(e.key==="ArrowRight") nextImg();
     if(e.key==="ArrowLeft") prevImg();
     if(e.key==="Escape") closeLB();
-  } else {
-    if(e.key==="ArrowLeft") window.location.href="project-3.html";
-    if(e.key==="ArrowRight") window.location.href="project-5.html";
   }
 });
 </script>
