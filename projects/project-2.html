@@ -217,8 +217,22 @@ const images=[
  "../assets/pb/Paisagen_pb08.jpg"
 ];
 
-const capsPT=["Início","Céu","Passagem","Entre","Noite"];
-const capsEN=["Beginning","Sky","Passage","Between","Night"];
+/* --- TÍTULOS DAS FOTOS --- */
+const capsPT=[
+ "Início",
+ "Céu",
+ "Passagem",
+ "Entre",
+ "Noite"
+];
+
+const capsEN=[
+ "Beginning",
+ "Sky",
+ "Passage",
+ "Between",
+ "Night"
+];
 
 let index=0;
 
@@ -232,13 +246,23 @@ function openLB(i){
 /* UPDATE */
 function updateLB(){
  lbimg.src=images[index];
- cap_pt.textContent=capsPT[index];
- cap_en.textContent=capsEN[index];
+ cap-pt=document.getElementById("cap-pt");
+ cap-en=document.getElementById("cap-en");
+ cap-pt.textContent=capsPT[index];
+ cap-en.textContent=capsEN[index];
 }
 
 /* NAV */
-function next(e){e?.stopPropagation();index=(index+1)%images.length;updateLB();}
-function prev(e){e?.stopPropagation();index=(index-1+images.length)%images.length;updateLB();}
+function next(e){
+ e?.stopPropagation();
+ index=(index+1)%images.length;
+ updateLB();
+}
+function prev(e){
+ e?.stopPropagation();
+ index=(index-1+images.length)%images.length;
+ updateLB();
+}
 
 /* CLOSE */
 function closeLB(){lb.classList.remove('active')}
