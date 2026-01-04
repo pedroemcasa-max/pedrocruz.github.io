@@ -23,9 +23,7 @@
   --card-hover-shadow: 0 4px 8px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.3), 0 20px 40px rgba(0,0,0,0.4);
 }
 
-* { 
-  box-sizing: border-box; 
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -34,21 +32,6 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   scroll-behavior: smooth;
-}
-
-/* Suporte para prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  body {
-    scroll-behavior: auto;
-  }
 }
 
 header {
@@ -62,16 +45,16 @@ header {
   background: linear-gradient(rgba(11,11,11,0.9), rgba(11,11,11,0.7));
 }
 
-header h1 { 
-  font-size: clamp(1.8rem, 5vw, 2.2rem); 
-  font-weight: 400; 
-  margin: 0; 
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  font-weight: 400;
+  margin: 0;
 }
 
-header p { 
-  margin-top: 12px; 
-  font-size: clamp(.85rem, 2.5vw, .95rem); 
-  opacity: .85; 
+header p {
+  margin-top: 12px;
+  font-size: clamp(.85rem, 2.5vw, .95rem);
+  opacity: .85;
 }
 
 .lang-switch {
@@ -79,31 +62,17 @@ header p {
   top: 24px;
   right: 24px;
   font-size: .75rem;
-  opacity: .8;
 }
 
 .lang-switch span {
   margin-left: 8px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 4px 8px;
   border-radius: 4px;
-  outline: none;
 }
 
-.lang-switch span:hover,
-.lang-switch span:focus {
-  background: rgba(255,255,255,0.1);
-}
-
-.lang-switch span:focus {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
-.lang-switch span.active { 
-  text-decoration: underline; 
-  opacity: 1; 
+.lang-switch span.active {
+  text-decoration: underline;
   background: rgba(255,255,255,0.15);
 }
 
@@ -113,145 +82,51 @@ section {
   padding: clamp(60px, 8vw, 120px) 24px;
 }
 
-@media(max-width:768px){
-  section { padding: 60px 16px; }
-  .lang-switch { top: 16px; right: 16px; }
+section:first-of-type {
+  padding-top: clamp(40px, 6vw, 80px);
+  padding-bottom: clamp(40px, 6vw, 80px);
 }
 
-.about { 
-  max-width: 720px; 
-  margin: 0 auto; 
-  font-size: .95rem; 
-  opacity: .85; 
+.about {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: .95rem;
+  opacity: .85;
 }
 
-.about p { 
-  margin-bottom: 1.4em; 
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-}
-
-.lang-en { 
-  display: none; 
-}
+.lang-en { display: none; }
 
 .project-meta {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 36px;
   scroll-margin-top: 40px;
 }
 
-.project-meta h2 { 
-  font-size: clamp(1.2rem, 3vw, 1.4rem); 
-  font-weight: 400; 
-  margin-bottom: 8px; 
+.project-meta h2 {
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  font-weight: 400;
 }
 
-.project-meta p { 
-  font-size: .9rem; 
-  opacity: .85; 
-  margin: 4px 0; 
-}
-
-/* MODIFICAÇÃO: Grid com proporções iguais */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 30px;
-  content-visibility: auto;
-  contain-intrinsic-size: 400px;
+  margin-bottom: clamp(80px, 10vw, 140px);
 }
 
-/* Limite máximo para telas muito grandes */
-@media (min-width: 2000px) {
-  .projects {
-    max-width: 1800px;
-    margin: 0 auto;
-  }
-}
-
-/* MODIFICAÇÃO: Cards com proporção fixa 4:3 */
 .card {
   position: relative;
   cursor: pointer;
   border-radius: 12px;
   overflow: hidden;
-  transition: transform var(--transition-speed), 
-              box-shadow var(--transition-speed);
-  will-change: transform;
-  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-  background-size: 200% 100%;
-  box-shadow: var(--card-shadow);
-  outline: none;
-  aspect-ratio: 4/3; /* Proporção fixa 4:3 */
-  height: auto; /* Remove altura fixa */
+  aspect-ratio: 4 / 3;
+  background: #1a1a1a;
 }
 
-.card:active {
-  transform: scale(0.98);
-}
-
-/* MODIFICAÇÃO: Container da imagem com proporção fixa */
-.card-img-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-/* MODIFICAÇÃO: Imagens com object-fit: cover para preencher o container */
 .card-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* MUDADO de contain para cover */
-  transition: transform var(--transition-speed);
-  display: block;
-}
-
-/* MODIFICAÇÃO: Overlay sutil no hover */
-.card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0);
-  transition: background var(--transition-speed);
-  pointer-events: none;
-}
-
-.card:hover .card-overlay {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.card[data-loaded="true"] {
-  background: none;
-}
-
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-.card.loading {
-  animation: loading 1.5s infinite;
-}
-
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: var(--card-hover-shadow);
-}
-
-.card:hover .card-img {
-  transform: scale(1.05);
-}
-
-.card:focus {
-  outline: 2px solid var(--text-primary);
-  outline-offset: 4px;
-  transform: scale(1.02);
+  object-fit: cover;
 }
 
 .lightbox {
@@ -259,353 +134,29 @@ section {
   inset: 0;
   background: rgba(0,0,0,.98);
   display: none;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  z-index: 9999;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity var(--transition-speed);
 }
 
-.lightbox.active { 
-  display: flex; 
-  opacity: 1;
-}
+.lightbox.active { display: flex; }
 
-.lightbox img { 
-  max-width: min(92vw, 1200px); 
-  max-height: 82vh; 
-  border-radius: 8px;
-  object-fit: contain;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.lightbox .caption {
-  margin-top: 20px;
-  font-size: .85rem;
-  opacity: .9;
+footer {
+  padding: 80px 20px;
   text-align: center;
-  background: rgba(0,0,0,0.5);
-  padding: 8px 16px;
-  border-radius: 8px;
-  max-width: 80%;
-}
-
-/* Contador de imagens no lightbox */
-.lightbox-counter {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: white;
-  opacity: 0.7;
-  font-size: 0.9rem;
-  background: rgba(0,0,0,0.5);
-  padding: 6px 12px;
-  border-radius: 20px;
-  z-index: 10001;
-}
-
-.lightbox .prev,
-.lightbox .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-  color: #fff;
-  cursor: pointer;
-  user-select: none;
+  font-size: .8rem;
   opacity: .7;
-  transition: opacity .2s, background .2s;
-  padding: 20px 10px;
-  z-index: 10000;
-  border-radius: 4px;
-  outline: none;
-}
-
-.lightbox .prev:hover,
-.lightbox .next:hover,
-.lightbox .prev:focus,
-.lightbox .next:focus { 
-  opacity: 1; 
-  background: rgba(255,255,255,0.1);
-}
-
-.lightbox .prev { left: 20px; }
-.lightbox .next { right: 20px; }
-
-.lightbox .close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  opacity: .7;
-  transition: opacity .2s, background .2s;
-  padding: 10px;
-  z-index: 10000;
-  border-radius: 4px;
-  line-height: 1;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-}
-
-.lightbox .close:hover,
-.lightbox .close:focus { 
-  opacity: 1; 
-  background: rgba(255,255,255,0.1);
-}
-
-/* Loading indicator aprimorado */
-.loading-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(255,255,255,0.2);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 1s ease-in-out infinite;
-  z-index: 1;
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
-
-@keyframes spin {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-footer { 
-  padding: 80px 20px; 
-  text-align: center; 
-  font-size: .8rem; 
-  opacity: .7; 
   border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-#backTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--text-primary);
-  color: var(--bg-primary);
-  padding: 10px 14px;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  opacity: .6;
-  transition: opacity var(--transition-speed), transform .2s;
-  z-index: 999;
-  border: none;
-  outline: none;
-}
-
-#backTop:hover,
-#backTop:focus { 
-  opacity: 1; 
-  transform: scale(1.1); 
-}
-
-#backTop:focus {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
-#backTop.hidden {
-  display: none;
-}
-
-/* MODIFICAÇÃO: Remover classes de tamanho diferentes */
-.card-size-small,
-.card-size-medium,
-.card-size-large {
-  /* Todas as classes removidas - agora usamos proporção fixa */
-}
-
-@media (max-width: 768px) {
-  .projects {
-    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-    gap: 20px;
-  }
-  
-  .lightbox {
-    padding: 20px;
-  }
-  
-  .lightbox .prev,
-  .lightbox .next {
-    font-size: 2.5rem;
-    padding: 15px 5px;
-  }
-  
-  .lightbox .close {
-    top: 15px;
-    right: 15px;
-  }
-  
-  .lightbox-counter {
-    top: 15px;
-    left: 15px;
-    font-size: 0.8rem;
-  }
-}
-
-/* Print styles */
-@media print {
-  .lang-switch, 
-  #backTop,
-  .lightbox,
-  .lightbox-counter {
-    display: none !important;
-  }
-  
-  .card {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    border: 1px solid #ccc !important;
-    box-shadow: none !important;
-    aspect-ratio: auto !important;
-    height: 300px !important;
-  }
-  
-  .card-img {
-    object-fit: contain !important;
-  }
-  
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  section {
-    padding: 20px !important;
-  }
-  
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
-    opacity: 1;
-  }
-  
-  body {
-    background: white !important;
-    color: black !important;
-  }
-}
-
-/* Project navigation */
-.project-nav {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  z-index: 100;
-  display: none;
-}
-
-@media (min-width: 1200px) {
-  .project-nav {
-    display: block;
-  }
-}
-
-.project-nav a {
-  display: block;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 0.8rem;
-  opacity: 0.6;
-  padding: 8px 12px;
-  margin: 4px 0;
-  border-left: 2px solid transparent;
-  transition: all 0.3s;
-  outline: none;
-}
-
-.project-nav a:hover,
-.project-nav a:focus,
-.project-nav a.active {
-  opacity: 1;
-  border-left-color: var(--text-primary);
-  background: rgba(255,255,255,0.05);
-}
-
-.project-nav a:focus {
-  outline: 1px solid var(--text-primary);
-}
-
-/* Fade-in animação para conteúdo */
-.fade-in {
-  animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animações suaves para preferências de movimento reduzido */
-@media (prefers-reduced-motion: reduce) {
-  .fade-in {
-    animation: none;
-    opacity: 1;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .loading-spinner {
-    animation: spin 2s linear infinite;
-  }
-}
-
-/* MODIFICAÇÃO: Ajustes para imagens verticais */
-.card-img.vertical {
-  object-fit: contain;
-  width: auto;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0 auto;
-}
-
-/* MODIFICAÇÃO: Container para manter proporção uniforme */
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
 }
 </style>
 </head>
 
 <body>
 
-<header class="fade-in">
+<header>
   <div class="lang-switch">
-    <span id="btn-pt" class="active" onclick="setLang('pt')" tabindex="0" role="button" aria-label="Português">PT</span>
-    <span id="btn-en" onclick="setLang('en')" tabindex="0" role="button" aria-label="English">EN</span>
+    <span id="btn-pt" class="active" onclick="setLang('pt')">PT</span>
+    <span id="btn-en" onclick="setLang('en')">EN</span>
   </div>
   <div>
     <h1>Pedro Cruz</h1>
@@ -613,747 +164,110 @@ footer {
   </div>
 </header>
 
-<section class="fade-in">
+<section>
   <div class="about">
     <div class="lang-pt">
-      <p>Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação e experimentação.</p>
+      <p>Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação, escuta e experimentação.</p>
     </div>
     <div class="lang-en">
-      <p>I was born in 1971. Photography entered my life early as a space for observation and experimentation.</p>
+      <p>I was born in 1971. Photography entered my life early as a space for observation, listening, and experimentation.</p>
     </div>
   </div>
 </section>
 
 <section>
-<!-- Project 1: From Blue Walls to White Silence -->
-<div class="project-meta fade-in" id="project-1">
-<h2>From Blue Walls to White Silence</h2>
-<p>Chefchaouen · 2007</p>
+
+<!-- PROJECT 1 -->
+<div class="project-meta" id="project-1">
+  <h2>From Blue Walls to White Silence</h2>
+  <p>Chefchaouen · 2007</p>
 </div>
 <div class="projects">
-<div class="card loading" 
-     data-src="./assets/cor/Paisagen_cheff01.jpg" 
-     onclick="openLightbox('cor',0)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: A Cidade Viva">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="A Cidade Viva">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cor/Paisagen_cheff02.jpg" 
-     onclick="openLightbox('cor',1)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: A Saída">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="A Saída">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cor/Paisagen_cheff04.jpg" 
-     onclick="openLightbox('cor',2)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: O Observador">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="O Observador">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cor/Paisagen_cheff06.jpg" 
-     onclick="openLightbox('cor',3)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Ascensão">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Ascensão">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cor/Paisagen_cheff07.jpg" 
-     onclick="openLightbox('cor',4)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Silêncio">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Silêncio">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
+  <div class="card" onclick="openLightbox('cor',0)"><img class="card-img" src="./assets/cor/Paisagen_cheff01.jpg"></div>
+  <div class="card" onclick="openLightbox('cor',1)"><img class="card-img" src="./assets/cor/Paisagen_cheff02.jpg"></div>
+  <div class="card" onclick="openLightbox('cor',2)"><img class="card-img" src="./assets/cor/Paisagen_cheff04.jpg"></div>
+  <div class="card" onclick="openLightbox('cor',3)"><img class="card-img" src="./assets/cor/Paisagen_cheff06.jpg"></div>
+  <div class="card" onclick="openLightbox('cor',4)"><img class="card-img" src="./assets/cor/Paisagen_cheff07.jpg"></div>
 </div>
 
-<!-- Project 2: Under the Same Weather -->
-<div class="project-meta fade-in" id="project-2">
-<h2>Under the Same Weather</h2>
-<p>2012</p>
+<!-- PROJECT 2 -->
+<div class="project-meta" id="project-2">
+  <h2>Under the Same Weather</h2>
+  <p>2012</p>
 </div>
 <div class="projects">
-<div class="card loading" 
-     data-src="./assets/pb/Paisagen_pb01.jpg" 
-     onclick="openLightbox('pb',0)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Antes">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Antes">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/pb/Paisagen_pb02.jpg" 
-     onclick="openLightbox('pb',1)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Céu">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Céu">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/pb/Paisagen_pb03.jpg" 
-     onclick="openLightbox('pb',2)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Passagem">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Passagem">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/pb/Paisagen_pb05.jpg" 
-     onclick="openLightbox('pb',3)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Entre">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Entre">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/pb/Paisagen_pb08.jpg" 
-     onclick="openLightbox('pb',4)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Noite">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Noite">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
+  <div class="card" onclick="openLightbox('pb',0)"><img class="card-img" src="./assets/pb/Paisagen_pb01.jpg"></div>
+  <div class="card" onclick="openLightbox('pb',1)"><img class="card-img" src="./assets/pb/Paisagen_pb02.jpg"></div>
+  <div class="card" onclick="openLightbox('pb',2)"><img class="card-img" src="./assets/pb/Paisagen_pb03.jpg"></div>
+  <div class="card" onclick="openLightbox('pb',3)"><img class="card-img" src="./assets/pb/Paisagen_pb05.jpg"></div>
+  <div class="card" onclick="openLightbox('pb',4)"><img class="card-img" src="./assets/pb/Paisagen_pb08.jpg"></div>
 </div>
 
-<!-- Project 3: Inside the Sound -->
-<div class="project-meta fade-in" id="project-3">
-<h2>Inside the Sound</h2>
-<p>2024</p>
+<!-- PROJECT 4 (moved before project 3) -->
+<div class="project-meta" id="project-4">
+  <h2>Last Night</h2>
+  <p>2016</p>
 </div>
 <div class="projects">
-<div class="card loading" 
-     data-src="./assets/mia/mia01.jpg" 
-     onclick="openLightbox('mia',0)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Antes">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Antes">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/mia/mia03.jpg" 
-     onclick="openLightbox('mia',1)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Fio">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Fio">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/mia/mia05.jpg" 
-     onclick="openLightbox('mia',2)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Soltar">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Soltar">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/mia/mia07.jpg" 
-     onclick="openLightbox('mia',3)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Negociação">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Negociação">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/mia/mia09.jpg" 
-     onclick="openLightbox('mia',4)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Declaração">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Declaração">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
+  <div class="card" onclick="openLightbox('cas',0)"><img class="card-img" src="./assets/cas/cas01.jpg"></div>
+  <div class="card" onclick="openLightbox('cas',1)"><img class="card-img" src="./assets/cas/cas02.jpg"></div>
+  <div class="card" onclick="openLightbox('cas',2)"><img class="card-img" src="./assets/cas/cas03.jpg"></div>
+  <div class="card" onclick="openLightbox('cas',3)"><img class="card-img" src="./assets/cas/cas04.jpg"></div>
+  <div class="card" onclick="openLightbox('cas',4)"><img class="card-img" src="./assets/cas/cas05.jpg"></div>
+  <div class="card" onclick="openLightbox('cas',5)"><img class="card-img" src="./assets/cas/cas06.jpg"></div>
+  <div class="card" onclick="openLightbox('cas',6)"><img class="card-img" src="./assets/cas/cas07.jpg"></div>
+  <div class="card" onclick="openLightbox('cas',7)"><img class="card-img" src="./assets/cas/cas08.jpg"></div>
 </div>
 
-<!-- Project 4: Last Night -->
-<div class="project-meta fade-in" id="project-4">
-<h2>Last Night</h2>
-<p>2016</p>
+<!-- PROJECT 3 -->
+<div class="project-meta" id="project-3">
+  <h2>Inside the Sound</h2>
+  <p>2024</p>
 </div>
 <div class="projects">
-<div class="card loading" 
-     data-src="./assets/cas/cas01.jpg" 
-     onclick="openLightbox('cas',0)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Antes">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Antes">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
+  <div class="card" onclick="openLightbox('mia',0)"><img class="card-img" src="./assets/mia/mia01.jpg"></div>
+  <div class="card" onclick="openLightbox('mia',1)"><img class="card-img" src="./assets/mia/mia03.jpg"></div>
+  <div class="card" onclick="openLightbox('mia',2)"><img class="card-img" src="./assets/mia/mia05.jpg"></div>
+  <div class="card" onclick="openLightbox('mia',3)"><img class="card-img" src="./assets/mia/mia07.jpg"></div>
+  <div class="card" onclick="openLightbox('mia',4)"><img class="card-img" src="./assets/mia/mia09.jpg"></div>
 </div>
-<div class="card loading" 
-     data-src="./assets/cas/cas02.jpg" 
-     onclick="openLightbox('cas',1)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Fratura">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Fratura">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cas/cas03.jpg" 
-     onclick="openLightbox('cas',2)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Instável">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Instável">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cas/cas04.jpg" 
-     onclick="openLightbox('cas',3)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Suspensa">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Suspensa">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cas/cas05.jpg" 
-     onclick="openLightbox('cas',4)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Eco">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Eco">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cas/cas06.jpg" 
-     onclick="openLightbox('cas',5)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Padrão">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Padrão">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cas/cas07.jpg" 
-     onclick="openLightbox('cas',6)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Colapso">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Colapso">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-<div class="card loading" 
-     data-src="./assets/cas/cas08.jpg" 
-     onclick="openLightbox('cas',7)"
-     tabindex="0"
-     role="button"
-     aria-label="Open image: Depois">
-  <div class="card-inner">
-    <div class="card-img-container">
-      <img class="card-img" alt="Depois">
-      <div class="card-overlay"></div>
-    </div>
-    <div class="loading-spinner"></div>
-  </div>
-</div>
-
 
 </section>
 
-<footer class="fade-in">
+<footer>
   <p>© 2025 — Pedro Cruz</p>
-  <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.5;">All photographs are copyright protected</p>
+  <p style="font-size:.7rem;opacity:.5;">All photographs are copyright protected</p>
 </footer>
-
-<button id="backTop" class="hidden" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="prev" onclick="prevImage(event)" aria-label="Imagem anterior">‹</span>
-  <img id="lightbox-img" alt="">
-  <span class="next" onclick="nextImage(event)" aria-label="Próxima imagem">›</span>
-  <div class="close" onclick="closeLightbox()" aria-label="Fechar">×</div>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
-  <div class="caption" id="lightbox-caption"></div>
-</div>
 
 <script>
 let currentLang = 'pt';
-let currentGroup = null;
-let currentIndex = 0;
-
-// Structured data for SEO
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Pedro Cruz",
-  "jobTitle": "Photographer",
-  "description": "Contemporary photographer specializing in visual storytelling and observation",
-  "birthDate": "1971",
-  "url": window.location.href,
-  "knowsAbout": ["Photography", "Contemporary Art", "Visual Storytelling"],
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Independent Artist"
-  }
-};
-
-// Add structured data to page
-const script = document.createElement('script');
-script.type = 'application/ld+json';
-script.textContent = JSON.stringify(structuredData);
-document.head.appendChild(script);
 
 const imageGroups = {
-  cor: { 
-    images: ["01","02","04","06","07"].map(n=>`./assets/cor/Paisagen_cheff${n}.jpg`), 
-    titles: {
-      pt: ["A Cidade Viva","A Saída","O Observador","Ascensão","Silêncio"],
-      en: ["Living City","Exit","Watcher","Ascent","Silence"]
-    } 
+  cor: {
+    images: ["01","02","04","06","07"].map(n=>`./assets/cor/Paisagen_cheff${n}.jpg`)
   },
-  pb: { 
-    images: ["01","02","03","05","08"].map(n=>`./assets/pb/Paisagen_pb${n}.jpg`), 
-    titles: {
-      pt: ["Antes","Céu","Passagem","Entre","Noite"],
-      en: ["Before","Sky","Passage","Between","Night"]
-    } 
+  pb: {
+    images: ["01","02","03","05","08"].map(n=>`./assets/pb/Paisagen_pb${n}.jpg`)
   },
-  mia: { 
-    images: ["01","03","05","07","09"].map(n=>`./assets/mia/mia${n}.jpg`), 
-    titles: {
-      pt: ["Antes","Fio","Soltar","Negociação","Declaração"],
-      en: ["Before","Thread","Release","Negotiation","Statement"]
-    } 
+  cas: {
+    images: ["01","02","03","04","05","06","07","08"].map(n=>`./assets/cas/cas${n}.jpg`)
   },
-  cas: { 
-    images: ["01","02","03","04","05","06","07","08"].map(n=>`./assets/cas/cas${n}.jpg`), 
-    titles: {
-      pt: ["Antes","Fratura","Instável","Suspensa","Eco","Padrão","Colapso","Depois"],
-      en: ["Before","Fracture","Unstable","Suspended","Echo","Pattern","Collapse","After"]
-    } 
+  mia: {
+    images: ["01","03","05","07","09"].map(n=>`./assets/mia/mia${n}.jpg`)
   }
- 
-
- 
 };
-
-// Função para detectar se uma imagem é vertical
-function isImageVertical(img) {
-  return img.naturalHeight > img.naturalWidth;
-}
-
-// Lazy load images com ajuste automático
-function lazyLoadImages() {
-  const cards = document.querySelectorAll('.card.loading');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const card = entry.target;
-        const src = card.getAttribute('data-src');
-        const imgElement = card.querySelector('.card-img');
-        
-        const img = new Image();
-        
-        img.onload = () => {
-          imgElement.src = src;
-          
-          // Verificar se a imagem é vertical
-          if (isImageVertical(img)) {
-            imgElement.classList.add('vertical');
-            imgElement.style.objectFit = 'contain';
-          } else {
-            imgElement.classList.remove('vertical');
-            imgElement.style.objectFit = 'cover';
-          }
-          
-          card.classList.remove('loading');
-          card.setAttribute('data-loaded', 'true');
-          const spinner = card.querySelector('.loading-spinner');
-          if (spinner) spinner.remove();
-          
-          // Adicionar um overlay para melhor contraste
-          const overlay = card.querySelector('.card-overlay');
-          if (overlay) {
-            overlay.style.background = 'rgba(0, 0, 0, 0.1)';
-          }
-        };
-        
-        img.onerror = () => {
-          imgElement.src = '';
-          imgElement.alt = 'Image not available';
-          card.classList.remove('loading');
-          card.setAttribute('data-loaded', 'false');
-          card.innerHTML = '<div class="card-img-container"><span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.5;text-align:center;">Image not available</span></div>';
-        };
-        
-        img.src = src;
-        observer.unobserve(card);
-      }
-    });
-  }, {
-    rootMargin: '100px',
-    threshold: 0.1
-  });
-  
-  cards.forEach(card => observer.observe(card));
-}
-
-// Preload images
-function preloadImages() {
-  Object.values(imageGroups).forEach(group => {
-    group.images.forEach(src => {
-      const img = new Image();
-      img.onload = function() {
-        console.log(`Image loaded: ${src}`);
-      };
-      img.onerror = function() {
-        console.error(`Failed to load image: ${src}`);
-      };
-      img.src = src;
-    });
-  });
-}
-
-function openLightbox(g, i) { 
-  currentGroup = imageGroups[g]; 
-  currentIndex = i; 
-  const lightbox = document.getElementById("lightbox");
-  lightbox.classList.add("active");
-  updateLightbox();
-  document.body.style.overflow = 'hidden'; // Prevent scrolling
-  
-  // Log analytics event
-  logEvent('lightbox_open', { group: g, index: i });
-}
-
-function updateLightbox() { 
-  const lightboxImg = document.getElementById("lightbox-img");
-  const caption = document.getElementById("lightbox-caption");
-  const counter = document.getElementById("lightbox-counter");
-  
-  // Update counter
-  if (counter && currentGroup) {
-    counter.textContent = `${currentIndex + 1} / ${currentGroup.images.length}`;
-  }
-  
-  // Show loading state
-  lightboxImg.style.opacity = '0';
-  
-  const img = new Image();
-  img.onload = () => {
-    lightboxImg.src = currentGroup.images[currentIndex];
-    lightboxImg.alt = currentGroup.titles[currentLang][currentIndex] || `Image ${currentIndex + 1}`;
-    caption.textContent = currentGroup.titles[currentLang][currentIndex] || "";
-    lightboxImg.style.opacity = '1';
-  };
-  
-  img.onerror = () => {
-    lightboxImg.src = '';
-    lightboxImg.alt = 'Image not available';
-    caption.textContent = 'Image not available';
-  };
-  
-  img.src = currentGroup.images[currentIndex];
-}
-
-function closeLightbox() { 
-  document.getElementById("lightbox").classList.remove("active");
-  document.body.style.overflow = ''; // Re-enable scrolling
-  
-  // Log analytics event
-  logEvent('lightbox_close');
-}
-
-function prevImage(e) { 
-  e.stopPropagation(); 
-  currentIndex = (currentIndex - 1 + currentGroup.images.length) % currentGroup.images.length; 
-  updateLightbox();
-}
-
-function nextImage(e) { 
-  e.stopPropagation(); 
-  currentIndex = (currentIndex + 1) % currentGroup.images.length; 
-  updateLightbox();
-}
 
 function setLang(l) {
   currentLang = l;
-  document.querySelectorAll('.lang-pt').forEach(e => e.style.display = l === 'pt' ? 'block' : 'none');
-  document.querySelectorAll('.lang-en').forEach(e => e.style.display = l === 'en' ? 'block' : 'none');
-  document.getElementById('btn-pt').classList.toggle('active', l === 'pt');
-  document.getElementById('btn-en').classList.toggle('active', l === 'en');
-  
-  // Update lightbox caption if open
-  if (currentGroup) {
-    document.getElementById("lightbox-caption").textContent = currentGroup.titles[currentLang][currentIndex] || "";
-  }
-  
-  // Log language change
-  logEvent('language_change', { language: l });
+  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==='pt'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'block':'none');
+  document.getElementById('btn-pt').classList.toggle('active',l==='pt');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
 }
 
-// Keyboard navigation
-document.addEventListener('keydown', e => {
-  if (!currentGroup) return;
-  
-  switch(e.key) {
-    case "ArrowLeft":
-      prevImage(e);
-      break;
-    case "ArrowRight":
-      nextImage(e);
-      break;
-    case "Escape":
-      closeLightbox();
-      break;
-  }
-});
-
-// Swipe for mobile
-let touchStartX = 0;
-document.getElementById("lightbox").addEventListener("touchstart", e => { 
-  touchStartX = e.changedTouches[0].screenX; 
-});
-
-document.getElementById("lightbox").addEventListener("touchend", e => {
-  const diff = e.changedTouches[0].screenX - touchStartX;
-  if (diff > 50) prevImage(e);
-  if (diff < -50) nextImage(e);
-});
-
-// Back to top button
-window.addEventListener('scroll', () => {
-  const backTop = document.getElementById('backTop');
-  if (window.scrollY > 300) {
-    backTop.classList.remove('hidden');
-  } else {
-    backTop.classList.add('hidden');
-  }
-});
-
-// Initialize project navigation
-function initProjectNavigation() {
-  const projectNav = document.createElement('nav');
-  projectNav.className = 'project-nav';
-  
-  const projects = [
-    { id: 'project-1', title: 'From Blue Walls to White Silence' },
-    { id: 'project-2', title: 'Under the Same Weather' },
-    { id: 'project-3', title: 'Inside the Sound' },
-    { id: 'project-4', title: 'Last Night' },
-    
-  ];
-  
-  projects.forEach(project => {
-    const link = document.createElement('a');
-    link.href = `#${project.id}`;
-    link.textContent = project.title;
-    link.onclick = (e) => {
-      e.preventDefault();
-      document.getElementById(project.id).scrollIntoView({ behavior: 'smooth' });
-    };
-    projectNav.appendChild(link);
-  });
-  
-  document.body.appendChild(projectNav);
+function openLightbox(g,i){
+  window.open(imageGroups[g].images[i],'_blank');
 }
-
-// Simple analytics logging
-function logEvent(eventName, data = {}) {
-  const event = {
-    event: eventName,
-    timestamp: new Date().toISOString(),
-    ...data
-  };
-  
-  // In production, you would send this to your analytics service
-  console.log('Event:', event);
-}
-
-// Animações de entrada
-function initAnimations() {
-  // Animar elementos com classe fade-in
-  const fadeElements = document.querySelectorAll('.fade-in');
-  fadeElements.forEach((el, index) => {
-    // Delay escalonado
-    el.style.animationDelay = `${index * 0.1}s`;
-  });
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Start lazy loading
-  lazyLoadImages();
-  
-  // Preload critical images
-  preloadImages();
-  
-  // Initialize animations
-  initAnimations();
-  
-  // Initialize project navigation on large screens
-  if (window.innerWidth >= 1200) {
-    initProjectNavigation();
-  }
-  
-  // Monitor scroll for active nav
-  window.addEventListener('scroll', () => {
-    const projectNavLinks = document.querySelectorAll('.project-nav a');
-    const scrollPos = window.scrollY + 100;
-    
-    document.querySelectorAll('.project-meta').forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top + window.scrollY;
-      
-      if (scrollPos >= sectionTop && scrollPos < sectionTop + rect.height) {
-        projectNavLinks.forEach(link => link.classList.remove('active'));
-        if (projectNavLinks[index]) {
-          projectNavLinks[index].classList.add('active');
-        }
-      }
-    });
-  });
-});
-
-// Handle window resize
-window.addEventListener('resize', () => {
-  if (window.innerWidth >= 1200 && !document.querySelector('.project-nav')) {
-    initProjectNavigation();
-  } else if (window.innerWidth < 1200) {
-    const projectNav = document.querySelector('.project-nav');
-    if (projectNav) projectNav.remove();
-  }
-});
-
-// Melhor navegação por teclado para cards
-document.addEventListener('keydown', (e) => {
-  if (e.target.classList.contains('card') && (e.key === 'Enter' || e.key === ' ')) {
-    e.preventDefault();
-    e.target.click();
-  }
-});
 </script>
 
 </body>
