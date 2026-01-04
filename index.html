@@ -3,301 +3,283 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio de Pedro Cruz, fotógrafo. Photography · Improvisation · Presence">
-<meta property="og:title" content="Pedro Cruz - Photography Portfolio">
-<meta property="og:description" content="Photography · Improvisation · Presence">
-<meta property="og:type" content="website">
 <title>Pedro Cruz</title>
 
 <style>
-
 :root{
-  --bg-primary:#0b0b0b;
-  --text-primary:#eaeaea;
-  --transition-speed:.3s;
-  --card-shadow:0 2px 4px rgba(0,0,0,.1),0 8px 16px rgba(0,0,0,.2);
-  --card-hover-shadow:0 4px 8px rgba(0,0,0,.15),0 12px 24px rgba(0,0,0,.3),0 20px 40px rgba(0,0,0,.4);
+  --bg:#0b0b0b;
+  --text:#eaeaea;
+  --muted:#9a9a9a;
+  --card:#141414;
+  --accent:#ffffff20;
 }
+
+*{box-sizing:border-box;}
 
 body{
-  font-family: Arial, Helvetica, sans-serif;
   margin:0;
-  background:#0b0b0b;
-  color:#eaeaea;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial, Helvetica, sans-serif;
 }
+
+/* HEADER */
 
 header{
-  padding:40px 20px 10px;
   text-align:center;
+  padding:40px 10px 10px;
 }
 
-.fade-in{ animation:fade-in 1s ease forwards; opacity:0; }
-@keyframes fade-in{ to{opacity:1;} }
+.lang-switch{
+  position:fixed;
+  top:12px;
+  right:12px;
+  font-size:.9rem;
+}
+
+.lang-switch span{
+  cursor:pointer;
+  margin-left:10px;
+  opacity:.4;
+}
+
+.lang-switch .active{opacity:1;}
+
+/* NAV */
 
 .project-nav{
   position:fixed;
   top:50%;
-  left:20px;
+  left:12px;
   transform:translateY(-50%);
   display:flex;
   flex-direction:column;
-  gap:8px;
-  z-index:20;
+  gap:6px;
+  z-index:10;
 }
 
 .project-nav a{
-  color:#aaa;
+  color:#939393;
   text-decoration:none;
-  font-size:.9rem;
+  font-size:.8rem;
 }
-.project-nav a:hover{ color:white; }
+
+.project-nav a:hover{color:white;}
+
+/* PROJECT META */
+
+.project-meta{
+  margin:70px 40px 10px;
+}
+
+.project-meta h2{
+  margin:0;
+}
+
+/* GRID — mais elegante */
 
 .projects{
   display:grid;
-  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-  gap:20px;
-  padding:20px;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:22px;
+  padding:25px 40px 40px;
 }
 
 .card{
-  position:relative;
-  background:#111;
-  border-radius:6px;
+  background:var(--card);
+  border-radius:10px;
   overflow:hidden;
-  box-shadow:var(--card-shadow);
+  position:relative;
+  aspect-ratio:3/2;
   cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 
-.card-img{
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(0,0,0,.45);
+}
+
+.card img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
 }
 
-.loading .card-img{ opacity:0; }
-
-.card.vertical .card-img{ object-fit:contain; }
-
-.loading-spinner{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-}
-
 /* LIGHTBOX */
 
 .lightbox{
+  display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.93);
-  display:none;
-  align-items:center;
+  background:#000d;
+  backdrop-filter:blur(6px);
   justify-content:center;
-  z-index:9999;
+  align-items:center;
+  z-index:100;
 }
 
 .lightbox img{
   max-width:92vw;
-  max-height:92vh;
+  max-height:82vh;
 }
 
 .lightbox .close,
 .lightbox .prev,
 .lightbox .next{
-  position:fixed;
-  color:white;
-  font-size:40px;
+  position:absolute;
   cursor:pointer;
-  padding:10px;
+  font-size:40px;
+  color:white;
   user-select:none;
 }
 
-.lightbox .close{ top:10px; right:20px; }
-.lightbox .prev{ left:20px; top:50%; transform:translateY(-50%); }
-.lightbox .next{ right:20px; top:50%; transform:translateY(-50%); }
-
-.lightbox-counter{
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  opacity:.8;
-}
+.lightbox .close{top:15px;right:22px;}
+.lightbox .prev{left:25px;}
+.lightbox .next{right:25px;}
 
 .caption{
-  position:fixed;
-  bottom:50px;
-  left:50%;
-  transform:translateX(-50%);
-  opacity:.7;
+  position:absolute;
+  bottom:35px;
+  text-align:center;
+  width:100%;
+  font-size:.9rem;
+  color:#ddd;
 }
 
-.project-meta{
+/* ABOUT */
+
+.about{
+  max-width:760px;
+  margin:0 auto;
   text-align:center;
-  margin-top:60px;
+  padding:0 20px;
 }
+
+/* FOOTER */
 
 footer{
   text-align:center;
-  padding:40px;
   opacity:.7;
+  padding:30px;
 }
-
-.lang-switch span{
-  cursor:pointer;
-  margin:0 5px;
-}
-
-.lang-switch .active{ text-decoration:underline; }
-
-#backTop{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  opacity:.8;
-}
-
 </style>
 </head>
 
 <body>
 
-<header class="fade-in">
+<header>
   <div class="lang-switch">
     <span id="btn-pt" class="active" onclick="setLang('pt')">PT</span>
     <span id="btn-en" onclick="setLang('en')">EN</span>
   </div>
-
   <h1>Pedro Cruz</h1>
   <p>Photography · Improvisation · Presence</p>
 </header>
 
-
 <nav class="project-nav" id="project-nav"></nav>
 
-
-<section class="fade-in">
+<section>
   <div class="about">
     <div class="lang-pt">
-      <p>Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação e experimentação.</p>
+      Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação e experimentação.
     </div>
     <div class="lang-en" style="display:none;">
-      <p>I was born in 1971. Photography entered my life early as a space for observation and experimentation.</p>
+      I was born in 1971. Photography entered my life early as a space for observation and experimentation.
     </div>
   </div>
-</section>
 
+<!-- ————————— PROJECTS ————————— -->
 
-<section>
-
-<!-- PROJECT 1 -->
-<div class="project-meta fade-in" id="project-1">
-  <h2 data-title-pt="From Blue Walls to White Silence" data-title-en="From Blue Walls to White Silence">From Blue Walls to White Silence</h2>
-  <p>Chefchaouen · 2007</p>
+<div class="project-meta" id="project-1">
+  <h2 data-title-pt="From Blue Walls to White Silence" data-title-en="From Blue Walls to White Silence">
+    From Blue Walls to White Silence
+  </h2>
+  <p>2007</p>
 </div>
 <div class="projects" id="projects-cor"></div>
 
-<!-- PROJECT 2 -->
-<div class="project-meta fade-in" id="project-2">
-  <h2 data-title-pt="Under the Same Weather" data-title-en="Under the Same Weather">Under the Same Weather</h2>
+<div class="project-meta" id="project-2">
+  <h2 data-title-pt="Under the Same Weather" data-title-en="Under the Same Weather">
+    Under the Same Weather
+  </h2>
   <p>2012</p>
 </div>
 <div class="projects" id="projects-pb"></div>
 
-<!-- PROJECT 3 -->
-<div class="project-meta fade-in" id="project-3">
-  <h2 data-title-pt="Inside the Sound" data-title-en="Inside the Sound">Inside the Sound</h2>
+<div class="project-meta" id="project-3">
+  <h2 data-title-pt="Inside the Sound" data-title-en="Inside the Sound">
+    Inside the Sound
+  </h2>
   <p>2024</p>
 </div>
 <div class="projects" id="projects-mia"></div>
 
-<!-- PROJECT 4 -->
-<div class="project-meta fade-in" id="project-4">
-  <h2 data-title-pt="Last Night" data-title-en="Last Night">Last Night</h2>
+<div class="project-meta" id="project-4">
+  <h2 data-title-pt="Last Night" data-title-en="Last Night">
+    Last Night
+  </h2>
   <p>2016</p>
 </div>
 <div class="projects" id="projects-cas"></div>
 
-
-<!-- ⭐ PROJECT 5 — STRUCTURES OF PERMANENCE -->
-<div class="project-meta fade-in" id="project-5">
+<div class="project-meta" id="project-5">
   <h2 data-title-pt="Estruturas de Permanência" data-title-en="Structures of Permanence">
     Structures of Permanence
   </h2>
   <p>Projecto de Longa Duração</p>
 </div>
-
 <div class="projects" id="projects-estrutura"></div>
 
 </section>
 
-
-<footer class="fade-in">
-  <p>© 2025 — Pedro Cruz</p>
-  <p style="font-size:0.7rem; margin-top:10px; opacity:0.5;">All photographs are copyright protected</p>
+<footer>
+  © 2025 — Pedro Cruz
 </footer>
 
+<!-- ————————— LIGHTBOX ————————— -->
 
-<button id="backTop" class="hidden" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <span class="prev" onclick="prevImage(event)">‹</span>
-  <img id="lightbox-img" alt="">
-  <span class="next" onclick="nextImage(event)">›</span>
+  <span class="prev" onclick="prevImage()">‹</span>
+  <img id="lightbox-img">
+  <span class="next" onclick="nextImage()">›</span>
   <div class="close" onclick="closeLightbox()">×</div>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
   <div class="caption" id="lightbox-caption"></div>
 </div>
 
-
 <script>
-
-// =================== STATE ===================
 let currentLang='pt';
 let currentGroup=null;
 let currentIndex=0;
 
+/* ————————— IMAGE DATA + CAPTIONS ————————— */
 
-// =================== IMAGE GROUPS ===================
 const imageGroups={
 
-  cor:{
-    images:["01","02","04","06","07"].map(n=>`./assets/cor/Paisagen_cheff${n}.jpg`),
-    titles:{
-      pt:["A Cidade Viva","A Saída","O Observador","Ascensão","Silêncio"],
-      en:["Living City","Exit","Watcher","Ascent","Silence"]
-    }
-  },
+  cor:{images:["01","02","04","06","07"].map(n=>`./assets/cor/Paisagen_cheff${n}.jpg`),
+       captions:{
+         pt:["A Cidade Viva","A Saída","O Observador","Ascensão","Silêncio"],
+         en:["Living City","Exit","Watcher","Ascent","Silence"]
+       }},
 
-  pb:{
-    images:["01","02","03","05","08"].map(n=>`./assets/pb/Paisagen_pb${n}.jpg`),
-    titles:{
-      pt:["Antes","Céu","Passagem","Entre","Noite"],
-      en:["Before","Sky","Passage","Between","Night"]
-    }
-  },
+  pb:{images:["01","02","03","05","08"].map(n=>`./assets/pb/Paisagen_pb${n}.jpg`),
+      captions:{
+        pt:["Antes","Céu","Passagem","Entre","Noite"],
+        en:["Before","Sky","Passage","Between","Night"]
+      }},
 
-  mia:{
-    images:["01","03","05","07","09"].map(n=>`./assets/mia/mia${n}.jpg`),
-    titles:{
-      pt:["Antes","Fio","Soltar","Negociação","Declaração"],
-      en:["Before","Thread","Release","Negotiation","Statement"]
-    }
-  },
+  mia:{images:["01","03","05","07","09"].map(n=>`./assets/mia/mia${n}.jpg`),
+       captions:{
+         pt:["Antes","Fio","Soltar","Negociação","Declaração"],
+         en:["Before","Thread","Release","Negotiation","Statement"]
+       }},
 
-  cas:{
-    images:["01","02","03","04","05","06","07","08"].map(n=>`./assets/cas/cas${n}.jpg`),
-    titles:{
-      pt:["Antes","Fratura","Instável","Suspensa","Eco","Padrão","Colapso","Depois"],
-      en:["Before","Fracture","Unstable","Suspended","Echo","Pattern","Collapse","After"]
-    }
-  },
+  cas:{images:["01","02","03","04","05","06","07","08"].map(n=>`./assets/cas/cas${n}.jpg`),
+       captions:{
+         pt:["Antes","Fratura","Instável","Suspensa","Eco","Padrão","Colapso","Depois"],
+         en:["Before","Fracture","Unstable","Suspended","Echo","Pattern","Collapse","After"]
+       }},
 
   estrutura:{
     images:[
@@ -315,7 +297,7 @@ const imageGroups={
       "./assets/estrutura/_12est30.jpg",
       "./assets/estrutura/_13est10.jpg"
     ],
-    titles:{
+    captions:{
       pt:[
         "Estrutura Latente",
         "Fachada em Suspensão",
@@ -350,137 +332,95 @@ const imageGroups={
   }
 };
 
+/* ————————— GRID CONSTRUCTION ————————— */
 
-
-// =================== CREATE CARDS ===================
-function isImageVertical(img){ return img.naturalHeight>img.naturalWidth; }
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const img=entry.target;
+      img.src=img.dataset.src;
+      observer.unobserve(img);
+    }
+  });
+});
 
 function createCards(groupId){
   const container=document.getElementById('projects-'+groupId);
-
   imageGroups[groupId].images.forEach((src,i)=>{
     const card=document.createElement('div');
-    card.className='card loading';
-    card.setAttribute('data-src',src);
+    card.className='card';
+    const img=document.createElement('img');
+    img.dataset.src=src;
+    observer.observe(img);
+    card.appendChild(img);
     card.onclick=()=>openLightbox(groupId,i);
-
-    card.innerHTML=`
-      <div class="card-inner">
-        <div class="card-img-container">
-          <img class="card-img">
-        </div>
-        <div class="loading-spinner">…</div>
-      </div>
-    `;
-
     container.appendChild(card);
   });
 }
 
 ['cor','pb','mia','cas','estrutura'].forEach(createCards);
 
+/* ————————— LIGHTBOX ————————— */
 
-
-// =================== LAZY LOAD ===================
-function lazyLoadImages(){
-  const cards=document.querySelectorAll('.card');
-  const options={ root:null, rootMargin:"50px", threshold:0.01 };
-
-  const loadImage=(card)=>{
-    const img=card.querySelector('.card-img');
-    const src=card.getAttribute('data-src');
-
-    img.onload=()=>{
-      card.classList.remove('loading');
-      if(isImageVertical(img)) card.classList.add('vertical');
-    };
-
-    img.src=src;
-  };
-
-  const observer=new IntersectionObserver((entries,obs)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        loadImage(entry.target);
-        obs.unobserve(entry.target);
-      }
-    });
-  },options);
-
-  cards.forEach(card=>observer.observe(card));
-}
-
-lazyLoadImages();
-
-
-
-// =================== LIGHTBOX ===================
 function openLightbox(group,i){
   currentGroup=group;
   currentIndex=i;
-  const lb=document.getElementById('lightbox');
-  lb.style.display='flex';
+  updateLightbox();
+  document.getElementById('lightbox').style.display='flex';
+}
+
+function updateLightbox(){
+  document.getElementById('lightbox-img').src=imageGroups[currentGroup].images[currentIndex];
+  document.getElementById('lightbox-caption').textContent=
+    imageGroups[currentGroup].captions[currentLang][currentIndex] || "";
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+}
+
+function nextImage(){
+  currentIndex=(currentIndex+1)%imageGroups[currentGroup].images.length;
   updateLightbox();
 }
 
-function closeLightbox(){ document.getElementById('lightbox').style.display='none'; }
-
-function nextImage(e){ e.stopPropagation(); currentIndex++; updateLightbox(); }
-function prevImage(e){ e.stopPropagation(); currentIndex--; updateLightbox(); }
-
-function updateLightbox(){
-  const group=imageGroups[currentGroup];
-  if(currentIndex<0) currentIndex=group.images.length-1;
-  if(currentIndex>=group.images.length) currentIndex=0;
-
-  document.getElementById('lightbox-img').src=group.images[currentIndex];
-  document.getElementById('lightbox-counter').textContent=
-    `${currentIndex+1} / ${group.images.length}`;
-  document.getElementById('lightbox-caption').textContent=
-    group.titles[currentLang][currentIndex];
+function prevImage(){
+  currentIndex=(currentIndex-1+imageGroups[currentGroup].images.length)%imageGroups[currentGroup].images.length;
+  updateLightbox();
 }
 
+/* ————————— LANGUAGE ————————— */
 
-
-// =================== LANGUAGE ===================
 function setLang(lang){
   currentLang=lang;
+
+  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=lang==='pt'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=lang==='en'?'block':'none');
+
+  document.querySelectorAll('#project-nav a').forEach(a=>{
+    a.textContent=a.dataset[`title-${lang}`];
+  });
 
   document.getElementById('btn-pt').classList.toggle('active',lang==='pt');
   document.getElementById('btn-en').classList.toggle('active',lang==='en');
 
-  document.querySelectorAll('.lang-pt').forEach(el=>{
-    el.style.display=lang==='pt'?'block':'none';
-  });
-
-  document.querySelectorAll('.lang-en').forEach(el=>{
-    el.style.display=lang==='en'?'block':'none';
-  });
-
-  document.querySelectorAll('#project-nav a').forEach(a=>{
-    a.textContent=a.getAttribute(`data-title-${lang}`);
-  });
-
-  document.querySelectorAll('.project-meta h2').forEach(h=>{
-    h.textContent=h.getAttribute(`data-title-${lang}`);
-  });
+  if(document.getElementById('lightbox').style.display==='flex'){
+    updateLightbox();
+  }
 }
 
+/* ————————— SIDE MENU ————————— */
 
-
-// =================== SIDE INDEX ===================
 const nav=document.getElementById('project-nav');
 document.querySelectorAll('.project-meta').forEach(sec=>{
   const a=document.createElement('a');
+  const h2=sec.querySelector('h2');
   a.href='#'+sec.id;
-  a.setAttribute('data-title-pt',
-    sec.querySelector('h2').getAttribute('data-title-pt'));
-  a.setAttribute('data-title-en',
-    sec.querySelector('h2').getAttribute('data-title-en'));
-  a.textContent=sec.querySelector('h2').getAttribute('data-title-pt');
+  a.dataset['title-pt']=h2.dataset.titlePt;
+  a.dataset['title-en']=h2.dataset.titleEn;
+  a.textContent=h2.dataset.titlePt;
   nav.appendChild(a);
 });
-
 </script>
 
 </body>
