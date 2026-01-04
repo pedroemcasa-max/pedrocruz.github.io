@@ -2,186 +2,163 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Structures of Permanence — Pedro Cruz</title>
 
-<link rel="stylesheet" href="/assets/css/style.css">
-
 <style>
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:18px;
-  margin-top:30px;
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f7f7f7;color:#111}
+header{padding:28px 28px 10px}
+h1{margin:0;font-size:28px}
+.lang-switch{margin-top:10px;font-size:13px}
+.lang-switch a{margin-right:10px;cursor:pointer}
+.section{padding:20px 28px}
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:16px;
+padding:10px 28px 40px;
 }
-.gallery figure{margin:0}
 .gallery img{
-  width:100%;
-  height:auto;
-  object-fit:cover;
-  border-radius:4px;
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+box-shadow:0 10px 28px rgba(0,0,0,.12);
+transition:.25s;
 }
-.lightbox {
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+.gallery img:hover{
+transform:translateY(-4px);
+box-shadow:0 14px 38px rgba(0,0,0,.18);
+}
+.lightbox{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.92);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:1000;
 }
 .lightbox img{
-  max-width:90%;
-  max-height:90%;
+max-width:90%;
+max-height:82%;
+border-radius:8px;
 }
-.lightbox:target {display:flex;}
-.lightbox a{position:absolute;top:20px;right:30px;color:#fff;font-size:32px;text-decoration:none}
-.language-switch{margin-top:15px}
-.language-switch button{margin-right:10px}
+.caption{
+color:#fff;
+margin-top:14px;
+font-size:14px;
+max-width:80%;
+text-align:center;
+}
+.close, .prev, .next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:36px;
+color:#fff;
+cursor:pointer;
+padding:14px;
+user-select:none;
+}
+.close{top:30px;right:40px;transform:none}
+.prev{left:20px}
+.next{right:20px}
 .project-nav{
-  position:fixed;
-  top:50%;
-  right:10px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+padding:20px 28px 40px;
+display:flex;
+justify-content:space-between;
+font-size:14px;
 }
-.project-nav a{
-  background:#eee;
-  padding:6px 10px;
-  text-decoration:none;
-  border-radius:4px;
-}
+.project-nav a{text-decoration:none;color:#333}
+.project-nav a:hover{text-decoration:underline}
 </style>
-
 </head>
+
 <body>
 
 <header>
-  <nav>
-    <ul>
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/projects.html" class="active">Projects</a></li>
-      <li><a href="/structures-of-permanence.html">Structures of Permanence</a></li>
-    </ul>
-  </nav>
+  <h1>Structures of Permanence</h1>
+  <div class="lang-switch">
+    <a onclick="showPT()">Português</a> |
+    <a onclick="showEN()">English</a>
+  </div>
 </header>
 
+<section class="section" id="pt">
+  <p><strong>Structures of Permanence</strong> é um projeto de longa duração que reflete sobre persistência, repetição e presença no espaço construído. Mais do que documentar lugares, estas imagens procuram compor um arquivo visual de estruturas que permanecem — mesmo quando a sua função se torna instável, ambígua ou obsoleta.</p>
+  <p>Algumas fotografias resultam de longas exposições com variação da distância focal, reforçando a ideia de deslocamento silencioso no interior da própria matéria.</p>
+</section>
 
-<main class="container">
+<section class="section" id="en" style="display:none">
+  <p><strong>Structures of Permanence</strong> is a long-term photographic project reflecting on persistence, repetition and structural presence within the built environment. Rather than describing specific places, these images construct a visual archive of forms that remain — even when their function becomes unstable, ambiguous or obsolete.</p>
+  <p>Some photographs are made in single long exposures with focal-length variation, emphasising a quiet sense of displacement within the structure itself.</p>
+</section>
 
-  <h1>Structures of Permanence</h1>
+<!-- ✅ GALLERY -->
+<div class="gallery">
 
-  <div class="language-switch">
-    <button onclick="showPT()">PT</button>
-    <button onclick="showEN()">EN</button>
-  </div>
+  <img loading="lazy" src="../assets/estrutura/_1est18.jpg" data-caption="Silent Facade" />
+  <img loading="lazy" src="../assets/estrutura/_2est28.jpg" data-caption="Sun Tracing Windows" />
+  <img loading="lazy" src="../assets/estrutura/_3est37.jpg" data-caption="Yellow Geometry in Stone" />
+  <img loading="lazy" src="../assets/estrutura/_4est32.jpg" data-caption="Structure in Yellow" />
+  <img loading="lazy" src="../assets/estrutura/_5est36.jpg" data-caption="Repeating Stone Rhythm" />
+  <img loading="lazy" src="../assets/estrutura/_6est35.jpg" data-caption="Stair Fragment" />
+  <img loading="lazy" src="../assets/estrutura/_7est21.jpg" data-caption="Urban Blue Layers" />
+  <img loading="lazy" src="../assets/estrutura/_8est33.jpg" data-caption="Inverted Reflections" />
+  <img loading="lazy" src="../assets/estrutura/_9est19.jpg" data-caption="Roof Echoes" />
+  <img loading="lazy" src="../assets/estrutura/_10est14.jpg" data-caption="Cathedral in Light" />
+  <img loading="lazy" src="../assets/estrutura/_11est29.jpg" data-caption="Antenna Rhythm" />
+  <img loading="lazy" src="../assets/estrutura/_12est30.jpg" data-caption="Sky Divide" />
+  <img loading="lazy" src="../assets/estrutura/_13est10.jpg" data-caption="Night Windows" />
 
-  <section id="pt">
-    <p>
-      A série <strong>Structures of Permanence</strong> investiga a relação entre estrutura,
-      ruína e permanência material no espaço urbano e arquitectónico.
-    </p>
-  </section>
-
-  <section id="en" style="display:none">
-    <p>
-      The series <strong>Structures of Permanence</strong> explores the relationship between
-      structure, ruin and material permanence in architectural and urban space.
-    </p>
-  </section>
-
-  <section class="gallery">
-
-    <figure>
-      <a href="#lb1"><img loading="lazy" src="/assets/estrutura/_1est18.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb2"><img loading="lazy" src="/assets/estrutura/_2est28.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb3"><img loading="lazy" src="/assets/estrutura/_3est37.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb4"><img loading="lazy" src="/assets/estrutura/_4est32.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb5"><img loading="lazy" src="/assets/estrutura/_5est36.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb6"><img loading="lazy" src="/assets/estrutura/_6est35.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb7"><img loading="lazy" src="/assets/estrutura/_7est21.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb8"><img loading="lazy" src="/assets/estrutura/_8est33.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb9"><img loading="lazy" src="/assets/estrutura/_9est19.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb10"><img loading="lazy" src="/assets/estrutura/_10est14.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb11"><img loading="lazy" src="/assets/estrutura/_11est29.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb12"><img loading="lazy" src="/assets/estrutura/_12est30.jpg" alt=""></a>
-    </figure>
-
-    <figure>
-      <a href="#lb13"><img loading="lazy" src="/assets/estrutura/_13est10.jpg" alt=""></a>
-    </figure>
-
-  </section>
-
-  <!-- LIGHTBOXES -->
-  <div id="lb1" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_1est18.jpg"></div>
-  <div id="lb2" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_2est28.jpg"></div>
-  <div id="lb3" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_3est37.jpg"></div>
-  <div id="lb4" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_4est32.jpg"></div>
-  <div id="lb5" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_5est36.jpg"></div>
-  <div id="lb6" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_6est35.jpg"></div>
-  <div id="lb7" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_7est21.jpg"></div>
-  <div id="lb8" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_8est33.jpg"></div>
-  <div id="lb9" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_9est19.jpg"></div>
-  <div id="lb10" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_10est14.jpg"></div>
-  <div id="lb11" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_11est29.jpg"></div>
-  <div id="lb12" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_12est30.jpg"></div>
-  <div id="lb13" class="lightbox"><a href="#">×</a><img src="/assets/estrutura/_13est10.jpg"></div>
-
-</main>
-
-
-<!-- PROJECT SIDE NAVIGATION -->
-<div class="project-nav">
-  <a href="/previous-project.html">← Projecto anterior</a>
-  <a href="/next-project.html">Próximo projecto →</a>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">×</span>
+  <span class="prev" onclick="changeImage(-1)">❮</span>
+  <img id="lightbox-img">
+  <div class="caption" id="caption"></div>
+  <span class="next" onclick="changeImage(1)">❯</span>
+</div>
+
+<!-- NAV BETWEEN PROJECTS -->
+<div class="project-nav">
+  <a href="project-4.html">← Projeto anterior</a>
+  <a href="project-1.html">Projeto seguinte →</a>
+</div>
 
 <script>
-function showPT(){
-  document.getElementById("pt").style.display="block";
-  document.getElementById("en").style.display="none";
+let images=document.querySelectorAll('.gallery img');
+let lightbox=document.getElementById('lightbox');
+let lightboxImg=document.getElementById('lightbox-img');
+let caption=document.getElementById('caption');
+let index=0;
+
+images.forEach((img,i)=>{
+  img.addEventListener('click',()=>{
+    index=i;
+    openLightbox();
+  });
+});
+
+function openLightbox(){
+  lightbox.style.display='flex';
+  lightboxImg.src=images[index].src;
+  caption.innerText=images[index].dataset.caption;
 }
-function showEN(){
-  document.getElementById("pt").style.display="none";
-  document.getElementById("en").style.display="block";
+function closeLightbox(){lightbox.style.display='none'}
+function changeImage(step){
+  index=(index+step+images.length)%images.length;
+  openLightbox();
 }
+
+// language toggle
+function showPT(){document.getElementById('pt').style.display='block';document.getElementById('en').style.display='none'}
+function showEN(){document.getElementById('pt').style.display='none';document.getElementById('en').style.display='block'}
 </script>
 
 </body>
