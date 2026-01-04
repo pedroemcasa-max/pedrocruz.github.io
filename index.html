@@ -2,280 +2,151 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pedro Cruz</title>
 
 <style>
-
+*{box-sizing:border-box}
 body{
-font-family: Arial, Helvetica, sans-serif;
-margin:0;
-padding:0;
-color:#111;
-background:#ffffff;
+  margin:0;
+  font-family:Helvetica,Arial,sans-serif;
+  background:#0b0b0b;
+  color:#eaeaea;
+  line-height:1.6
 }
 
 /* HEADER */
+header{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative
+}
+header h1{font-size:2.4rem;font-weight:400}
+header p{margin-top:12px;font-size:.95rem;opacity:.7}
 
-.header{
-padding:90px 30px 30px 30px;
-text-align:center;
+/* LANGUAGE */
+.lang-switch{
+  position:absolute;
+  top:24px;
+  right:24px;
+  font-size:.75rem;
+  opacity:.7
+}
+.lang-switch span{
+  margin-left:10px;
+  cursor:pointer
+}
+.lang-switch .active{
+  text-decoration:underline;
+  opacity:1
 }
 
-.header h1{
-font-size:34px;
-font-weight:400;
-margin-bottom:8px;
+/* SECTIONS */
+section{
+  max-width:1000px;
+  margin:0 auto;
+  padding:120px 24px
 }
 
-.header p{
-color:#555;
-font-size:15px;
+.about{
+  max-width:720px;
+  margin:0 auto;
+  font-size:.95rem;
+  opacity:.85
+}
+.about p{margin-bottom:1.6em}
+
+/* PROJECT LINKS */
+.projects-list{
+  text-align:center;
+  margin-top:80px
+}
+.projects-list a{
+  display:block;
+  margin:16px 0;
+  font-size:1rem;
+  color:#eaeaea;
+  text-decoration:none;
+  opacity:.75;
+  transition:opacity .2s ease;
+}
+.projects-list a:hover{opacity:1}
+
+/* FOOTER */
+footer{
+  padding:80px 20px;
+  text-align:center;
+  font-size:.8rem;
+  opacity:.5
 }
 
-
-/* PROJECT GRID */
-
-.projects{
-max-width:1150px;
-margin:60px auto 100px auto;
-padding:0 20px;
-display:grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap:34px;
-}
-
-.project{
-text-align:center;
-}
-
-.project img{
-width:100%;
-height:auto;
-border-radius:6px;
-cursor:pointer;
-transition: opacity .25s ease;
-}
-
-.project img:hover{
-opacity:0.82;
-}
-
-.project-title{
-margin-top:12px;
-font-size:16px;
-font-weight:600;
-}
-
-.project-desc{
-font-size:14px;
-color:#666;
-}
-
-
-/* LIGHTBOX */
-
-.lightbox{
-display:none;
-position:fixed;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.93);
-z-index:9999;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-}
-
-.lightbox img{
-max-width:92%;
-max-height:82%;
-border-radius:6px;
-}
-
-.lightbox-caption{
-margin-top:15px;
-text-align:center;
-color:#e8e8e8;
-font-size:14px;
-max-width:90%;
-}
-
-.lightbox-close{
-position:absolute;
-top:18px;
-right:28px;
-font-size:30px;
-color:#fff;
-cursor:pointer;
-}
-
-.nav-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:40px;
-color:white;
-cursor:pointer;
-padding:10px 14px;
-background:rgba(0,0,0,.45);
-border-radius:6px;
-}
-
-.nav-btn:hover{
-background:black;
-}
-
-#prev{ left:25px; }
-#next{ right:25px; }
-
-
-@media(max-width:780px){
-
-.header{
-padding-top:70px;
-}
-
-.nav-btn{
-font-size:30px;
-padding:8px 12px;
-}
-
-.lightbox img{
-max-width:94%;
-max-height:78%;
-}
-
-.projects{
-gap:26px;
-}
-
-}
-
+.lang-en{display:none}
 </style>
-
 </head>
+
 <body>
 
+<header>
+  <div class="lang-switch">
+    <span id="pt" class="active" onclick="setLang('pt')">PT</span>
+    <span id="en" onclick="setLang('en')">EN</span>
+  </div>
 
-<div class="header">
-<h1>Pedro Cruz</h1>
-<p>Fotografia — Observação — Estrutura</p>
-</div>
+  <div>
+    <h1>Pedro Cruz</h1>
+    <p>Photography · Improvisation · Presence</p>
+  </div>
+</header>
 
+<section>
+<div class="about">
 
-<div class="projects">
+  <div class="lang-pt">
+    <p>Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação, escuta e experimentação. O meu trabalho desenvolve-se a partir da relação entre corpo, território e tempo, explorando estados de transição, suspensão e presença.</p>
+  </div>
 
-<!-- PROJECT 1 -->
-<div class="project">
-<img src="assets/cas/cas01.jpg" alt="Projecto 1 — Explorações visuais em contexto urbano">
-<div class="project-title">Projecto 1</div>
-<div class="project-desc">Explorações visuais em contexto urbano</div>
-</div>
-
-<!-- PROJECT 2 -->
-<div class="project">
-<img src="assets/pb/pb01.jpg" alt="Projecto 2 — Narrativas em preto e branco">
-<div class="project-title">Projecto 2</div>
-<div class="project-desc">Narrativas em preto e branco</div>
-</div>
-
-<!-- PROJECT 3 -->
-<div class="project">
-<img src="assets/mia/mia01.jpg" alt="Projecto 3 — Olhar íntimo e aproximado">
-<div class="project-title">Projecto 3</div>
-<div class="project-desc">Olhar íntimo e aproximado</div>
-</div>
-
-<!-- PROJECT 4 -->
-<div class="project">
-<img src="assets/cor/cor01.jpg" alt="Projecto 4 — Cor, ambiente e textura">
-<div class="project-title">Projecto 4</div>
-<div class="project-desc">Cor, ambiente e textura</div>
-</div>
-
-<!-- PROJECT 5 — STRUCTURES OF PERMANENCE -->
-<div class="project">
-<a href="projects/structures-of-permanence.html">
-<img src="assets/estrutura/_1est18.jpg" alt="Structures of Permanence — Arquitecturas que persistem, resistem e se transformam">
-</a>
-<div class="project-title">Structures of Permanence</div>
-<div class="project-desc">Arquitecturas que persistem, resistem e se transformam</div>
-</div>
+  <div class="lang-en">
+    <p>I was born in 1971. Photography entered my life early on as a space for observation, listening, and experimentation. My work develops through the relationship between body, territory, and time, exploring states of transition, suspension, and presence.</p>
+  </div>
 
 </div>
 
+<div class="projects-list">
 
+  <!-- PT -->
+  <div class="lang-pt">
+    <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
+    <a href="./projects/project-2.html">Under the Same Weather</a>
+    <a href="./projects/project-3.html">Inside the Sound</a>
+    <a href="./projects/project-4.html">Last Night</a>
+    <a href="./projects/structures-of-permanence.html">Estruturas de Permanência</a>
+  </div>
 
-<!-- LIGHTBOX -->
+  <!-- EN -->
+  <div class="lang-en">
+    <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
+    <a href="./projects/project-2.html">Under the Same Weather</a>
+    <a href="./projects/project-3.html">Inside the Sound</a>
+    <a href="./projects/project-4.html">Last Night</a>
+    <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
+  </div>
 
-<div class="lightbox" id="lightbox">
-<span class="lightbox-close" onclick="closeLightbox()">×</span>
-<span class="nav-btn" id="prev" onclick="changeImage(-1)">❮</span>
-<span class="nav-btn" id="next" onclick="changeImage(1)">❯</span>
-
-<img id="lightbox-img">
-<div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
+</section>
 
-
+<footer>© 2025 — Pedro Cruz</footer>
 
 <script>
-let images = document.querySelectorAll(".project img");
-let lightbox = document.getElementById("lightbox");
-let lightImg = document.getElementById("lightbox-img");
-let caption = document.getElementById("lightbox-caption");
-let currentIndex = 0;
-
-// Only first 4 images open in lightbox
-let galleryImages = Array.from(images).slice(0,4);
-
-let captions = [
-"Projecto 1 — Explorações visuais em contexto urbano",
-"Projecto 2 — Narrativas em preto e branco",
-"Projecto 3 — Olhar íntimo e aproximado",
-"Projecto 4 — Cor, ambiente e textura"
-];
-
-// Open lightbox
-galleryImages.forEach((img,i)=>{
-img.addEventListener("click", ()=>{
-currentIndex = i;
-openLightbox();
-});
-});
-
-function openLightbox(){
-lightbox.style.display="flex";
-lightImg.src = galleryImages[currentIndex].src;
-caption.textContent = captions[currentIndex] || "";
+function setLang(l){
+  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==='pt'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'block':'none');
+  document.getElementById('pt').classList.toggle('active',l==='pt');
+  document.getElementById('en').classList.toggle('active',l==='en');
 }
-
-// Close
-function closeLightbox(){
-lightbox.style.display="none";
-}
-
-// Change
-function changeImage(step){
-currentIndex += step;
-if(currentIndex<0) currentIndex = galleryImages.length-1;
-if(currentIndex>=galleryImages.length) currentIndex = 0;
-openLightbox();
-}
-
-// Keyboard
-document.addEventListener("keydown", e=>{
-if(lightbox.style.display==="flex"){
-if(e.key==="ArrowRight") changeImage(1);
-if(e.key==="ArrowLeft") changeImage(-1);
-if(e.key==="Escape") closeLightbox();
-}
-});
 </script>
-
 
 </body>
 </html>
