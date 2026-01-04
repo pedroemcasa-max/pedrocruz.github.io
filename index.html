@@ -3,423 +3,351 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pedro Cruz</title>
+<title>Pedro Cruz — Photography</title>
 
 <style>
-:root{
-  --bg:#0b0b0b;
-  --text:#eaeaea;
-  --muted:#9a9a9a;
-  --card:#141414;
-  --accent:#ffffff20;
-}
-
-*{box-sizing:border-box;}
-
 body{
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
   margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial, Helvetica, sans-serif;
+  color:#111;
+  background:white;
+  line-height:1.55;
 }
-
-/* HEADER */
 
 header{
-  text-align:center;
-  padding:40px 10px 10px;
+  padding:30px 20px 5px 20px;
 }
 
-.lang-switch{
-  position:fixed;
-  top:12px;
-  right:12px;
-  font-size:.9rem;
-}
+header h1{ margin:0; }
 
-.lang-switch span{
+.lang-toggle button{
+  border:1px solid #aaa;
+  background:white;
+  padding:6px 10px;
+  border-radius:4px;
   cursor:pointer;
-  margin-left:10px;
-  opacity:.4;
 }
 
-.lang-switch .active{opacity:1;}
-
-/* NAV */
-
-.project-nav{
-  position:fixed;
-  top:50%;
-  left:12px;
-  transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  z-index:10;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:10px 20px 50px 20px;
 }
 
-.project-nav a{
-  color:#939393;
-  text-decoration:none;
-  font-size:.8rem;
+.project{
+  margin-top:50px;
 }
 
-.project-nav a:hover{color:white;}
-
-/* PROJECT META */
-
-.project-meta{
-  margin:70px 40px 10px;
-}
-
-.project-meta h2{
-  margin:0;
-}
-
-/* GRID — mais elegante */
-
-.projects{
+/* GRID */
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:22px;
-  padding:25px 40px 40px;
+  gap:18px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  margin-top:16px;
 }
 
-.card{
-  background:var(--card);
-  border-radius:10px;
-  overflow:hidden;
-  position:relative;
-  aspect-ratio:3/2;
-  cursor:pointer;
-  transition:transform .25s ease, box-shadow .25s ease;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 28px rgba(0,0,0,.45);
-}
-
-.card img{
+.grid img{
   width:100%;
-  height:100%;
+  height:260px;
   object-fit:cover;
-  display:block;
+  border-radius:6px;
+  cursor:pointer;
+  transition:opacity .2s;
 }
+.grid img:hover{ opacity:.85; }
 
 /* LIGHTBOX */
-
 .lightbox{
-  display:none;
   position:fixed;
   inset:0;
-  background:#000d;
-  backdrop-filter:blur(6px);
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(4px);
+  display:none;
   justify-content:center;
   align-items:center;
-  z-index:100;
+  z-index:999;
 }
-
 .lightbox img{
-  max-width:92vw;
-  max-height:82vh;
+  max-width:90%;
+  max-height:80%;
+  border-radius:6px;
 }
-
-.lightbox .close,
-.lightbox .prev,
-.lightbox .next{
-  position:absolute;
-  cursor:pointer;
-  font-size:40px;
+.lightbox-caption{
   color:white;
-  user-select:none;
+  margin-top:14px;
+  max-width:800px;
+  text-align:center;
+  font-size:14px;
 }
-
-.lightbox .close{top:15px;right:22px;}
-.lightbox .prev{left:25px;}
-.lightbox .next{right:25px;}
-
-.caption{
+.close-btn{
   position:absolute;
-  bottom:35px;
-  text-align:center;
-  width:100%;
-  font-size:.9rem;
-  color:#ddd;
+  top:20px;
+  right:30px;
+  color:white;
+  font-size:26px;
+  cursor:pointer;
 }
-
-/* ABOUT */
-
-.about{
-  max-width:760px;
-  margin:0 auto;
-  text-align:center;
-  padding:0 20px;
-}
-
-/* FOOTER */
 
 footer{
   text-align:center;
-  opacity:.7;
-  padding:30px;
+  padding:40px 0;
+  color:#666;
+  font-size:13px;
 }
+
+/* EN hidden by default */
+.en{ display:none; }
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="lang-switch">
-    <span id="btn-pt" class="active" onclick="setLang('pt')">PT</span>
-    <span id="btn-en" onclick="setLang('en')">EN</span>
-  </div>
   <h1>Pedro Cruz</h1>
-  <p>Photography · Improvisation · Presence</p>
+
+  <div class="lang-toggle">
+    <button onclick="showPT()">PT</button>
+    <button onclick="showEN()">EN</button>
+  </div>
 </header>
 
-<nav class="project-nav" id="project-nav"></nav>
 
-<section>
-  <div class="about">
-    <div class="lang-pt">
-      Nasci em 1971. A fotografia entrou cedo na minha vida como espaço de observação e experimentação.
-    </div>
-    <div class="lang-en" style="display:none;">
-      I was born in 1971. Photography entered my life early as a space for observation and experimentation.
-    </div>
+<div class="container">
+
+
+<!-- =============== PROJECT 1 COR ================= -->
+<div class="project pt">
+  <h2>From Blue Walls to White Silence</h2>
+  <p>Chefchaouen · 2007</p>
+
+  <div class="grid">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff01.jpg" data-caption="Living City">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff02.jpg" data-caption="Exit">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff04.jpg" data-caption="Observer">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff06.jpg" data-caption="Ascent">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff07.jpg" data-caption="Silence">
   </div>
-
-<!-- ————————— PROJECTS ————————— -->
-
-<div class="project-meta" id="project-1">
-  <h2 data-title-pt="From Blue Walls to White Silence" data-title-en="From Blue Walls to White Silence">
-    From Blue Walls to White Silence
-  </h2>
-  <p>2007</p>
 </div>
-<div class="projects" id="projects-cor"></div>
 
-<div class="project-meta" id="project-2">
-  <h2 data-title-pt="Under the Same Weather" data-title-en="Under the Same Weather">
-    Under the Same Weather
-  </h2>
+
+<div class="project en">
+  <h2>From Blue Walls to White Silence</h2>
+  <p>Chefchaouen · 2007</p>
+
+  <div class="grid">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff01.jpg" data-caption="Living City">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff02.jpg" data-caption="Exit">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff04.jpg" data-caption="Observer">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff06.jpg" data-caption="Ascent">
+    <img loading="lazy" src="assets/cor/Paisagen_cheff07.jpg" data-caption="Silence">
+  </div>
+</div>
+
+
+
+
+
+<!-- =============== PROJECT 2 PB ================= -->
+<div class="project pt">
+  <h2>Under the Same Weather</h2>
   <p>2012</p>
-</div>
-<div class="projects" id="projects-pb"></div>
 
-<div class="project-meta" id="project-3">
-  <h2 data-title-pt="Inside the Sound" data-title-en="Inside the Sound">
-    Inside the Sound
-  </h2>
+  <div class="grid">
+    <img loading="lazy" src="assets/pb/Paisagen_pb01.jpg" data-caption="Antes">
+    <img loading="lazy" src="assets/pb/Paisagen_pb02.jpg" data-caption="Céu">
+    <img loading="lazy" src="assets/pb/Paisagen_pb03.jpg" data-caption="Passagem">
+    <img loading="lazy" src="assets/pb/Paisagen_pb05.jpg" data-caption="Entre">
+    <img loading="lazy" src="assets/pb/Paisagen_pb08.jpg" data-caption="Noite">
+  </div>
+</div>
+
+
+<div class="project en">
+  <h2>Under the Same Weather</h2>
+  <p>2012</p>
+
+  <div class="grid">
+    <img loading="lazy" src="assets/pb/Paisagen_pb01.jpg" data-caption="Before">
+    <img loading="lazy" src="assets/pb/Paisagen_pb02.jpg" data-caption="Sky">
+    <img loading="lazy" src="assets/pb/Paisagen_pb03.jpg" data-caption="Passage">
+    <img loading="lazy" src="assets/pb/Paisagen_pb05.jpg" data-caption="Between">
+    <img loading="lazy" src="assets/pb/Paisagen_pb08.jpg" data-caption="Night">
+  </div>
+</div>
+
+
+
+
+
+<!-- =============== PROJECT 3 MIA ================= -->
+<div class="project pt">
+  <h2>Inside the Sound</h2>
   <p>2024</p>
-</div>
-<div class="projects" id="projects-mia"></div>
 
-<div class="project-meta" id="project-4">
-  <h2 data-title-pt="Last Night" data-title-en="Last Night">
-    Last Night
-  </h2>
+  <div class="grid">
+    <img loading="lazy" src="assets/mia/mia01.jpg">
+    <img loading="lazy" src="assets/mia/mia03.jpg">
+    <img loading="lazy" src="assets/mia/mia05.jpg">
+    <img loading="lazy" src="assets/mia/mia07.jpg">
+    <img loading="lazy" src="assets/mia/mia09.jpg">
+  </div>
+</div>
+
+
+<div class="project en">
+  <h2>Inside the Sound</h2>
+  <p>2024</p>
+
+  <div class="grid">
+    <img loading="lazy" src="assets/mia/mia01.jpg">
+    <img loading="lazy" src="assets/mia/mia03.jpg">
+    <img loading="lazy" src="assets/mia/mia05.jpg">
+    <img loading="lazy" src="assets/mia/mia07.jpg">
+    <img loading="lazy" src="assets/mia/mia09.jpg">
+  </div>
+</div>
+
+
+
+
+
+<!-- =============== PROJECT 4 CAS ================= -->
+<div class="project pt">
+  <h2>Last Night</h2>
   <p>2016</p>
-</div>
-<div class="projects" id="projects-cas"></div>
 
-<div class="project-meta" id="project-5">
-  <h2 data-title-pt="Estruturas de Permanência" data-title-en="Structures of Permanence">
-    Structures of Permanence
-  </h2>
+  <div class="grid">
+    <img loading="lazy" src="assets/cas/cas01.jpg">
+    <img loading="lazy" src="assets/cas/cas02.jpg">
+    <img loading="lazy" src="assets/cas/cas03.jpg">
+    <img loading="lazy" src="assets/cas/cas04.jpg">
+    <img loading="lazy" src="assets/cas/cas05.jpg">
+    <img loading="lazy" src="assets/cas/cas06.jpg">
+    <img loading="lazy" src="assets/cas/cas07.jpg">
+    <img loading="lazy" src="assets/cas/cas08.jpg">
+  </div>
+</div>
+
+
+<div class="project en">
+  <h2>Last Night</h2>
+  <p>2016</p>
+
+  <div class="grid">
+    <img loading="lazy" src="assets/cas/cas01.jpg">
+    <img loading="lazy" src="assets/cas/cas02.jpg">
+    <img loading="lazy" src="assets/cas/cas03.jpg">
+    <img loading="lazy" src="assets/cas/cas04.jpg">
+    <img loading="lazy" src="assets/cas/cas05.jpg">
+    <img loading="lazy" src="assets/cas/cas06.jpg">
+    <img loading="lazy" src="assets/cas/cas07.jpg">
+    <img loading="lazy" src="assets/cas/cas08.jpg">
+  </div>
+</div>
+
+
+
+
+
+<!-- ===== PROJECT 5 — STRUCTURES OF PERMANENCE ===== -->
+<div class="project pt">
+  <h2>Estruturas de Permanência</h2>
   <p>Projecto de Longa Duração</p>
-</div>
-<div class="projects" id="projects-estrutura"></div>
 
-</section>
+  <div class="grid">
+
+    <img loading="lazy" src="assets/estrutura/_1est18.jpg" data-caption="Estrutura suspensa no crepúsculo">
+    <img loading="lazy" src="assets/estrutura/_2est28.jpg" data-caption="O espaço entre o que permanece">
+    <img loading="lazy" src="assets/estrutura/_3est37.jpg" data-caption="Geometria de contenção">
+    <img loading="lazy" src="assets/estrutura/_4est32.jpg" data-caption="Parede que recorda o espaço">
+    <img loading="lazy" src="assets/estrutura/_5est36.jpg" data-caption="Vestígio erguido">
+    <img loading="lazy" src="assets/estrutura/_6est35.jpg" data-caption="O lugar depois do lugar">
+    <img loading="lazy" src="assets/estrutura/_7est21.jpg" data-caption="Estrutura em suspensão">
+    <img loading="lazy" src="assets/estrutura/_8est33.jpg" data-caption="Linha sobre linha">
+    <img loading="lazy" src="assets/estrutura/_9est19.jpg" data-caption="Persistência silenciosa">
+    <img loading="lazy" src="assets/estrutura/_10est14.jpg" data-caption="Sombra habitada">
+    <img loading="lazy" src="assets/estrutura/_11est29.jpg" data-caption="Antenas em intervalo">
+    <img loading="lazy" src="assets/estrutura/_12est30.jpg" data-caption="Céu dividido">
+    <img loading="lazy" src="assets/estrutura/_13est10.jpg" data-caption="O regresso da forma">
+
+  </div>
+</div>
+
+
+
+<div class="project en">
+  <h2>Structures of Permanence</h2>
+  <p>Long-term project</p>
+
+  <div class="grid">
+
+    <img loading="lazy" src="assets/estrutura/_1est18.jpg" data-caption="Suspended structure at dusk">
+    <img loading="lazy" src="assets/estrutura/_2est28.jpg" data-caption="The space between what remains">
+    <img loading="lazy" src="assets/estrutura/_3est37.jpg" data-caption="Geometry of containment">
+    <img loading="lazy" src="assets/estrutura/_4est32.jpg" data-caption="Wall that remembers space">
+    <img loading="lazy" src="assets/estrutura/_5est36.jpg" data-caption="Elevated remnant">
+    <img loading="lazy" src="assets/estrutura/_6est35.jpg" data-caption="The place after the place">
+    <img loading="lazy" src="assets/estrutura/_7est21.jpg" data-caption="Structure in suspension">
+    <img loading="lazy" src="assets/estrutura/_8est33.jpg" data-caption="Line over line">
+    <img loading="lazy" src="assets/estrutura/_9est19.jpg" data-caption="Silent persistence">
+    <img loading="lazy" src="assets/estrutura/_10est14.jpg" data-caption="Inhabited shadow">
+    <img loading="lazy" src="assets/estrutura/_11est29.jpg" data-caption="Antennas in interval">
+    <img loading="lazy" src="assets/estrutura/_12est30.jpg" data-caption="Divided sky">
+    <img loading="lazy" src="assets/estrutura/_13est10.jpg" data-caption="The return of form">
+
+  </div>
+</div>
+
+
+</div>
+
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <div class="close-btn" onclick="closeLightbox()">✕</div>
+  <div>
+    <img id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
 
 <footer>
-  © 2025 — Pedro Cruz
+  © Pedro Cruz
 </footer>
 
-<!-- ————————— LIGHTBOX ————————— -->
-
-<div class="lightbox" id="lightbox">
-  <span class="prev" onclick="prevImage()">‹</span>
-  <img id="lightbox-img">
-  <span class="next" onclick="nextImage()">›</span>
-  <div class="close" onclick="closeLightbox()">×</div>
-  <div class="caption" id="lightbox-caption"></div>
-</div>
 
 <script>
-let currentLang='pt';
-let currentGroup=null;
-let currentIndex=0;
+function showPT(){
+  document.querySelectorAll('.pt').forEach(e=>e.style.display='block');
+  document.querySelectorAll('.en').forEach(e=>e.style.display='none');
+}
 
-/* ————————— IMAGE DATA + CAPTIONS ————————— */
+function showEN(){
+  document.querySelectorAll('.pt').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.en').forEach(e=>e.style.display='block');
+}
 
-const imageGroups={
+const imgs=document.querySelectorAll('.grid img');
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightbox-img');
+const lbCap=document.getElementById('lightbox-caption');
 
-  cor:{images:["01","02","04","06","07"].map(n=>`./assets/cor/Paisagen_cheff${n}.jpg`),
-       captions:{
-         pt:["A Cidade Viva","A Saída","O Observador","Ascensão","Silêncio"],
-         en:["Living City","Exit","Watcher","Ascent","Silence"]
-       }},
-
-  pb:{images:["01","02","03","05","08"].map(n=>`./assets/pb/Paisagen_pb${n}.jpg`),
-      captions:{
-        pt:["Antes","Céu","Passagem","Entre","Noite"],
-        en:["Before","Sky","Passage","Between","Night"]
-      }},
-
-  mia:{images:["01","03","05","07","09"].map(n=>`./assets/mia/mia${n}.jpg`),
-       captions:{
-         pt:["Antes","Fio","Soltar","Negociação","Declaração"],
-         en:["Before","Thread","Release","Negotiation","Statement"]
-       }},
-
-  cas:{images:["01","02","03","04","05","06","07","08"].map(n=>`./assets/cas/cas${n}.jpg`),
-       captions:{
-         pt:["Antes","Fratura","Instável","Suspensa","Eco","Padrão","Colapso","Depois"],
-         en:["Before","Fracture","Unstable","Suspended","Echo","Pattern","Collapse","After"]
-       }},
-
-  estrutura:{
-    images:[
-      "/assets/estrutura/_1est18.jpg",
-      "/assets/estrutura/_2est28.jpg",
-      "/assets/estrutura/_3est37.jpg",
-      "/assets/estrutura/_4est32.jpg",
-      "/assets/estrutura/_5est36.jpg",
-      "/assets/estrutura/_6est35.jpg",
-      "/assets/estrutura/_7est21.jpg",
-      "/assets/estrutura/_8est33.jpg",
-      "/assets/estrutura/_9est19.jpg",
-      "/assets/estrutura/_10est14.jpg",
-      "/assets/estrutura/_11est29.jpg",
-      "/assets/estrutura/_12est30.jpg",
-      "/assets/estrutura/_13est10.jpg"
-    ],
-    captions:{
-      pt:[
-        "Estrutura Latente",
-        "Fachada em Suspensão",
-        "Geometria Residual",
-        "Ordem Parcial",
-        "Repetição Persistente",
-        "Intervalo Arquitectónico",
-        "Cidade em Eco",
-        "Reflexo Invertido",
-        "Estratigrafia Urbana",
-        "Vestígios de Luz",
-        "Antenas no Crepúsculo",
-        "Céu em Ruptura",
-        "Noite Diluída"
-      ],
-      en:[
-        "Latent Structure",
-        "Suspended Facade",
-        "Residual Geometry",
-        "Partial Order",
-        "Persistent Repetition",
-        "Architectural Interval",
-        "Echoing City",
-        "Inverted Reflection",
-        "Urban Stratigraphy",
-        "Traces of Light",
-        "Antennas at Dusk",
-        "Fractured Sky",
-        "Dissolved Night"
-      ]
-    }
-  }
-};
-
-/* ————————— GRID CONSTRUCTION ————————— */
-
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      const img=entry.target;
-      img.src=img.dataset.src;
-      observer.unobserve(img);
-    }
+imgs.forEach(img=>{
+  img.addEventListener('click',()=>{
+    lb.style.display='flex';
+    lbImg.src=img.src;
+    lbCap.textContent=img.dataset.caption || '';
   });
 });
 
-function createCards(groupId){
-  const container=document.getElementById('projects-'+groupId);
-  imageGroups[groupId].images.forEach((src,i)=>{
-    const card=document.createElement('div');
-    card.className='card';
-    const img=document.createElement('img');
-    img.dataset.src=src;
-    observer.observe(img);
-    card.appendChild(img);
-    card.onclick=()=>openLightbox(groupId,i);
-    container.appendChild(card);
-  });
-}
-
-['cor','pb','mia','cas','estrutura'].forEach(createCards);
-
-/* ————————— LIGHTBOX ————————— */
-
-function openLightbox(group,i){
-  currentGroup=group;
-  currentIndex=i;
-  updateLightbox();
-  document.getElementById('lightbox').style.display='flex';
-}
-
-function updateLightbox(){
-  document.getElementById('lightbox-img').src=imageGroups[currentGroup].images[currentIndex];
-  document.getElementById('lightbox-caption').textContent=
-    imageGroups[currentGroup].captions[currentLang][currentIndex] || "";
-}
-
 function closeLightbox(){
-  document.getElementById('lightbox').style.display='none';
+  lb.style.display='none';
+  lbImg.src='';
 }
 
-function nextImage(){
-  currentIndex=(currentIndex+1)%imageGroups[currentGroup].images.length;
-  updateLightbox();
-}
-
-function prevImage(){
-  currentIndex=(currentIndex-1+imageGroups[currentGroup].images.length)%imageGroups[currentGroup].images.length;
-  updateLightbox();
-}
-
-/* ————————— LANGUAGE ————————— */
-
-function setLang(lang){
-  currentLang=lang;
-
-  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=lang==='pt'?'block':'none');
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=lang==='en'?'block':'none');
-
-  document.querySelectorAll('#project-nav a').forEach(a=>{
-    a.textContent=a.dataset[`title-${lang}`];
-  });
-
-  document.getElementById('btn-pt').classList.toggle('active',lang==='pt');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
-
-  if(document.getElementById('lightbox').style.display==='flex'){
-    updateLightbox();
-  }
-}
-
-/* ————————— SIDE MENU ————————— */
-
-const nav=document.getElementById('project-nav');
-document.querySelectorAll('.project-meta').forEach(sec=>{
-  const a=document.createElement('a');
-  const h2=sec.querySelector('h2');
-  a.href='#'+sec.id;
-  a.dataset['title-pt']=h2.dataset.titlePt;
-  a.dataset['title-en']=h2.dataset.titleEn;
-  a.textContent=h2.dataset.titlePt;
-  nav.appendChild(a);
+lb.addEventListener('click',e=>{
+  if(e.target===lb) closeLightbox();
 });
 </script>
 
