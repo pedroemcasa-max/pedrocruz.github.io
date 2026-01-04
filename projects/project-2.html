@@ -1,27 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Under the Same Weather — Pedro Cruz</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Helvetica,Arial,sans-serif;background:#0b0b0b;color:#eaeaea}
+
+/* HEADER */
 header{text-align:center;padding:120px 24px 80px}
 header h1{font-weight:400}
 header p{opacity:.6}
-.text{max-width:720px;margin:0 auto 120px;font-size:.95rem;opacity:.85}
-.projects{max-width:1400px;margin:0 auto;padding:0 24px 160px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px}
-.card{aspect-ratio:4/3;background-size:cover;background-position:center;cursor:pointer}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;flex-direction:column}
+
+/* LANGUAGE TOGGLE */
+.lang-switch{
+  position:fixed;
+  top:18px;
+  right:22px;
+  font-size:.8rem;
+  opacity:.7;
+  z-index:20;
+}
+.lang-switch span{margin-left:12px;cursor:pointer}
+.lang-switch .active{text-decoration:underline;opacity:1}
+
+/* TEXT */
+.text{
+  max-width:720px;
+  margin:0 auto 120px;
+  font-size:.95rem;
+  opacity:.9
+}
+.text p{margin-bottom:1.4em}
+
+/* GRID */
+.projects{
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 24px 160px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px
+}
+.card{
+  aspect-ratio:4/3;
+  background-size:cover;
+  background-position:center;
+  cursor:pointer
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.96);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column
+}
 .lightbox.active{display:flex}
-.lightbox img{max-width:92vw;max-height:82vh;object-fit:contain}
-.caption{margin-top:20px;font-size:.85rem;opacity:.6}
+.lightbox img{
+  max-width:92vw;
+  max-height:82vh;
+  object-fit:contain
+}
+.caption{
+  margin-top:20px;
+  font-size:.9rem;
+  opacity:.8;
+  max-width:90%;
+  text-align:center
+}
+
+/* FOOTER */
 footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
+
+.lang-en{display:none}
 </style>
 </head>
 
 <body>
+
+<!-- LANGUAGE -->
+<div class="lang-switch">
+  <span id="pt" class="active" onclick="setLang('pt')">PT</span>
+  <span id="en" onclick="setLang('en')">EN</span>
+</div>
 
 <header>
 <h1>Under the Same Weather</h1>
@@ -29,7 +96,15 @@ footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
 </header>
 
 <section class="text">
-<p>This series approaches landscape as an atmospheric condition rather than a geographical one. Time becomes uniform, and narrative dissolves into duration.</p>
+
+<div class="lang-pt">
+<p>Esta série aborda a paisagem como uma condição atmosférica, mais do que geográfica. O tempo torna-se uniforme e a narrativa dissolve-se numa experiência de duração.</p>
+</div>
+
+<div class="lang-en">
+<p>This series approaches landscape as an atmospheric rather than a geographical condition. Time becomes uniform, and narrative dissolves into duration.</p>
+</div>
+
 </section>
 
 <section class="projects">
@@ -42,11 +117,17 @@ footer{text-align:center;padding:80px 20px;font-size:.8rem;opacity:.5}
 
 <footer>© 2025 — Pedro Cruz</footer>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lb" onclick="closeLB()">
-<img id="lbimg"><div class="caption" id="lbcap"></div>
+  <img id="lbimg">
+  <div class="caption">
+    <div id="cap-pt" class="lang-pt"></div>
+    <div id="cap-en" class="lang-en"></div>
+  </div>
 </div>
 
 <script>
+/* IMAGES */
 const images=[
 "../assets/pb/Paisagen_pb01.jpg",
 "../assets/pb/Paisagen_pb02.jpg",
@@ -54,11 +135,48 @@ const images=[
 "../assets/pb/Paisagen_pb05.jpg",
 "../assets/pb/Paisagen_pb08.jpg"
 ];
-const titles=["Beginning","Sky","Passage","Between","Night"];
-function openLB(i){lb.classList.add('active');lbimg.src=images[i];lbcap.textContent=titles[i]}
+
+/* CAPTIONS */
+const capsPT=[
+"Início",
+"Céu",
+"Passagem",
+"Entre",
+"Noite"
+];
+const capsEN=[
+"Beginning",
+"Sky",
+"Passage",
+"Between",
+"Night"
+];
+
+let index=0;
+
+/* OPEN LIGHTBOX */
+function openLB(i){
+  index=i;
+  lb.classList.add('active');
+  lbimg.src=images[i];
+  document.getElementById("cap-pt").textContent=capsPT[i];
+  document.getElementById("cap-en").textContent=capsEN[i];
+}
+
+/* CLOSE */
 function closeLB(){lb.classList.remove('active')}
+
+/* LANGUAGE SWITCH */
+function setLang(l){
+  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==='pt'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'block':'none');
+  document.getElementById('pt').classList.toggle('active',l==='pt');
+  document.getElementById('en').classList.toggle('active',l==='en');
+}
+
+/* DEFAULT = PT */
+setLang('pt');
 </script>
 
 </body>
 </html>
-
