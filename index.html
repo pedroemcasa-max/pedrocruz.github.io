@@ -19,7 +19,6 @@ body{
 header{
   min-height:90vh;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
@@ -54,73 +53,34 @@ header p{
 
 /* SECTIONS */
 section{
-  max-width:1400px;
+  max-width:1000px;
   margin:0 auto;
-  padding:120px 24px;
+  padding:120px 24px
 }
 
-.project-meta{
+.about{
+  max-width:720px;
+  margin:0 auto;
+  font-size:.95rem;
+  opacity:.85
+}
+.about p{margin-bottom:1.6em}
+
+/* PROJECT LINKS */
+.projects-list{
   text-align:center;
-  margin-bottom:60px;
+  margin-top:80px
 }
-
-.project-meta h2{
-  font-size:1.4rem;
-  font-weight:400;
-  letter-spacing:.5px;
-  margin-bottom:8px;
+.projects-list a{
+  display:block;
+  margin:16px 0;
+  font-size:1rem;
+  color:#eaeaea;
+  text-decoration:none;
+  opacity:.75;
+  transition:opacity .2s ease;
 }
-
-.project-meta p{
-  font-size:.9rem;
-  opacity:.6;
-  margin:4px 0;
-}
-
-/* GRID */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:40px;
-}
-
-.card{
-  aspect-ratio:4/3;
-  background-size:cover;
-  background-position:center;
-  cursor:pointer;
-  transition:opacity .4s ease;
-}
-
-.card:hover{opacity:.85}
-
-/* LIGHTBOX */
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.96);
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:40px;
-  z-index:9999;
-}
-
-.lightbox.active{display:flex}
-
-.lightbox img{
-  max-width:92vw;
-  max-height:82vh;
-  object-fit:contain;
-}
-
-.lightbox .caption{
-  margin-top:20px;
-  font-size:.85rem;
-  opacity:.6;
-  text-align:center;
-}
+.projects-list a:hover{opacity:1}
 
 /* FOOTER */
 footer{
@@ -129,6 +89,8 @@ footer{
   font-size:.8rem;
   opacity:.5
 }
+
+.lang-en{display:none}
 </style>
 </head>
 
@@ -139,255 +101,66 @@ footer{
     <span id="pt" class="active" onclick="setLang('pt')">PT</span>
     <span id="en" onclick="setLang('en')">EN</span>
   </div>
-  <h1>Pedro Cruz</h1>
-  <p>Fotografia · Improvisação · Presença</p>
-  <p style="margin-top:12px; font-size:.95rem;">
-    <a href="about.html" style="color:inherit; text-decoration:none; opacity:.7;">About / Sobre</a>
-  </p>
+
+  <div>
+    <h1>
+      <a href="index.html" style="color:inherit; text-decoration:none;">Pedro Cruz</a>
+    </h1>
+    <p>Fotografia · Improvisação · Presença</p>
+    <p style="margin-top:12px; font-size:.95rem;">
+      <a href="about.html" style="color:inherit; text-decoration:none; opacity:.7;">About / Sobre</a>
+    </p>
+  </div>
 </header>
 
 <section>
+  <div class="about">
 
-  <!-- PROJECT 1 -->
-  <div class="project-meta">
-    <h2>From Blue Walls to White Silence</h2>
-    <p>Chefchaouen, Morocco · 2007</p>
-    <p>A city absorbed by its own color.</p>
+    <!-- PT -->
+    <div class="lang-pt">
+      <p>A minha prática fotográfica nasce da experiência direta do momento, onde fotografar é um gesto de presença e escuta.</p>
+      <p>Procuro a imagem como vestígio — não a descrição do lugar, mas o silêncio que nele permanece.</p>
+    </div>
+
+    <!-- EN -->
+    <div class="lang-en">
+      <p>My photographic practice emerges from direct experience of the moment, where photographing is an act of presence and listening.</p>
+      <p>I seek the image as a trace — not a description of a place, but the silence that remains within it.</p>
+    </div>
+
   </div>
 
-  <div class="projects">
-    <div class="card" data-title="The Living City"
-      style="background-image:url('./assets/cor/Paisagen_cheff01.jpg')"
-      onclick="openLightbox('cor',0)"></div>
-    <div class="card" data-title="Leaving The Walls"
-      style="background-image:url('./assets/cor/Paisagen_cheff02.jpg')"
-      onclick="openLightbox('cor',1)"></div>
-    <div class="card" data-title="The Watcher"
-      style="background-image:url('./assets/cor/Paisagen_cheff04.jpg')"
-      onclick="openLightbox('cor',2)"></div>
-    <div class="card" data-title="Frozen Ascent"
-      style="background-image:url('./assets/cor/Paisagen_cheff06.jpg')"
-      onclick="openLightbox('cor',3)"></div>
-    <div class="card" data-title="White Silence"
-      style="background-image:url('./assets/cor/Paisagen_cheff07.jpg')"
-      onclick="openLightbox('cor',4)"></div>
-  </div>
+  <div class="projects-list">
 
-  <!-- PROJECT 2 -->
-  <div class="project-meta">
-    <h2>Under the Same Weather · 2012</h2>
-    <p>Five Landscapes with Distance</p>
-    <p>Nothing happens — and that is the moment.</p>
-  </div>
+    <!-- PT -->
+    <div class="lang-pt">
+      <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
+      <a href="./projects/project-2.html">Under the Same Weather</a>
+      <a href="./projects/project-3.html">Inside the Sound</a>
+      <a href="./projects/project-4.html">Last Night</a>
+      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
+    </div>
 
-  <div class="projects">
-    <div class="card" data-title="Before the Weather Decides"
-      style="background-image:url('./assets/pb/Paisagen_pb01.jpg')"
-      onclick="openLightbox('pb',0)"></div>
-    <div class="card" data-title="The Sky Gathers Itself"
-      style="background-image:url('./assets/pb/Paisagen_pb02.jpg')"
-      onclick="openLightbox('pb',1)"></div>
-    <div class="card" data-title="A Small Passage"
-      style="background-image:url('./assets/pb/Paisagen_pb03.jpg')"
-      onclick="openLightbox('pb',2)"></div>
-    <div class="card" data-title="Between Crossing and Waiting"
-      style="background-image:url('./assets/pb/Paisagen_pb05.jpg')"
-      onclick="openLightbox('pb',3)"></div>
-    <div class="card" data-title="Night Path"
-      style="background-image:url('./assets/pb/Paisagen_pb08.jpg')"
-      onclick="openLightbox('pb',4)"></div>
-  </div>
+    <!-- EN -->
+    <div class="lang-en">
+      <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
+      <a href="./projects/project-2.html">Under the Same Weather</a>
+      <a href="./projects/project-3.html">Inside the Sound</a>
+      <a href="./projects/project-4.html">Last Night</a>
+      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
+    </div>
 
-  <!-- PROJECT 3 -->
-  <div class="project-meta">
-    <h2>Inside the Sound · 2024</h2>
-    <p>Improvisation as shared listening</p>
-    <p>Staying inside the sound.</p>
   </div>
-
-  <div class="projects">
-    <div class="card" data-title="Before the Agreement"
-      style="background-image:url('./assets/mia/mia01.jpg')"
-      onclick="openLightbox('mia',0)"></div>
-    <div class="card" data-title="Finding the Thread"
-      style="background-image:url('./assets/mia/mia03.jpg')"
-      onclick="openLightbox('mia',1)"></div>
-    <div class="card" data-title="Letting Go"
-      style="background-image:url('./assets/mia/mia05.jpg')"
-      onclick="openLightbox('mia',2)"></div>
-    <div class="card" data-title="Negotiation"
-      style="background-image:url('./assets/mia/mia07.jpg')"
-      onclick="openLightbox('mia',3)"></div>
-    <div class="card" data-title="Statement"
-      style="background-image:url('./assets/mia/mia09.jpg')"
-      onclick="openLightbox('mia',4)"></div>
-  </div>
-
-  <!-- PROJECT 4 -->
-  <div class="project-meta">
-    <h2>Last Night · 2016</h2>
-    <p>Variations on permanence and disappearance</p>
-    <p>Last night in my childhood home.</p>
-  </div>
-
-  <div class="projects">
-    <div class="card" data-title="Before It Shifts"
-      style="background-image:url('./assets/cas/cas01.jpg')"
-      onclick="openLightbox('cas',0)"></div>
-    <div class="card" data-title="First Fracture"
-      style="background-image:url('./assets/cas/cas02.jpg')"
-      onclick="openLightbox('cas',1)"></div>
-    <div class="card" data-title="Unstable Image"
-      style="background-image:url('./assets/cas/cas03.jpg')"
-      onclick="openLightbox('cas',2)"></div>
-    <div class="card" data-title="Suspended Memory"
-      style="background-image:url('./assets/cas/cas04.jpg')"
-      onclick="openLightbox('cas',3)"></div>
-    <div class="card" data-title="Domestic Echo"
-      style="background-image:url('./assets/cas/cas05.jpg')"
-      onclick="openLightbox('cas',4)"></div>
-    <div class="card" data-title="Pattern of Permanence"
-      style="background-image:url('./assets/cas/cas06.jpg')"
-      onclick="openLightbox('cas',5)"></div>
-    <div class="card" data-title="Material Collapse"
-      style="background-image:url('./assets/cas/cas07.jpg')"
-      onclick="openLightbox('cas',6)"></div>
-    <div class="card" data-title="After the House"
-      style="background-image:url('./assets/cas/cas08.jpg')"
-      onclick="openLightbox('cas',7)"></div>
-  </div>
-
 </section>
 
 <footer>© 2025 — Pedro Cruz</footer>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" alt="">
-  <div class="caption" id="lightbox-caption"></div>
-</div>
-
 <script>
-const imageGroups = {
-  cor: {
-    images: [
-      "./assets/cor/Paisagen_cheff01.jpg",
-      "./assets/cor/Paisagen_cheff02.jpg",
-      "./assets/cor/Paisagen_cheff04.jpg",
-      "./assets/cor/Paisagen_cheff06.jpg",
-      "./assets/cor/Paisagen_cheff07.jpg"
-    ],
-    titles: [
-      "The Living City",
-      "Leaving The Walls",
-      "The Watcher",
-      "Frozen Ascent",
-      "White Silence"
-    ]
-  },
-
-  pb: {
-    images: [
-      "./assets/pb/Paisagen_pb01.jpg",
-      "./assets/pb/Paisagen_pb02.jpg",
-      "./assets/pb/Paisagen_pb03.jpg",
-      "./assets/pb/Paisagen_pb05.jpg",
-      "./assets/pb/Paisagen_pb08.jpg"
-    ],
-    titles: [
-      "Before the Weather Decides",
-      "The Sky Gathers Itself",
-      "A Small Passage",
-      "Between Crossing and Waiting",
-      "Night Path"
-    ]
-  },
-
-  mia: {
-    images: [
-      "./assets/mia/mia01.jpg",
-      "./assets/mia/mia03.jpg",
-      "./assets/mia/mia05.jpg",
-      "./assets/mia/mia07.jpg",
-      "./assets/mia/mia09.jpg"
-    ],
-    titles: [
-      "Before the Agreement",
-      "Finding the Thread",
-      "Letting Go",
-      "Negotiation",
-      "Statement"
-    ]
-  },
-
-  cas: {
-    images: [
-      "./assets/cas/cas01.jpg",
-      "./assets/cas/cas02.jpg",
-      "./assets/cas/cas03.jpg",
-      "./assets/cas/cas04.jpg",
-      "./assets/cas/cas05.jpg",
-      "./assets/cas/cas06.jpg",
-      "./assets/cas/cas07.jpg",
-      "./assets/cas/cas08.jpg"
-    ],
-    titles: [
-      "Before It Shifts",
-      "First Fracture",
-      "Unstable Image",
-      "Suspended Memory",
-      "Domestic Echo",
-      "Pattern of Permanence",
-      "Material Collapse",
-      "After the House"
-    ]
-  }
-};
-
-let currentGroup = null;
-let currentIndex = 0;
-
-function openLightbox(groupKey, index) {
-  currentGroup = imageGroups[groupKey];
-  currentIndex = index;
-
-  updateLightbox();
-  document.getElementById("lightbox").classList.add("active");
-}
-
-function updateLightbox() {
-  const imgEl = document.getElementById("lightbox-img");
-  const captionEl = document.getElementById("lightbox-caption");
-
-  imgEl.src = currentGroup.images[currentIndex];
-  captionEl.textContent = currentGroup.titles[currentIndex] || "";
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").classList.remove("active");
-}
-
-document.addEventListener("keydown", e => {
-  const lightbox = document.getElementById("lightbox");
-  if (!lightbox.classList.contains("active")) return;
-
-  if (e.key === "ArrowRight") {
-    currentIndex = (currentIndex + 1) % currentGroup.images.length;
-    updateLightbox();
-  } else if (e.key === "ArrowLeft") {
-    currentIndex = (currentIndex - 1 + currentGroup.images.length) % currentGroup.images.length;
-    updateLightbox();
-  } else if (e.key === "Escape") {
-    closeLightbox();
-  }
-});
-
-// LANGUAGE SWITCH
-function setLang(lang) {
-  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display = lang==='pt'?'block':'none');
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display = lang==='en'?'block':'none');
-  document.getElementById('pt').classList.toggle('active', lang==='pt');
-  document.getElementById('en').classList.toggle('active', lang==='en');
+function setLang(l){
+  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==='pt'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'block':'none');
+  document.getElementById('pt').classList.toggle('active',l==='pt');
+  document.getElementById('en').classList.toggle('active',l==='en');
 }
 </script>
 
