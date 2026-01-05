@@ -16,33 +16,31 @@ body{
 }
 
 /* HEADER */
-<header>
-  <div class="lang-switch">
-    <span id="btn-pt" class="active" onclick="setLang('pt')">PT</span>
-    <span id="btn-en" onclick="setLang('en')">EN</span>
-  </div>
+header{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+header h1{
+  font-size:2.4rem;
+  font-weight:400;
+}
+header p{
+  margin-top:12px;
+  font-size:.95rem;
+  opacity:.7;
+}
 
-  <div>
-    <h1>
-      <a href="index.html" style="color:inherit; text-decoration:none;">Pedro Cruz</a>
-    </h1>
-    <p>
-      Fotografia · Improvisação · Presença
-      <span style="margin-left:16px; font-size:.9rem;">
-        <a href="about.html" style="color:inherit; text-decoration:none; opacity:.7;">About / Sobre</a>
-      </span>
-    </p>
-  </div>
-</header>
-
-
-/* LANGUAGE */
+/* LANGUAGE SWITCH */
 .lang-switch{
   position:absolute;
   top:24px;
   right:24px;
   font-size:.75rem;
-  opacity:.7
+  opacity:.7;
 }
 .lang-switch span{
   margin-left:10px;
@@ -105,48 +103,56 @@ footer{
   </div>
 
   <div>
-    <h1>Pedro Cruz</h1>
-    <p>Photography · Improvisation · Presence</p>
+    <h1>
+      <a href="index.html" style="color:inherit; text-decoration:none;">Pedro Cruz</a>
+    </h1>
+    <p>
+      Fotografia · Improvisação · Presença
+      <span style="margin-left:16px; font-size:.9rem;">
+        <a href="about.html" style="color:inherit; text-decoration:none; opacity:.7;">About / Sobre</a>
+      </span>
+    </p>
   </div>
 </header>
 
 <section>
-<div class="about">
+  <div class="about">
 
-  <div class="lang-pt">
-    <p>A minha prática fotográfica nasce da experiência direta do momento, onde fotografar é um gesto de presença e escuta.</p>
-<p>Procuro a imagem como vestígio — não a descrição do lugar, mas o silêncio que nele permanece.</p>
+    <!-- PT -->
+    <div class="lang-pt">
+      <p>A minha prática fotográfica nasce da experiência direta do momento, onde fotografar é um gesto de presença e escuta.</p>
+      <p>Procuro a imagem como vestígio — não a descrição do lugar, mas o silêncio que nele permanece.</p>
+    </div>
+
+    <!-- EN -->
+    <div class="lang-en">
+      <p>My photographic practice emerges from direct experience of the moment, where photographing is an act of presence and listening.</p>
+      <p>I seek the image as a trace — not a description of a place, but the silence that remains within it.</p>
+    </div>
 
   </div>
 
-  <div class="lang-en">
-    <p>My photographic practice emerges from direct experience of the moment, where photographing is an act of presence and listening.</p>
-<p>I seek the image as a trace — not a description of a place, but the silence that remains within it.</p>
+  <div class="projects-list">
+
+    <!-- PT -->
+    <div class="lang-pt">
+      <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
+      <a href="./projects/project-2.html">Under the Same Weather</a>
+      <a href="./projects/project-3.html">Inside the Sound</a>
+      <a href="./projects/project-4.html">Last Night</a>
+      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
+    </div>
+
+    <!-- EN -->
+    <div class="lang-en">
+      <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
+      <a href="./projects/project-2.html">Under the Same Weather</a>
+      <a href="./projects/project-3.html">Inside the Sound</a>
+      <a href="./projects/project-4.html">Last Night</a>
+      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
+    </div>
+
   </div>
-
-</div>
-
-<div class="projects-list">
-
-  <!-- PT -->
-  <div class="lang-pt">
-    <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
-    <a href="./projects/project-2.html">Under the Same Weather</a>
-    <a href="./projects/project-3.html">Inside the Sound</a>
-    <a href="./projects/project-4.html">Last Night</a>
-    <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
-  </div>
-
-  <!-- EN -->
-  <div class="lang-en">
-    <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
-    <a href="./projects/project-2.html">Under the Same Weather</a>
-    <a href="./projects/project-3.html">Inside the Sound</a>
-    <a href="./projects/project-4.html">Last Night</a>
-    <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
-  </div>
-
-</div>
 </section>
 
 <footer>© 2025 — Pedro Cruz</footer>
