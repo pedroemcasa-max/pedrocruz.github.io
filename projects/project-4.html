@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Last Night — Pedro Cruz</title>
+<title>Structures of Permanence — Pedro Cruz</title>
 
 <style>
 *{box-sizing:border-box}
@@ -185,37 +185,42 @@ footer{
 </div>
 
 <header>
-  <h1 class="lang-pt">Last night</h1>
-  <h1 class="lang-en" style="display:none;">Last Night</h1>
+  <h1 class="lang-pt">Structures of Permanence</h1>
+  <h1 class="lang-en" style="display:none;">Structures of Permanence</h1>
 
-  <p class="lang-pt">Graça 2016</p>
-  <p class="lang-en" style="display:none;">Graça 2016</p>
+  <p class="lang-pt">2008-2018</p>
+  <p class="lang-en" style="display:none;">2008-2018</p>
 </header>
 
 <section class="text">
 
   <div class="lang-pt">
-    <p><strong>Last Night</strong> explora o território nocturno onde arquitectura, luz e instabilidade se encontram. As imagens sugerem momentos de fratura e suspensão, como se a cidade estivesse presa num estado frágil entre presença e colapso.</p>
-    <p>A sequência desenrola-se como uma descida lenta, do momento de antecipação até às consequências, sem se resolver num evento claro.</p>
+    <p><strong>Structures of Permanence</strong> é um projeto de longa duração que reflete sobre persistência, repetição e presença no espaço construído. Mais do que documentar lugares, estas imagens procuram compor um arquivo visual de estruturas que permanecem — mesmo quando a sua função se torna instável, ambígua ou obsoleta.</p>
+  <p>Algumas fotografias resultam de longas exposições com variação da distância focal, reforçando a ideia de deslocamento silencioso no interior da própria matéria.</p>
+  </div>
 
   <div class="lang-en" style="display:none;">
-  <p><strong>Last Night</strong> explores the nocturnal territory where architecture, light and instability meet. The images suggest moments of fracture and suspension, as if the city were trapped in a fragile state between presence and collapse.</p>
-    <p>The sequence unfolds like a slow descent, from anticipation to consequence, without resolving into a single clear event.</p>
+    <p><strong>Structures of Permanence</strong> is a long–term photographic project reflecting on persistence, repetition and structural presence within the built environment. Rather than describing specific places, these images construct a visual archive of forms that remain — even when their function becomes unstable, ambiguous or obsolete.</p>
+  <p>Some photographs are made in single long exposures with focal-length variation, emphasising a quiet sense of displacement within the structure itself.</p>
   </div>
 
 </section>
 
-<section class="projects">
-<div class="card" style="background-image:url('../assets/cas/cas01.jpg')" onclick="openLB(0)"></div>
-  <div class="card" style="background-image:url('../assets/cas/cas02.jpg')" onclick="openLB(1)"></div>
-  <div class="card" style="background-image:url('../assets/cas/cas03.jpg')" onclick="openLB(2)"></div>
-  <div class="card" style="background-image:url('../assets/cas/cas04.jpg')" onclick="openLB(3)"></div>
-  <div class="card" style="background-image:url('../assets/cas/cas05.jpg')" onclick="openLB(4)"></div>
-  <div class="card" style="background-image:url('../assets/cas/cas06.jpg')" onclick="openLB(5)"></div>
-  <div class="card" style="background-image:url('../assets/cas/cas07.jpg')" onclick="openLB(6)"></div>
-  <div class="card" style="background-image:url('../assets/cas/cas08.jpg')" onclick="openLB(7)"></div>
-</section>
-
+<div class="gallery">
+  <img src="../assets/estrutura/_1est18.jpg"  data-caption="Silent Facade">
+  <img src="../assets/estrutura/_2est28.jpg"  data-caption="Borrowed Light">
+  <img src="../assets/estrutura/_3est37.jpg"  data-caption="Yellow Geometry in Concrete">
+  <img src="../assets/estrutura/_4est32.jpg"  data-caption="Structure in Yellow">
+  <img src="../assets/estrutura/_5est36.jpg"  data-caption="Repeating Concrete Rhythm">
+  <img src="../assets/estrutura/_6est35.jpg"  data-caption="Stair Fragment">
+  <img src="../assets/estrutura/_7est21.jpg"  data-caption="Urban Blue Layers">
+  <img src="../assets/estrutura/_8est33.jpg"  data-caption="Watching Itself">
+  <img src="../assets/estrutura/_9est19.jpg"  data-caption="Roof Echoes">
+  <img src="../assets/estrutura/_10est14.jpg" data-caption="Cathedral in Light">
+  <img src="../assets/estrutura/_11est29.jpg" data-caption="Antenna Rhythm">
+  <img src="../assets/estrutura/_12est30.jpg" data-caption="Sky Divide">
+  <img src="../assets/estrutura/_13est10.jpg" data-caption="Windows in the Night">
+</div>
 
 <!-- PROJECT NAV -->
 <div class="project-nav">
@@ -240,35 +245,55 @@ footer{
 
 <script>
 const images=[
- "../assets/cas/cas01.jpg","../assets/cas/cas02.jpg",
- "../assets/cas/cas03.jpg","../assets/cas/cas04.jpg",
- "../assets/cas/cas05.jpg","../assets/cas/cas06.jpg",
- "../assets/cas/cas07.jpg","../assets/cas/cas08.jpg"
-];
+"../assets/estrutura/_1est18.jpg"
+"../assets/estrutura/_2est28.jpg"
+"../assets/estrutura/_3est37.jpg"
+"../assets/estrutura/_4est32.jpg"
+"../assets/estrutura/_5est36.jpg"
+"../assets/estrutura/_6est35.jpg"
+"../assets/estrutura/_7est21.jpg"
+"../assets/estrutura/_8est33.jpg"
+"../assets/estrutura/_9est19.jpg"
+"../assets/estrutura/_10est14.jpg"
+"../assets/estrutura/_11est29.jpg"
+"../assets/estrutura/_12est30.jpg"
+"../assets/estrutura/_13est10.jpg"
+  
+  
+  ];
 
 /* --- TITULOS PT --- */
 const captionsPT=[
-  "Antes",
-  "Fractura",
-  "Escondida",
-  "Suspensa",
-  "Eco",
-  "Padrão",
-  "Colapso",
-  "Depois"
-  
+  "Silent Facade",
+  "Borrowed Light",
+  "Yellow Geometry in Concrete",
+  "Structure in Yellow",
+  "Repeating Concrete Rhythm",
+  "Stair Fragment",
+  "Urban Blue Layers",
+  "Watching Itself",
+  "Roof Echoes",
+  "Antenna Rhythm",
+  "Sky Divide",
+  "Windows in the Night"
 ];
 
 /* --- TITLES EN --- */
 const captionsEN=[
-  "Before",
-  "Fracture",
-  "Hidden",
-  "Suspended",
-  "Echo",
-  "Pattern",
-  "Collapse",
-  "After"
+  "Silent Facade",
+  "Borrowed Light",
+  "Yellow Geometry in Concrete",
+  "Structure in Yellow",
+  "Repeating Concrete Rhythm",
+  "Stair Fragment",
+  "Urban Blue Layers",
+  "Watching Itself",
+  "Roof Echoes",
+  "Antenna Rhythm",
+  "Sky Divide",
+  "Windows in the Night"
+
+  
 ];
 
 let current=0;
@@ -323,7 +348,7 @@ document.addEventListener("keydown",e=>{
 
   /* BETWEEN PROJECTS */
   if(e.key==="ArrowLeft") window.location.href="project-4.html";
-  if(e.key==="ArrowRight") window.location.href="project-2.html";
+  if(e.key==="ArrowRight") window.location.href="project-1.html";
 });
 </script>
 
