@@ -65,12 +65,34 @@ header p{
 /* TEXT */
 .text{
   max-width:720px;
-  margin:0 auto 120px;
+  margin:0 auto 80px;
   font-size:.95rem;
   opacity:.9;
   text-align:center;
 }
 .text p{margin-bottom:1.4em}
+
+/* TECHNICAL SHEET */
+.ficha{
+  max-width:720px;
+  margin:0 auto 120px;
+  padding:32px 24px;
+  border-top:1px solid rgba(255,255,255,.15);
+  border-bottom:1px solid rgba(255,255,255,.15);
+  font-size:.85rem;
+  opacity:.85;
+  text-align:center;
+}
+.ficha h3{
+  font-size:.75rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+  opacity:.6;
+}
+.ficha p{
+  margin:.35em 0;
+}
 
 /* GRID */
 .projects{
@@ -202,7 +224,15 @@ footer{
     <p>This series follows a performance through breath, sound and shared presence. Moving between black-and-white and colour, the photographs trace the quiet choreography that surrounds the staged one: the listening body, the negotiations of space, the moments of suspension and return.</p>
     <p>Each image opens a small interval — a place where gesture slows, music circulates, and community becomes visible. What remains is not a record of the event, but an echo: the body as score, the stage as a field of relations, and, finally, acknowledgement as a human closing gesture.</p>
   </div>
+</section>
 
+<section class="ficha">
+  <h3>Ficha Técnica</h3>
+  <p>Fotografias — Pedro Cruz</p>
+  <p>Espetáculo — <em>A Noite Mais Longa do Ano</em></p>
+  <p>Sociedade Filarmónica Ermegeirense</p>
+  <p>Escola de Dança e Movimento / Associação Estufa</p>
+  <p>Teatro-Cine de Torres Vedras</p>
 </section>
 
 <section class="projects">
@@ -247,7 +277,6 @@ const images=[
   "../assets/noi/noi07.jpg"
 ];
 
-/* --- TITULOS PT --- */
 const captionsPT=[
   "Prelúdio",
   "Ouvimos o Corpo",
@@ -258,13 +287,12 @@ const captionsPT=[
   "Epílogo"
 ];
 
-/* --- TITLES EN --- */
 const captionsEN=[
   "Prelude",
-  "We Listen with the Body", 
+  "We Listen the Body", 
   "Duet with Silence",
   "Music in Circulation",
-  "Intervals of Gesture",
+  "Interval of Gesture",
   "The Body as Score",
   "Epilogue"
 ];
@@ -304,22 +332,17 @@ function prevImg(){
   updateLB();
 }
 
-/* CLICK OUTSIDE TO CLOSE */
 lb.addEventListener("click",e=>{
   if(e.target===lb) closeLB();
 });
 
-/* KEYBOARD NAV */
 document.addEventListener("keydown",e=>{
-
   if(lb.classList.contains("active")){
     if(e.key==="ArrowRight") nextImg();
     if(e.key==="ArrowLeft") prevImg();
     if(e.key==="Escape") closeLB();
     return;
   }
-
-  /* BETWEEN PROJECTS */
   if(e.key==="ArrowLeft") window.location.href="structures-of-permanence.html";
   if(e.key==="ArrowRight") window.location.href="project-1.html";
 });
