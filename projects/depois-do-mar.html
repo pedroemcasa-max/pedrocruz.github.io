@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Depois do mar — Pedro Cruz</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #1f1f1d;
+    color: #e8e5dc;
+}
+
+header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(232,229,220,0.18);
+}
+
+header a {
+    color: #e8e5dc;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+main {
+    padding: 48px 40px 60px;
+}
+
+/* TEXTO SIMPLES */
+.project-head {
+    max-width: 640px;
+    margin-bottom: 60px;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.meta {
+    color: #aaa59b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #c8c3b8;
+}
+
+/* GALERIA LINEAR */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+}
+
+/* IMAGEM CENTRAL MAIS CONTIDA */
+.narrow {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* footer */
+footer {
+    padding: 24px 40px 38px;
+    font-size: 12px;
+    color: #8f8a82;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+    main, header, footer {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .narrow {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="../index.html">← Projetos</a>
+</header>
+
+<main>
+
+<section class="project-head">
+    <h1>Depois do mar</h1>
+    <div class="meta">Paisagem · memória</div>
+
+    <div class="text">
+        <p>
+            O que permanece depois da passagem não é apenas o lugar,
+            mas a sua alteração. A paisagem torna-se vestígio de um
+            acontecimento que já não está presente, mas que continua
+            a inscrever-se na matéria.
+        </p>
+    </div>
+</section>
+
+<section class="gallery">
+
+    <img src="../assets/velho/velho_web-4.jpg">
+
+    <img class="narrow" src="../assets/velho/velho_web-3.jpg">
+
+    <img src="../assets/velho/velho_web-2.jpg">
+
+    <img class="narrow" src="../assets/velho/velho_web-1.jpg">
+
+</section>
+
+</main>
+
+<footer>
+    © Pedro Cruz
+</footer>
+
+</body>
+</html>
