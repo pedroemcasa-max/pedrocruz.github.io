@@ -6,9 +6,7 @@
 <title>Pedro Cruz</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -18,7 +16,7 @@ body {
 }
 
 header {
-    padding: 38px 40px 26px;
+    padding: 36px 40px 24px;
     border-bottom: 1px solid rgba(232,229,220,0.18);
 }
 
@@ -26,84 +24,77 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 30px;
 }
 
 h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
-.intro {
-    max-width: 520px;
-    font-size: 14px;
-    line-height: 1.55;
-    color: #bdb8ad;
-    text-align: right;
 }
 
 nav {
-    margin-top: 22px;
-    font-size: 13px;
-    letter-spacing: 0.8px;
+    margin-top: 20px;
 }
 
 nav a {
     color: #e8e5dc;
     text-decoration: none;
-    margin-right: 22px;
-}
-
-nav a:hover {
-    color: #ffffff;
+    margin-right: 20px;
+    font-size: 13px;
 }
 
 main {
-    padding: 36px 40px 50px;
+    padding: 50px 40px 60px;
 }
 
+/* GRID 2 COLUNAS */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 40px;
 }
 
+/* PROJETO */
 .project {
-    display: block;
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
+/* imagem */
 .image-box {
     width: 100%;
-    aspect-ratio: 4 / 3;
     overflow: hidden;
     background: #111;
 }
 
 .image-box img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
     display: block;
-    filter: saturate(0.92) contrast(1.02);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .project:hover img {
-    transform: scale(1.035);
-    opacity: 0.88;
+    transform: scale(1.03);
 }
 
+/* variação de escala */
+.project.large img {
+    width: 100%;
+}
+
+.project.small img {
+    width: 88%;
+    margin: 0 auto;
+}
+
+/* texto */
 .caption {
-    padding-top: 12px;
+    margin-top: 14px;
 }
 
 .caption h2 {
     margin: 0;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 400;
 }
 
@@ -113,31 +104,27 @@ main {
     color: #aaa59b;
 }
 
+/* footer */
 footer {
-    padding: 24px 40px 38px;
+    padding: 30px 40px;
     font-size: 12px;
     color: #8f8a82;
 }
 
+/* mobile */
 @media (max-width: 900px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .header-inner {
-        display: block;
-    }
-
-    .intro {
-        text-align: left;
-        margin-top: 18px;
-    }
-
-    header,
-    main,
-    footer {
+    main, header, footer {
         padding-left: 22px;
         padding-right: 22px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .project.small img {
+        width: 100%;
     }
 }
 </style>
@@ -148,34 +135,20 @@ footer {
 <header>
     <div class="header-inner">
         <h1>Pedro Cruz</h1>
-
-        <div class="intro">
-            Fotografia enquanto vestígio, deslocação e permanência.
-            Imagens entre paisagem, arquitectura, memória e presença.
-        </div>
     </div>
 
     <nav>
         <a href="index.html">Projetos</a>
         <a href="about.html">Sobre</a>
-        <a href="mailto:pedrosoaresdacruz@gmail.com">Contacto</a>
     </nav>
 </header>
 
 <main>
+
 <section class="grid">
 
-    <a class="project" href="projects/debaixo-do-mesmo-tempo.html">
-        <div class="image-box">
-            <img src="assets/pb/Paisagen_pb03.jpg">
-        </div>
-        <div class="caption">
-            <h2>Debaixo do Mesmo Tempo</h2>
-            <p>Paisagem · preto e branco</p>
-        </div>
-    </a>
-
-    <a class="project" href="projects/structures-of-permanence.html">
+    <!-- 1 -->
+    <a class="project large" href="projects/structures-of-permanence.html">
         <div class="image-box">
             <img src="assets/estrutura/_10est14.jpg">
         </div>
@@ -185,17 +158,30 @@ footer {
         </div>
     </a>
 
-    <a class="project" href="projects/dentro-do-som.html">
-    <div class="image-box">
-        <img src="assets/mia/mia05.jpg">
-    </div>
-    <div class="caption">
-        <h2>Dentro do Som</h2>
-        <p>Improvisação · presença</p>
-    </div>
+    <!-- 2 -->
+    <a class="project small" href="projects/debaixo-do-mesmo-tempo.html">
+        <div class="image-box">
+            <img src="assets/pb/Paisagen_pb03.jpg">
+        </div>
+        <div class="caption">
+            <h2>Debaixo do Mesmo Tempo</h2>
+            <p>Paisagem · preto e branco</p>
+        </div>
     </a>
 
-    <a class="project" href="projects/depois-do-mar.html">
+    <!-- 3 -->
+    <a class="project small" href="projects/dentro-do-som.html">
+        <div class="image-box">
+            <img src="assets/mia/mia05.jpg">
+        </div>
+        <div class="caption">
+            <h2>Dentro do Som</h2>
+            <p>Improvisação · presença</p>
+        </div>
+    </a>
+
+    <!-- 4 -->
+    <a class="project large" href="projects/depois-do-mar.html">
         <div class="image-box">
             <img src="assets/velho/velho_web-4.jpg">
         </div>
@@ -205,7 +191,8 @@ footer {
         </div>
     </a>
 
-    <a class="project" href="#">
+    <!-- 5 -->
+    <a class="project small" href="#">
         <div class="image-box">
             <img src="assets/permanece/entre_a_luz_e_o_resto_web-3.jpg">
         </div>
@@ -215,7 +202,8 @@ footer {
         </div>
     </a>
 
-    <a class="project" href="#">
+    <!-- 6 -->
+    <a class="project small" href="#">
         <div class="image-box">
             <img src="assets/resto/resto_web-1.jpg">
         </div>
@@ -226,6 +214,7 @@ footer {
     </a>
 
 </section>
+
 </main>
 
 <footer>
