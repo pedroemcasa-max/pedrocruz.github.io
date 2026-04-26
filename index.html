@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -7,165 +6,201 @@
 <title>Pedro Cruz</title>
 
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Helvetica,Arial,sans-serif;
-  background:#0b0b0b;
-  color:#eaeaea;
-  line-height:1.6
+* {
+    box-sizing: border-box;
 }
 
-/* HEADER */
-header{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-}
-header h1{
-  font-size:2.4rem;
-  font-weight:400;
-}
-header p{
-  margin-top:12px;
-  font-size:.95rem;
-  opacity:.7;
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #1f1f1d;
+    color: #e8e5dc;
 }
 
-/* LANGUAGE SWITCH */
-.lang-switch{
-  position:absolute;
-  top:24px;
-  right:24px;
-  font-size:.75rem;
-  opacity:.7;
-}
-.lang-switch span{
-  margin-left:10px;
-  cursor:pointer
-}
-.lang-switch .active{
-  text-decoration:underline;
-  opacity:1
+header {
+    padding: 38px 40px 26px;
+    border-bottom: 1px solid rgba(232,229,220,0.18);
 }
 
-/* SECTIONS */
-section{
-  max-width:1000px;
-  margin:0 auto;
-  padding:120px 24px
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
 }
 
-.about{
-  max-width:720px;
-  margin:0 auto;
-  font-size:.95rem;
-  opacity:.85
-}
-.about p{margin-bottom:1.6em}
-
-/* PROJECT LINKS */
-.projects-list{
-  text-align:center;
-  margin-top:80px
-}
-.projects-list a{
-  display:block;
-  margin:16px 0;
-  font-size:1rem;
-  color:#eaeaea;
-  text-decoration:none;
-  opacity:.75;
-  transition:opacity .2s ease;
-}
-.projects-list a:hover{opacity:1}
-
-/* FOOTER */
-footer{
-  padding:80px 20px;
-  text-align:center;
-  font-size:.8rem;
-  opacity:.5
+h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
-.lang-en{display:none}
+.intro {
+    max-width: 520px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #bdb8ad;
+    text-align: right;
+}
+
+nav {
+    margin-top: 22px;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+}
+
+nav a {
+    color: #e8e5dc;
+    text-decoration: none;
+    margin-right: 22px;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+main {
+    padding: 36px 40px 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.project {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.image-box {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #111;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.92) contrast(1.02);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.project:hover img {
+    transform: scale(1.035);
+    opacity: 0.88;
+}
+
+.caption {
+    padding-top: 12px;
+}
+
+.caption h2 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.caption p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #aaa59b;
+}
+
+footer {
+    padding: 24px 40px 38px;
+    font-size: 12px;
+    color: #8f8a82;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-inner {
+        display: block;
+    }
+
+    .intro {
+        text-align: left;
+        margin-top: 18px;
+    }
+
+    header,
+    main,
+    footer {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="lang-switch">
-    <span id="pt" class="active" onclick="setLang('pt')">PT</span>
-    <span id="en" onclick="setLang('en')">EN</span>
-  </div>
+    <div class="header-inner">
+        <h1>Pedro Cruz</h1>
 
-  <div>
-    <h1>
-      <a href="index.html" style="color:inherit; text-decoration:none;">Pedro Cruz</a>
-    </h1>
-    <p>Fotografia · Improvisação · Presença</p>
-    <p style="margin-top:12px; font-size:.95rem;">
-      <a href="about.html" style="color:inherit; text-decoration:none; opacity:.7;">About / Sobre</a>
-    </p>
-  </div>
+        <div class="intro">
+            Fotografia enquanto vestígio, deslocação e permanência.
+            Imagens entre paisagem, arquitectura, memória e presença.
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">Projetos</a>
+        <a href="about.html">Sobre</a>
+        <a href="mailto:pedrocruz@example.com">Contacto</a>
+    </nav>
 </header>
 
-<section>
-  <div class="about">
+<main>
+    <section class="grid">
 
-    <!-- PT -->
-    <div class="lang-pt">
-      <p>A minha prática fotográfica nasce da experiência direta do momento, onde fotografar é um gesto de presença e escuta.</p>
-      <p>Procuro a imagem como vestígio — não a descrição do lugar, mas o silêncio que nele permanece.</p>
-    </div>
+        <a class="project" href="#">
+            <div class="image-box">
+                <img src="assets/pb/Paisagen_pb03.jpg" alt="Debaixo do Mesmo Tempo">
+            </div>
+            <div class="caption">
+                <h2>Debaixo do Mesmo Tempo</h2>
+                <p>Paisagem · preto e branco</p>
+            </div>
+        </a>
 
-    <!-- EN -->
-    <div class="lang-en">
-      <p>My photographic practice emerges from direct experience of the moment, where photographing is an act of presence and listening.</p>
-      <p>I seek the image as a trace — not a description of a place, but the silence that remains within it.</p>
-    </div>
+        <a class="project" href="#">
+            <div class="image-box">
+                <img src="assets/estrutura/_10est14.jpg" alt="Structures of Permanence">
+            </div>
+            <div class="caption">
+                <h2>Structures of Permanence</h2>
+                <p>Arquitectura · memória · vestígio</p>
+            </div>
+        </a>
 
-  </div>
+        <a class="project" href="#">
+            <div class="image-box">
+                <img src="assets/mia/mia05.jpg" alt="Dentro do Som">
+            </div>
+            <div class="caption">
+                <h2>Dentro do Som</h2>
+                <p>Improvisação · corpo · presença</p>
+            </div>
+        </a>
 
-  <div class="projects-list">
+    </section>
+</main>
 
-    <!-- PT -->
-    <div class="lang-pt">
-      <a href="./projects/project-1.html">Das Paredes Azuis ao Silêncio Branco</a>
-      <a href="./projects/project-2.html">Debaixo do Mesmo Tempo</a>
-      <a href="./projects/project-4.html">A Última Noite</a>
-      <a href="./projects/project-3.html">Dentro do Som</a>
-      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
-      <a href="./projects/noi.html">Entre o Gesto e o Som</a>
-    </div>
-
-    <!-- EN -->
-    <div class="lang-en">
-      <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
-      <a href="./projects/project-2.html">Under the Same Weather</a>
-      <a href="./projects/project-4.html">Last Night</a>
-      <a href="./projects/project-3.html">Inside the Sound</a>
-      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
-      <a href="./projects/noi.html">Between Gesture and Sound</a>
-    </div>
-
-  </div>
-</section>
-
-<footer>© 2025 — Pedro Cruz</footer>
-
-<script>
-function setLang(l){
-  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==='pt'?'block':'none');
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'block':'none');
-  document.getElementById('pt').classList.toggle('active',l==='pt');
-  document.getElementById('en').classList.toggle('active',l==='en');
-}
-</script>
+<footer>
+    © Pedro Cruz
+</footer>
 
 </body>
 </html>
