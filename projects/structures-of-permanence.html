@@ -30,13 +30,13 @@ main {
     padding: 48px 40px 60px;
 }
 
-/* layout texto */
+/* texto */
 .project-head {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 70px;
     align-items: start;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 
 .project-title {
@@ -62,7 +62,7 @@ h1 {
     padding-top: 6px;
 }
 
-/* galeria */
+/* galeria expositiva */
 .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -79,7 +79,13 @@ h1 {
     grid-column: 1 / -1;
 }
 
-/* footer */
+.gallery .narrow {
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* rodapé */
 footer {
     padding: 24px 40px 38px;
     font-size: 12px;
@@ -96,11 +102,16 @@ footer {
     .project-head {
         grid-template-columns: 1fr;
         gap: 24px;
+        margin-bottom: 44px;
     }
 
     .gallery {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+
+    .gallery .narrow {
+        width: 100%;
     }
 
     h1 {
@@ -145,19 +156,22 @@ footer {
 
 <section class="gallery">
 
-    <!-- imagem dominante -->
-    <img class="wide" src="../assets/estrutura/_10est14.jpg">
-
-    <!-- sequência -->
-    <img src="../assets/estrutura/_11est29.jpg">
-    <img src="../assets/estrutura/_12est30.jpg">
-
-    <!-- imagem dominante -->
     <img class="wide" src="../assets/estrutura/_13est10.jpg">
 
-    <!-- sequência -->
+    <img src="../assets/estrutura/_10est14.jpg">
     <img src="../assets/estrutura/_3est37.jpg">
-    <img src="../assets/estrutura/_4est32.jpg">
+
+    <img class="wide narrow" src="../assets/estrutura/_4est32.jpg">
+
+    <img src="../assets/estrutura/_1est18.jpg">
+    <img src="../assets/estrutura/_2est28.jpg">
+
+    <img class="wide" src="../assets/estrutura/_5est36.jpg">
+
+    <img src="../assets/estrutura/_6est35.jpg">
+    <img src="../assets/estrutura/_7est21.jpg">
+
+    <img class="wide narrow" src="../assets/estrutura/_9est19.jpg">
 
 </section>
 
