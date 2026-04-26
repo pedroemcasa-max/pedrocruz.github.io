@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dentro do Som — Pedro Cruz</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #1f1f1d;
+    color: #e8e5dc;
+}
+
+header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(232,229,220,0.18);
+}
+
+header a {
+    color: #e8e5dc;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+main {
+    padding: 48px 40px 60px;
+}
+
+/* TEXTO */
+.project-head {
+    max-width: 720px;
+    margin-bottom: 60px;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.meta {
+    color: #aaa59b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #c8c3b8;
+}
+
+/* GALERIA FLUÍDA */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* imagem dominante */
+.full img {
+    width: 100%;
+    display: block;
+}
+
+/* duas imagens lado a lado */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.row img {
+    width: 100%;
+    display: block;
+}
+
+/* imagem mais contida */
+.narrow {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.narrow img {
+    width: 100%;
+}
+
+/* footer */
+footer {
+    padding: 24px 40px 38px;
+    font-size: 12px;
+    color: #8f8a82;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+    main, header, footer {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    .narrow {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="../index.html">← Projetos</a>
+</header>
+
+<main>
+
+<section class="project-head">
+    <h1>Dentro do Som</h1>
+    <div class="meta">Corpo · gesto · presença · 2024</div>
+
+    <div class="text">
+        <p>
+            O som não é apenas ouvido — é sustentado pelo corpo.
+            Este trabalho aproxima-se desse lugar onde o gesto antecede
+            a forma, e onde a presença se manifesta antes de se fixar.
+        </p>
+
+        <p>
+            A fotografia não procura congelar o instante, mas permanecer
+            dentro dele, acompanhando a sua duração e instabilidade.
+        </p>
+    </div>
+</section>
+
+<section class="gallery">
+
+    <!-- entrada forte -->
+    <div class="full">
+        <img src="../assets/mia/mia05.jpg">
+    </div>
+
+    <!-- diálogo -->
+    <div class="row">
+        <img src="../assets/mia/mia03.jpg">
+        <img src="../assets/mia/mia04.jpg">
+    </div>
+
+    <!-- respiração -->
+    <div class="narrow">
+        <img src="../assets/mia/mia06.jpg">
+    </div>
+
+    <!-- continuidade -->
+    <div class="full">
+        <img src="../assets/mia/mia02.jpg">
+    </div>
+
+    <!-- fecho aberto -->
+    <div class="row">
+        <img src="../assets/mia/mia07.jpg">
+        <img src="../assets/mia/mia01.jpg">
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    © Pedro Cruz
+</footer>
+
+</body>
+</html>
