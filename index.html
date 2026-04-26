@@ -6,165 +6,77 @@
 <title>Pedro Cruz</title>
 
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Helvetica,Arial,sans-serif;
-  background:#0b0b0b;
-  color:#eaeaea;
-  line-height:1.6
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #ffffff;
+    color: #111;
 }
 
-/* HEADER */
-header{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-}
-header h1{
-  font-size:2.4rem;
-  font-weight:400;
-}
-header p{
-  margin-top:12px;
-  font-size:.95rem;
-  opacity:.7;
+/* topo */
+header {
+    padding: 40px;
+    text-align: center;
 }
 
-/* LANGUAGE SWITCH */
-.lang-switch{
-  position:absolute;
-  top:24px;
-  right:24px;
-  font-size:.75rem;
-  opacity:.7;
-}
-.lang-switch span{
-  margin-left:10px;
-  cursor:pointer
-}
-.lang-switch .active{
-  text-decoration:underline;
-  opacity:1
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: normal;
 }
 
-/* SECTIONS */
-section{
-  max-width:1000px;
-  margin:0 auto;
-  padding:120px 24px
+/* grelha de projetos */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
 }
 
-.about{
-  max-width:720px;
-  margin:0 auto;
-  font-size:.95rem;
-  opacity:.85
-}
-.about p{margin-bottom:1.6em}
-
-/* PROJECT LINKS */
-.projects-list{
-  text-align:center;
-  margin-top:80px
-}
-.projects-list a{
-  display:block;
-  margin:16px 0;
-  font-size:1rem;
-  color:#eaeaea;
-  text-decoration:none;
-  opacity:.75;
-  transition:opacity .2s ease;
-}
-.projects-list a:hover{opacity:1}
-
-/* FOOTER */
-footer{
-  padding:80px 20px;
-  text-align:center;
-  font-size:.8rem;
-  opacity:.5
+.project {
+    position: relative;
 }
 
-.lang-en{display:none}
+.project img {
+    width: 100%;
+    display: block;
+}
+
+.project span {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255,255,255,0.8);
+    padding: 5px 10px;
+    font-size: 14px;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="lang-switch">
-    <span id="pt" class="active" onclick="setLang('pt')">PT</span>
-    <span id="en" onclick="setLang('en')">EN</span>
-  </div>
-
-  <div>
-    <h1>
-      <a href="index.html" style="color:inherit; text-decoration:none;">Pedro Cruz</a>
-    </h1>
-    <p>Fotografia · Improvisação · Presença</p>
-    <p style="margin-top:12px; font-size:.95rem;">
-      <a href="about.html" style="color:inherit; text-decoration:none; opacity:.7;">About / Sobre</a>
-    </p>
-  </div>
+    <h1>Pedro Cruz</h1>
 </header>
 
-<section>
-  <div class="about">
+<div class="grid">
 
-    <!-- PT -->
-    <div class="lang-pt">
-      <p>A minha prática fotográfica nasce da experiência direta do momento, onde fotografar é um gesto de presença e escuta.</p>
-      <p>Procuro a imagem como vestígio — não a descrição do lugar, mas o silêncio que nele permanece.</p>
+    <div class="project">
+        <img src="assets/cas/cas01.jpg">
+        <span>Last Night</span>
     </div>
 
-    <!-- EN -->
-    <div class="lang-en">
-      <p>My photographic practice emerges from direct experience of the moment, where photographing is an act of presence and listening.</p>
-      <p>I seek the image as a trace — not a description of a place, but the silence that remains within it.</p>
+    <div class="project">
+        <img src="assets/mia/mia01.jpg">
+        <span>Inside the Sound</span>
     </div>
 
-  </div>
-
-  <div class="projects-list">
-
-    <!-- PT -->
-    <div class="lang-pt">
-      <a href="./projects/project-1.html">Das Paredes Azuis ao Silêncio Branco</a>
-      <a href="./projects/project-2.html">Debaixo do Mesmo Tempo</a>
-      <a href="./projects/project-4.html">A Última Noite</a>
-      <a href="./projects/project-3.html">Dentro do Som</a>
-      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
-      <a href="./projects/noi.html">Entre o Gesto e o Som</a>
+    <div class="project">
+        <img src="assets/pb/Paisagen_pb01.jpg">
+        <span>Under the Same Weather</span>
     </div>
 
-    <!-- EN -->
-    <div class="lang-en">
-      <a href="./projects/project-1.html">From Blue Walls to White Silence</a>
-      <a href="./projects/project-2.html">Under the Same Weather</a>
-      <a href="./projects/project-4.html">Last Night</a>
-      <a href="./projects/project-3.html">Inside the Sound</a>
-      <a href="./projects/structures-of-permanence.html">Structures of Permanence</a>
-      <a href="./projects/noi.html">Between Gesture and Sound</a>
-    </div>
-
-  </div>
-</section>
-
-<footer>© 2025 — Pedro Cruz</footer>
-
-<script>
-function setLang(l){
-  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display=l==='pt'?'block':'none');
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'block':'none');
-  document.getElementById('pt').classList.toggle('active',l==='pt');
-  document.getElementById('en').classList.toggle('active',l==='en');
-}
-</script>
+</div>
 
 </body>
 </html>
