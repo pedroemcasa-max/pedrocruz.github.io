@@ -15,8 +15,9 @@ body {
     color: #e8e5dc;
 }
 
+/* HEADER */
 header {
-    padding: 38px 42px 28px;
+    padding: 36px 40px 24px;
     border-bottom: 1px solid rgba(232,229,220,0.14);
 }
 
@@ -24,59 +25,53 @@ h1 {
     margin: 0;
     font-size: 24px;
     font-weight: 400;
-    letter-spacing: 0.02em;
 }
 
 nav {
-    margin-top: 22px;
+    margin-top: 20px;
 }
 
 nav a {
     color: #e8e5dc;
     text-decoration: none;
-    margin-right: 24px;
+    margin-right: 22px;
     font-size: 13px;
-    opacity: 0.75;
+    opacity: 0.7;
 }
 
 nav a:hover {
     opacity: 1;
 }
 
+/* MAIN */
 main {
-    padding: 70px 42px 90px;
+    padding: 60px 40px 80px;
 }
 
 /* INTRO */
 .intro {
-    max-width: 760px;
-    margin-bottom: 70px;
+    max-width: 700px;
+    margin-bottom: 60px;
 }
 
 .intro p {
     margin: 0;
-    font-size: 18px;
-    line-height: 1.55;
-    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.6;
     color: #d8d3c8;
 }
 
-/* GRID AUTORAL */
+/* GRID CONTROLADO */
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 34px;
+    gap: 46px 32px;
 }
 
 /* PROJECT */
 .project {
-    display: block;
     text-decoration: none;
     color: inherit;
-}
-
-.project:hover img {
-    transform: scale(1.025);
 }
 
 .image-box {
@@ -88,37 +83,30 @@ main {
 .image-box img {
     width: 100%;
     display: block;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
 }
 
-/* TAMANHOS / RITMO */
+.project:hover img {
+    transform: scale(1.02);
+}
+
+/* HERO */
 .project.hero {
-    grid-column: 1 / span 8;
+    grid-column: 1 / span 12;
 }
 
-.project.mid-right {
-    grid-column: 9 / span 4;
-    margin-top: 120px;
+.project.hero img {
+    max-height: 70vh;
+    object-fit: cover;
 }
 
-.project.mid-left {
-    grid-column: 2 / span 5;
-    margin-top: 80px;
+/* DUAS COLUNAS CONTROLADAS */
+.project.left {
+    grid-column: 1 / span 6;
 }
 
-.project.large-right {
+.project.right {
     grid-column: 7 / span 6;
-    margin-top: 20px;
-}
-
-.project.small-left {
-    grid-column: 1 / span 4;
-    margin-top: 90px;
-}
-
-.project.small-right {
-    grid-column: 6 / span 5;
-    margin-top: 130px;
 }
 
 /* TEXTO */
@@ -140,20 +128,9 @@ main {
 
 /* MOBILE */
 @media (max-width: 900px) {
-    header {
-        padding: 30px 22px 24px;
-    }
-
-    main {
-        padding: 44px 22px 70px;
-    }
-
-    .intro {
-        margin-bottom: 44px;
-    }
-
-    .intro p {
-        font-size: 16px;
+    header, main {
+        padding-left: 22px;
+        padding-right: 22px;
     }
 
     .grid {
@@ -161,7 +138,11 @@ main {
     }
 
     .project {
-        margin: 0 0 48px 0 !important;
+        margin-bottom: 40px;
+    }
+
+    .project.hero img {
+        max-height: none;
     }
 }
 </style>
@@ -190,9 +171,10 @@ main {
 
 <section class="grid">
 
+    <!-- HERO -->
     <a class="project hero" href="projects/structures-of-permanence.html">
         <div class="image-box">
-            <img src="assets/estrutura/_10est14.jpg" alt="Estruturas de Permanência">
+            <img src="assets/estrutura/_10est14.jpg">
         </div>
         <div class="caption">
             <h2>Estruturas de Permanência</h2>
@@ -200,19 +182,10 @@ main {
         </div>
     </a>
 
-    <a class="project mid-right" href="projects/debaixo-do-mesmo-tempo.html">
+    <!-- LINHA 1 -->
+    <a class="project left" href="projects/dentro-do-som.html">
         <div class="image-box">
-            <img src="assets/pb/Paisagen_pb03.jpg" alt="Under the Same Weather">
-        </div>
-        <div class="caption">
-            <h2>Under the Same Weather</h2>
-            <p>Paisagem · preto e branco</p>
-        </div>
-    </a>
-
-    <a class="project mid-left" href="projects/dentro-do-som.html">
-        <div class="image-box">
-            <img src="assets/mia/mia05.jpg" alt="Inside the Sound">
+            <img src="assets/mia/mia05.jpg">
         </div>
         <div class="caption">
             <h2>Inside the Sound</h2>
@@ -220,9 +193,20 @@ main {
         </div>
     </a>
 
-    <a class="project large-right" href="projects/depois-do-mar.html">
+    <a class="project right" href="projects/debaixo-do-mesmo-tempo.html">
         <div class="image-box">
-            <img src="assets/velho/velho_web-4.jpg" alt="Depois do mar">
+            <img src="assets/pb/Paisagen_pb03.jpg">
+        </div>
+        <div class="caption">
+            <h2>Under the Same Weather</h2>
+            <p>Paisagem · preto e branco</p>
+        </div>
+    </a>
+
+    <!-- LINHA 2 -->
+    <a class="project left" href="projects/depois-do-mar.html">
+        <div class="image-box">
+            <img src="assets/velho/velho_web-4.jpg">
         </div>
         <div class="caption">
             <h2>Depois do mar</h2>
@@ -230,9 +214,9 @@ main {
         </div>
     </a>
 
-    <a class="project small-left" href="#">
+    <a class="project right" href="#">
         <div class="image-box">
-            <img src="assets/permanece/entre_a_luz_e_o_resto_web-3.jpg" alt="O que permanece em suspenso">
+            <img src="assets/permanece/entre_a_luz_e_o_resto_web-3.jpg">
         </div>
         <div class="caption">
             <h2>O que permanece em suspenso</h2>
@@ -240,9 +224,10 @@ main {
         </div>
     </a>
 
-    <a class="project small-right" href="#">
+    <!-- LINHA 3 -->
+    <a class="project left" href="#">
         <div class="image-box">
-            <img src="assets/resto/resto_web-1.jpg" alt="Entre a luz e o resto">
+            <img src="assets/resto/resto_web-1.jpg">
         </div>
         <div class="caption">
             <h2>Entre a luz e o resto</h2>
