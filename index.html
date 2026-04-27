@@ -16,51 +16,69 @@ body {
 }
 
 header {
-    padding: 36px 40px 24px;
-    border-bottom: 1px solid rgba(232,229,220,0.18);
-}
-
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    padding: 38px 42px 28px;
+    border-bottom: 1px solid rgba(232,229,220,0.14);
 }
 
 h1 {
     margin: 0;
     font-size: 24px;
     font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
 nav {
-    margin-top: 20px;
+    margin-top: 22px;
 }
 
 nav a {
     color: #e8e5dc;
     text-decoration: none;
-    margin-right: 22px;
+    margin-right: 24px;
     font-size: 13px;
+    opacity: 0.75;
+}
+
+nav a:hover {
+    opacity: 1;
 }
 
 main {
-    padding: 50px 40px 60px;
+    padding: 70px 42px 90px;
 }
 
-/* GRID */
+/* INTRO */
+.intro {
+    max-width: 760px;
+    margin-bottom: 70px;
+}
+
+.intro p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: #d8d3c8;
+}
+
+/* GRID AUTORAL */
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px 40px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 34px;
 }
 
-/* PROJETOS */
+/* PROJECT */
 .project {
+    display: block;
     text-decoration: none;
     color: inherit;
 }
 
-/* IMAGEM */
+.project:hover img {
+    transform: scale(1.025);
+}
+
 .image-box {
     width: 100%;
     overflow: hidden;
@@ -70,21 +88,37 @@ main {
 .image-box img {
     width: 100%;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
-.project:hover img {
-    transform: scale(1.03);
+/* TAMANHOS / RITMO */
+.project.hero {
+    grid-column: 1 / span 8;
 }
 
-/* VARIAÇÃO */
-.project.large img {
-    width: 100%;
+.project.mid-right {
+    grid-column: 9 / span 4;
+    margin-top: 120px;
 }
 
-.project.small img {
-    width: 88%;
-    margin: 0 auto;
+.project.mid-left {
+    grid-column: 2 / span 5;
+    margin-top: 80px;
+}
+
+.project.large-right {
+    grid-column: 7 / span 6;
+    margin-top: 20px;
+}
+
+.project.small-left {
+    grid-column: 1 / span 4;
+    margin-top: 90px;
+}
+
+.project.small-right {
+    grid-column: 6 / span 5;
+    margin-top: 130px;
 }
 
 /* TEXTO */
@@ -94,30 +128,40 @@ main {
 
 .caption h2 {
     margin: 0;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
 }
 
 .caption p {
     margin: 5px 0 0;
-    font-size: 13px;
+    font-size: 12.5px;
     color: #aaa59b;
 }
 
 /* MOBILE */
 @media (max-width: 900px) {
-    main, header {
-        padding-left: 22px;
-        padding-right: 22px;
+    header {
+        padding: 30px 22px 24px;
+    }
+
+    main {
+        padding: 44px 22px 70px;
+    }
+
+    .intro {
+        margin-bottom: 44px;
+    }
+
+    .intro p {
+        font-size: 16px;
     }
 
     .grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        display: block;
     }
 
-    .project.small img {
-        width: 100%;
+    .project {
+        margin: 0 0 48px 0 !important;
     }
 }
 </style>
@@ -126,12 +170,10 @@ main {
 <body>
 
 <header>
-    <div class="header-inner">
-        <h1>Pedro Cruz</h1>
-    </div>
+    <h1>Pedro Cruz</h1>
 
     <nav>
-        <a href="../index.html">Projetos</a>
+        <a href="index.html">Projetos</a>
         <a href="projects/portefolio.html">Portefólio</a>
         <a href="about.html">Sobre</a>
     </nav>
@@ -139,12 +181,18 @@ main {
 
 <main>
 
+<section class="intro">
+    <p>
+        A imagem surge entre luz, tempo e presença.  
+        Cada série aproxima-se de um estado instável: o que permanece, o que se dissolve, o que ainda resiste como vestígio.
+    </p>
+</section>
+
 <section class="grid">
 
-    <!-- 1 -->
-    <a class="project large" href="projects/structures-of-permanence.html">
+    <a class="project hero" href="projects/structures-of-permanence.html">
         <div class="image-box">
-            <img src="assets/estrutura/_10est14.jpg">
+            <img src="assets/estrutura/_10est14.jpg" alt="Estruturas de Permanência">
         </div>
         <div class="caption">
             <h2>Estruturas de Permanência</h2>
@@ -152,10 +200,9 @@ main {
         </div>
     </a>
 
-    <!-- 2 -->
-    <a class="project small" href="projects/debaixo-do-mesmo-tempo.html">
+    <a class="project mid-right" href="projects/debaixo-do-mesmo-tempo.html">
         <div class="image-box">
-            <img src="assets/pb/Paisagen_pb03.jpg">
+            <img src="assets/pb/Paisagen_pb03.jpg" alt="Under the Same Weather">
         </div>
         <div class="caption">
             <h2>Under the Same Weather</h2>
@@ -163,10 +210,9 @@ main {
         </div>
     </a>
 
-    <!-- 3 -->
-    <a class="project small" href="projects/dentro-do-som.html">
+    <a class="project mid-left" href="projects/dentro-do-som.html">
         <div class="image-box">
-            <img src="assets/mia/mia05.jpg">
+            <img src="assets/mia/mia05.jpg" alt="Inside the Sound">
         </div>
         <div class="caption">
             <h2>Inside the Sound</h2>
@@ -174,10 +220,9 @@ main {
         </div>
     </a>
 
-    <!-- 4 -->
-    <a class="project large" href="projects/depois-do-mar.html">
+    <a class="project large-right" href="projects/depois-do-mar.html">
         <div class="image-box">
-            <img src="assets/velho/velho_web-4.jpg">
+            <img src="assets/velho/velho_web-4.jpg" alt="Depois do mar">
         </div>
         <div class="caption">
             <h2>Depois do mar</h2>
@@ -185,10 +230,9 @@ main {
         </div>
     </a>
 
-    <!-- 5 -->
-    <a class="project small" href="#">
+    <a class="project small-left" href="#">
         <div class="image-box">
-            <img src="assets/permanece/entre_a_luz_e_o_resto_web-3.jpg">
+            <img src="assets/permanece/entre_a_luz_e_o_resto_web-3.jpg" alt="O que permanece em suspenso">
         </div>
         <div class="caption">
             <h2>O que permanece em suspenso</h2>
@@ -196,10 +240,9 @@ main {
         </div>
     </a>
 
-    <!-- 6 -->
-    <a class="project small" href="#">
+    <a class="project small-right" href="#">
         <div class="image-box">
-            <img src="assets/resto/resto_web-1.jpg">
+            <img src="assets/resto/resto_web-1.jpg" alt="Entre a luz e o resto">
         </div>
         <div class="caption">
             <h2>Entre a luz e o resto</h2>
