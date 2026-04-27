@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Cruz</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #1f1f1d;
+    color: #e8e5dc;
+}
+
+header {
+    padding: 36px 40px 24px;
+    border-bottom: 1px solid rgba(232,229,220,0.18);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: #e8e5dc;
+    text-decoration: none;
+    margin-right: 22px;
+    font-size: 13px;
+}
+
+main {
+    padding: 50px 40px 60px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 40px;
+}
+
+/* PROJETOS */
+.project {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* IMAGEM */
+.image-box {
+    width: 100%;
+    overflow: hidden;
+    background: #111;
+}
+
+.image-box img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project:hover img {
+    transform: scale(1.03);
+}
+
+/* VARIAÇÃO */
+.project.large img {
+    width: 100%;
+}
+
+.project.small img {
+    width: 88%;
+    margin: 0 auto;
+}
+
+/* TEXTO */
+.caption {
+    margin-top: 14px;
+}
+
+.caption h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.caption p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #aaa59b;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    main, header {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .project.small img {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <h1>Pedro Cruz</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Projetos</a>
+        <a href="portfolio.html">Portefólio</a>
+        <a href="about.html">Sobre</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="grid">
+
+    <!-- 1 -->
+    <a class="project large" href="projects/structures-of-permanence.html">
+        <div class="image-box">
+            <img src="assets/estrutura/_10est14.jpg">
+        </div>
+        <div class="caption">
+            <h2>Structures of Permanence</h2>
+            <p>Arquitectura · memória · vestígio</p>
+        </div>
+    </a>
+
+    <!-- 2 -->
+    <a class="project small" href="projects/debaixo-do-mesmo-tempo.html">
+        <div class="image-box">
+            <img src="assets/pb/Paisagen_pb03.jpg">
+        </div>
+        <div class="caption">
+            <h2>Debaixo do Mesmo Tempo</h2>
+            <p>Paisagem · preto e branco</p>
+        </div>
+    </a>
+
+    <!-- 3 -->
+    <a class="project small" href="projects/dentro-do-som.html">
+        <div class="image-box">
+            <img src="assets/mia/mia05.jpg">
+        </div>
+        <div class="caption">
+            <h2>Dentro do Som</h2>
+            <p>Improvisação · presença</p>
+        </div>
+    </a>
+
+    <!-- 4 -->
+    <a class="project large" href="projects/depois-do-mar.html">
+        <div class="image-box">
+            <img src="assets/velho/velho_web-4.jpg">
+        </div>
+        <div class="caption">
+            <h2>Depois do mar</h2>
+            <p>Paisagem · memória</p>
+        </div>
+    </a>
+
+    <!-- 5 -->
+    <a class="project small" href="#">
+        <div class="image-box">
+            <img src="assets/permanece/entre_a_luz_e_o_resto_web-3.jpg">
+        </div>
+        <div class="caption">
+            <h2>O que permanece em suspenso</h2>
+            <p>Luz · transição · presença</p>
+        </div>
+    </a>
+
+    <!-- 6 -->
+    <a class="project small" href="#">
+        <div class="image-box">
+            <img src="assets/resto/resto_web-1.jpg">
+        </div>
+        <div class="caption">
+            <h2>Entre a luz e o resto</h2>
+            <p>Matéria · dissolução</p>
+        </div>
+    </a>
+
+</section>
+
+</main>
+
+</body>
+</html>
