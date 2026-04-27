@@ -3,213 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pedro Cruz</title>
 
 <style>
-* { box-sizing: border-box; }
-
 body {
     margin: 0;
-    font-family: Helvetica, Arial, sans-serif;
-    background: #1f1f1d;
-    color: #e8e5dc;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
-header {
-    padding: 36px 40px 24px;
-    border-bottom: 1px solid rgba(232,229,220,0.18);
+.container {
+    max-width: 800px;
+    padding: 40px 20px;
+    text-align: left;
 }
 
-.header-inner {
+/* TOPO */
+.top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
-h1 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 400;
+.lang {
+    cursor: pointer;
+    opacity: 0.5;
+    margin-left: 10px;
 }
 
-nav {
-    margin-top: 20px;
-}
-
-nav a {
-    color: #e8e5dc;
-    text-decoration: none;
-    margin-right: 22px;
-    font-size: 13px;
-}
-
-main {
-    padding: 50px 40px 60px;
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px 40px;
-}
-
-/* PROJETOS */
-.project {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* IMAGEM */
-.image-box {
-    width: 100%;
-    overflow: hidden;
-    background: #111;
-}
-
-.image-box img {
-    width: 100%;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.project:hover img {
-    transform: scale(1.03);
-}
-
-/* VARIAÇÃO */
-.project.large img {
-    width: 100%;
-}
-
-.project.small img {
-    width: 88%;
-    margin: 0 auto;
+.lang.active {
+    opacity: 1;
 }
 
 /* TEXTO */
-.caption {
-    margin-top: 14px;
+h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
 }
 
-.caption h2 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 400;
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 40px;
+    opacity: 0.7;
 }
 
-.caption p {
-    margin: 5px 0 0;
-    font-size: 13px;
-    color: #aaa59b;
+.text {
+    line-height: 1.6;
+    margin-bottom: 40px;
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
-    main, header {
-        padding-left: 22px;
-        padding-right: 22px;
-    }
+/* PROJETOS */
+.projects a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
 
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+.projects a:hover {
+    opacity: 0.6;
+}
 
-    .project.small img {
-        width: 100%;
-    }
+/* RODAPÉ */
+.footer {
+    margin-top: 60px;
+    font-size: 12px;
+    opacity: 0.5;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="header-inner">
-        <h1>Pedro Cruz</h1>
+<div class="container">
+
+    <div class="top">
+        <div></div>
+        <div>
+            <span class="lang active" onclick="setLang('pt')">PT</span> |
+            <span class="lang" onclick="setLang('en')">EN</span>
+        </div>
     </div>
 
-    <nav>
-        <a href="index.html">Projetos</a>
-        <a href="projects/portefolio.html">Portefólio</a>
-        <a href="about.html">Sobre</a>
-    </nav>
-</header>
+    <h1>Pedro Cruz</h1>
 
-<main>
+    <!-- PT -->
+    <div id="pt">
+        <div class="subtitle">Fotografia · Improvisação · Presença</div>
 
-<section class="grid">
+        <div class="text">
+        A imagem surge como gesto e duração.<br>
+        Entre luz, tempo e corpo, a fotografia aproxima-se de um estado de presença — não como representação, mas como vestígio de uma experiência.
+        </div>
 
-    <!-- 1 -->
-    <a class="project large" href="projects/structures-of-permanence.html">
-        <div class="image-box">
-            <img src="assets/estrutura/_10est14.jpg">
+        <div class="projects">
+            <a href="projects/lastnight.html">Last Night</a>
+            <a href="projects/insidethesound.html">Inside the Sound</a>
+            <a href="projects/underthesameweather.html">Under the Same Weather</a>
+            <a href="projects/estruturas.html">Estruturas de Permanência</a>
         </div>
-        <div class="caption">
-            <h2>Structures of Permanence</h2>
-            <p>Arquitectura · memória · vestígio</p>
-        </div>
-    </a>
+    </div>
 
-    <!-- 2 -->
-    <a class="project small" href="projects/debaixo-do-mesmo-tempo.html">
-        <div class="image-box">
-            <img src="assets/pb/Paisagen_pb03.jpg">
-        </div>
-        <div class="caption">
-            <h2>Debaixo do Mesmo Tempo</h2>
-            <p>Paisagem · preto e branco</p>
-        </div>
-    </a>
+    <!-- EN -->
+    <div id="en" style="display:none;">
+        <div class="subtitle">Photography · Improvisation · Presence</div>
 
-    <!-- 3 -->
-    <a class="project small" href="projects/dentro-do-som.html">
-        <div class="image-box">
-            <img src="assets/mia/mia05.jpg">
+        <div class="text">
+        The image emerges as gesture and duration.<br>
+        Between light, time, and body, photography approaches a state of presence — not as representation, but as a trace of experience.
         </div>
-        <div class="caption">
-            <h2>Dentro do Som</h2>
-            <p>Improvisação · presença</p>
-        </div>
-    </a>
 
-    <!-- 4 -->
-    <a class="project large" href="projects/depois-do-mar.html">
-        <div class="image-box">
-            <img src="assets/velho/velho_web-4.jpg">
+        <div class="projects">
+            <a href="projects/lastnight.html">Last Night</a>
+            <a href="projects/insidethesound.html">Inside the Sound</a>
+            <a href="projects/underthesameweather.html">Under the Same Weather</a>
+            <a href="projects/estruturas.html">Structures of Permanence</a>
         </div>
-        <div class="caption">
-            <h2>Depois do mar</h2>
-            <p>Paisagem · memória</p>
-        </div>
-    </a>
+    </div>
 
-    <!-- 5 -->
-    <a class="project small" href="#">
-        <div class="image-box">
-            <img src="assets/permanece/entre_a_luz_e_o_resto_web-3.jpg">
-        </div>
-        <div class="caption">
-            <h2>O que permanece em suspenso</h2>
-            <p>Luz · transição · presença</p>
-        </div>
-    </a>
+    <div class="footer">
+        © Pedro Cruz
+    </div>
 
-    <!-- 6 -->
-    <a class="project small" href="#">
-        <div class="image-box">
-            <img src="assets/resto/resto_web-1.jpg">
-        </div>
-        <div class="caption">
-            <h2>Entre a luz e o resto</h2>
-            <p>Matéria · dissolução</p>
-        </div>
-    </a>
+</div>
 
-</section>
+<script>
+function setLang(lang) {
+    document.getElementById("pt").style.display = lang === "pt" ? "block" : "none";
+    document.getElementById("en").style.display = lang === "en" ? "block" : "none";
 
-</main>
+    document.querySelectorAll(".lang").forEach(el => el.classList.remove("active"));
+    document.querySelector(`.lang[onclick="setLang('${lang}')"]`).classList.add("active");
+}
+</script>
 
 </body>
 </html>
