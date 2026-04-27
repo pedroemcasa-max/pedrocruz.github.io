@@ -13,6 +13,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+/* HEADER */
 header {
     padding: 30px 40px;
 }
@@ -24,22 +25,62 @@ header a {
     opacity: 0.7;
 }
 
+/* MAIN */
 main {
     padding: 40px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-h1 {
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 40px;
+/* INTRO */
+.project-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin: 40px 0 80px;
 }
 
+.project-intro h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.meta {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #aaa59b;
+}
+
+.statement p {
+    margin: 0 0 22px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #d6d2c8;
+}
+
+/* IMAGENS */
 img {
     width: 100%;
     display: block;
     margin-bottom: 40px;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    main, header {
+        padding: 20px;
+    }
+
+    .project-intro {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .project-intro h1 {
+        font-size: 28px;
+    }
 }
 </style>
 </head>
@@ -52,7 +93,22 @@ img {
 
 <main>
 
-<h1>O que permanece em suspenso</h1>
+<section class="project-intro">
+    <div>
+        <h1>O que permanece em suspenso</h1>
+        <p class="meta">Luz · transição · presença</p>
+    </div>
+
+    <div class="statement">
+        <p>
+            A luz não revela apenas uma forma: suspende-a. Entre interior e exterior, entre superfície e sombra, a imagem aproxima-se de um ponto onde a presença ainda não se estabilizou.
+        </p>
+
+        <p>
+            Estas imagens habitam esse intervalo — não como descrição de um lugar, mas como passagem sensível entre matéria, projeção e desaparecimento.
+        </p>
+    </div>
+</section>
 
 <img src="../assets/permanece/entre_a_luz_e_o_resto_web-1.jpg">
 <img src="../assets/permanece/entre_a_luz_e_o_resto_web-2.jpg">
