@@ -1,63 +1,120 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>Superfície em Perda</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Superfície em Perda</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      background: #1f1f1d;
-      color: #e8e5dc;
-      font-family: sans-serif;
-    }
+<style>
+body {
+  margin: 0;
+  background: #1f1f1d;
+  color: #e8e5dc;
+  font-family: sans-serif;
+}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+/* HEADER */
+header {
+  padding: 20px;
+}
 
-    h1 {
-      font-size: 20px;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
+header h1 {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0 0 10px 0;
+}
 
-    .intro {
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 40px;
-    }
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #e8e5dc;
+  font-size: 14px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 10px;
-    }
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
 
-    .grid img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+/* INTRO */
+.intro {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 60px;
+}
 
-    .statement {
-      margin-top: 60px;
-      font-size: 14px;
-      line-height: 1.7;
-      max-width: 600px;
-    }
-  </style>
+/* IMAGENS - LAYOUT VERTICAL */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.grid img {
+  display: block;
+  max-width: 78%;
+  height: auto;
+}
+
+/* alternância esquerda / direita */
+.grid img:nth-child(odd) {
+  margin-right: auto;
+}
+
+.grid img:nth-child(even) {
+  margin-left: auto;
+}
+
+/* variações de escala */
+.grid img:nth-child(3),
+.grid img:nth-child(6) {
+  max-width: 55%;
+}
+
+.grid img:nth-child(4),
+.grid img:nth-child(8) {
+  max-width: 45%;
+}
+
+/* TEXTO FINAL */
+.statement {
+  margin-top: 100px;
+  max-width: 600px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .grid {
+    gap: 40px;
+  }
+
+  .grid img {
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+</style>
 </head>
 
 <body>
 
+<header>
+  <h1>Pedro Cruz</h1>
+  <nav>
+    <a href="../index.html">Projetos</a>
+    <a href="portefolio.html">Portefólio</a>
+    <a href="../about.html">Sobre</a>
+  </nav>
+</header>
+
 <div class="container">
 
-  <h1>Superfície em Perda</h1>
+  <h2>Superfície em Perda</h2>
 
   <p class="intro">
     Estas imagens não descrevem um lugar.<br>
