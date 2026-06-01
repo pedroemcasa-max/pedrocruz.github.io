@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -7,7 +7,9 @@
 <title>Visto por Ela — Pedro Cruz</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -32,9 +34,10 @@ main {
 }
 
 /* TEXTO */
+
 .project-head {
     max-width: 640px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
 h1 {
@@ -55,22 +58,25 @@ h1 {
     color: #c8c3b8;
 }
 
+.text p {
+    margin: 0 0 22px;
+}
+
 /* GALERIA */
+
 .gallery {
     display: flex;
     flex-direction: column;
     gap: 70px;
 }
 
-/* imagens principais */
-.gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 70px;
-    margin-top: 40px;
+.gallery img {
+    width: 88%;
+    margin: 0 auto;
+    display: block;
+    filter: contrast(1.05) brightness(0.98);
 }
 
-/* imagens mais contidas */
 .narrow {
     width: 65%;
     margin: 0 auto;
@@ -80,16 +86,21 @@ h1 {
     width: 100%;
 }
 
-/* footer */
+/* FOOTER */
+
 footer {
     padding: 24px 40px 38px;
     font-size: 12px;
     color: #8f8a82;
 }
 
-/* mobile */
+/* MOBILE */
+
 @media (max-width: 800px) {
-    main, header, footer {
+
+    main,
+    header,
+    footer {
         padding-left: 22px;
         padding-right: 22px;
     }
@@ -118,50 +129,59 @@ footer {
 <main>
 
 <section class="project-head">
+
     <h1>Visto por Ela</h1>
-    <div class="meta">desenho original c.2003 · transformação digital 2026</div>
+
+    <div class="meta">
+        desenho original c.2003 · transformação digital 2026
+    </div>
 
     <div class="text">
+
         <p>
-O desenho original foi realizado pela minha então companheira, a partir da observação de um momento quotidiano partilhado.
-</p>
+            O desenho original foi realizado pela minha então companheira,
+            a partir da observação de um momento quotidiano partilhado.
+        </p>
 
-<p>
-Anos mais tarde regressei a essa imagem através da digitalização e da transformação digital.
-</p>
+        <p>
+            Anos mais tarde regressei a essa imagem através da digitalização
+            e da transformação digital.
+        </p>
 
-<p>
-Entre o desenho original e o seu reencontro existe um intervalo de tempo, memória e experiência.
-</p>
+        <p>
+            Entre o desenho original e o seu reencontro existe um intervalo
+            de tempo, memória e experiência.
+        </p>
 
-<p>
-O que permanece não é apenas o momento vivido, mas a forma como esse momento foi visto.
-</p>
+        <p>
+            O que permanece não é apenas o momento vivido,
+            mas a forma como esse momento foi visto.
+        </p>
+
     </div>
+
 </section>
 
 <section class="gallery">
 
     <img src="../assets/VPEla/2026_visto_por_ela_web-1.jpg"
-     alt="Visto por Ela — desenho original">
+         alt="Visto por Ela — desenho original">
 
     <div class="narrow">
         <img src="../assets/VPEla/2026_visto_por_ela_web-2.jpg"
-     alt="Visto por Ela — primeira transformação">
+             alt="Visto por Ela — primeira transformação">
     </div>
 
     <img src="../assets/VPEla/2026_visto_por_ela_web-3.jpg"
-     alt="Visto por Ela — dissolução">
-        
+         alt="Visto por Ela — dissolução">
+
     <div class="narrow">
         <img src="../assets/VPEla/2026_visto_por_ela_web-4.jpg"
-     alt="Visto por Ela — reaparecimento">
+             alt="Visto por Ela — reaparecimento">
     </div>
 
     <img src="../assets/VPEla/2026_visto_por_ela_web-5.jpg"
-     alt="Visto por Ela — transformação final">
-
-    
+         alt="Visto por Ela — transformação final">
 
 </section>
 
@@ -173,3 +193,4 @@ O que permanece não é apenas o momento vivido, mas a forma como esse momento f
 
 </body>
 </html>
+```
