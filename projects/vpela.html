@@ -1,1 +1,169 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visto por Ela — Pedro Cruz</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #1f1f1d;
+    color: #e8e5dc;
+}
+
+header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(232,229,220,0.18);
+}
+
+header a {
+    color: #e8e5dc;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+main {
+    padding: 48px 40px 60px;
+}
+
+/* TEXTO */
+.project-head {
+    max-width: 640px;
+    margin-bottom: 70px;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.meta {
+    color: #aaa59b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #c8c3b8;
+}
+
+/* GALERIA */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+/* imagens principais */
+.gallery img {
+    width: 88%;
+    margin: 0 auto;
+    display: block;
+    filter: contrast(1.05) brightness(0.98);
+}
+
+/* imagens mais contidas */
+.narrow {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.narrow img {
+    width: 100%;
+}
+
+/* footer */
+footer {
+    padding: 24px 40px 38px;
+    font-size: 12px;
+    color: #8f8a82;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+    main, header, footer {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+
+    .narrow {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="../index.html">← Projetos</a>
+</header>
+
+<main>
+
+<section class="project-head">
+    <h1>Vestígio do corpo</h1>
+    <div class="meta">Paisagem · memória</div>
+
+    <div class="text">
+        <p>
+            O desenho original foi realizado pela minha então companheira, a partir da observação de um momento quotidiano partilhado.
+
+Anos mais tarde regressei a essa imagem através da digitalização e da transformação digital.
+
+Entre o desenho original e o seu reencontro existe um intervalo de tempo, memória e experiência.
+
+O que permanece não é apenas o momento vivido, mas a forma como esse momento foi visto.
+        </p>
+    </div>
+</section>
+
+<section class="gallery">
+
+    <!-- entrada -->
+    <img src="..assets/VPEla/2026_visto_por_ela_web-1.jpg">
+
+    <!-- continuidade -->
+    <div class="narrow">
+        <img src="..assets/VPEla/2026_visto_por_ela_web-2.jpg">
+    </div>
+
+    <!-- variação -->
+    <img src="..assets/VPEla/2026_visto_por_ela_web-3.jpg">
+
+    <!-- pausa -->
+    <div class="narrow">
+        <img src="../assets/VPEla/2026_visto_por_ela_web-4.jpg">
+    </div>
+
+    <!-- retorno -->
+    <img src="../assets/VPEla/2026_visto_por_ela_web-5.jpg">
+
+    
+
+</section>
+
+</main>
+
+<footer>
+    © Pedro Cruz
+</footer>
+
+</body>
+</html>
