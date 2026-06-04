@@ -1,1 +1,171 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interior com Paisagem — Pedro Cruz</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #1f1f1d;
+    color: #e8e5dc;
+}
+
+header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(232,229,220,0.18);
+}
+
+header a {
+    color: #e8e5dc;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+main {
+    padding: 48px 40px 60px;
+}
+
+/* texto */
+.project-head {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 70px;
+    align-items: start;
+    margin-bottom: 70px;
+}
+
+.project-title {
+    max-width: 420px;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.meta {
+    color: #aaa59b;
+    font-size: 14px;
+}
+
+.text {
+    max-width: 620px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #c8c3b8;
+    padding-top: 6px;
+}
+
+/* galeria expositiva */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px;
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    background: #111;
+}
+
+.gallery .wide {
+    grid-column: 1 / -1;
+}
+
+.gallery .narrow {
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* rodapé */
+footer {
+    padding: 24px 40px 38px;
+    font-size: 12px;
+    color: #8f8a82;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+    main, header, footer {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .project-head {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 44px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .gallery .narrow {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="../index.html">← Projetos</a>
+</header>
+
+<main>
+
+<section class="project-head">
+
+    <div class="project-title">
+        <h1>Interior com paisagem</h1>
+        <div class="meta">Arquitectura · vestígio</div>
+    </div>
+
+    <div class="text">
+        <p>
+            Nas ruínas do Buçaco, as divisões permanecem, mas as fronteiras desaparecem. A luz, a vegetação e o exterior entram lentamente nos espaços abandonados.
+        </p>
+
+        
+    </div>
+
+</section>
+
+<section class="gallery">
+
+    <img class="wide" src="../assets/interior/2024_interior_com_paisagem-1.jpg">
+
+    <img src="../assets/interior/2024_interior_com_paisagem-2.jpg">
+    <img src="../assets/interior/2024_interior_com_paisagem-3.jpg">
+
+    <img class="wide narrow" src="../assets/interior/2024_interior_com_paisagem-4.jpg">
+
+    <img src="../assets/interior/2024_interior_com_paisagem-5.jpg">
+    <img src="../assets/interior/2024_interior_com_paisagem-6.jpg">
+
+</section>
+
+</main>
+
+<footer>
+    © Pedro Cruz
+</footer>
+
+</body>
+</html>
