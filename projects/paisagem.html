@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paisagem em Movimento — Pedro Cruz</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #1f1f1d;
+    color: #e8e5dc;
+}
+
+/* HEADER */
+header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(232,229,220,0.16);
+}
+
+header a {
+    color: #e8e5dc;
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+header a:hover {
+    opacity: 1;
+}
+
+/* INTRO */
+.project-head {
+    padding: 56px 40px 42px;
+    max-width: 720px;
+}
+
+h1 {
+    margin: 0 0 14px;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.meta {
+    font-size: 13px;
+    opacity: 0.55;
+    margin-bottom: 28px;
+}
+
+.text {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 620px;
+    opacity: 0.86;
+}
+
+/* HORIZONTAL SERIES */
+.horizontal-gallery {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    padding: 0 40px 70px;
+    scroll-snap-type: x mandatory;
+}
+
+.horizontal-gallery img {
+    height: 68vh;
+    max-height: 620px;
+    width: auto;
+    object-fit: contain;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* Scrollbar discreta */
+.horizontal-gallery::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-gallery::-webkit-scrollbar-track {
+    background: rgba(232,229,220,0.08);
+}
+
+.horizontal-gallery::-webkit-scrollbar-thumb {
+    background: rgba(232,229,220,0.35);
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+    header {
+        padding: 26px 22px 20px;
+    }
+
+    .project-head {
+        padding: 42px 22px 34px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .horizontal-gallery {
+        padding: 0 22px 55px;
+        gap: 14px;
+    }
+
+    .horizontal-gallery img {
+        height: auto;
+        width: 86vw;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="../index.html">← Pedro Cruz</a>
+</header>
+
+<main>
+
+<section class="project-head">
+    <h1>Paisagem em Movimento</h1>
+    <div class="meta">2026 · Fotografia digital · Série de 5 imagens</div>
+
+    <div class="text">
+        Imagens realizadas em trânsito. A paisagem surge interrompida pela velocidade,
+        pela distância e pelo movimento do olhar. Mais do que descrever um lugar,
+        estas fotografias registam a experiência de o atravessar.
+    </div>
+</section>
+
+<section class="horizontal-gallery">
+    <img src="../assets/paisagem/2026_paisagem_em_movimento-1.jpg" alt="Paisagem em Movimento 1">
+    <img src="../assets/paisagem/2026_paisagem_em_movimento-2.jpg" alt="Paisagem em Movimento 2">
+    <img src="../assets/paisagem/2026_paisagem_em_movimento-3.jpg" alt="Paisagem em Movimento 3">
+    <img src="../assets/paisagem/2026_paisagem_em_movimento-4.jpg" alt="Paisagem em Movimento 4">
+    <img src="../assets/paisagem/2026_paisagem_em_movimento-5.jpg" alt="Paisagem em Movimento 5">
+</section>
+
+</main>
+
+</body>
+</html>
